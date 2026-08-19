@@ -332,6 +332,7 @@ const CONFIG = {
         followup: "What kind of weapon fits your fighting style best?"
       }
     ],
+
     eva: [
       {
         id: "botanical_distillation",
@@ -343,16 +344,6 @@ const CONFIG = {
         continuation: "If you mix Frostmoss with dried Star-Lily petals, the resulting elixir neutralizes even the virulent necrotic venom carried by deep-cavern shadow spiders.",
         philosophical: "Nature provides a remedy for every affliction the earth endures. The challenge is not in finding power, but in having the patience to understand the plant's natural rhythm.",
         followup: "Do you have any experience gathering wild flora on the road?"
-      },
-      {
-        id: "forest_wards_and_corruption",
-        title: "The Deteriorating Forest Wards and Violet Water",
-        keywords: ["forest wards", "corruption", "violet", "poisoned water", "taint", "decay", "water table", "whispering woods", "why trees dying"],
-        primary: "The ancient wards anchoring the Whispering Woods have begun to hairline-fracture over the past two years. The riverbank moss has turned a deep violet hue, and the water table is absorbing trace amounts of raw, ungrounded leyline energy.",
-        causal: "When the original seal cracked two centuries ago, the High Mages left five stabilizing conduits buried beneath the root systems. As tree roots naturally shift over decades, two of those conduits have slipped out of geometric alignment.",
-        continuation: "The animals drink the energized water and become unnaturally aggressive, which explains why dire wolves and forest beasts have been displaced closer to our village perimeter. Elder Tabitha and I are trying to formulate an alchemical soil stabilizer.",
-        philosophical: "A poisoned spring does not choose who drinks from it. If we do not heal the soil, the harvest will fail for saint and sinner alike.",
-        followup: "Have you seen any glowing or discolored vegetation during your travels?"
       }
     ],
     tabitha: [
@@ -360,14 +351,14 @@ const CONFIG = {
         id: "the_cracked_seal",
         title: "The Cracking of the Thornhaven Seal and the Sundered Crown",
         keywords: ["cracked seal", "cataclysm", "sundered crown", "history of thornhaven", "why seal cracked", "ancient war", "shadow legion", "five keystones"],
-        primary: "Two hundred and twelve years ago, during the War of the Sundered Crown, an unstoppable shadow army marched through the mountain pass. the ancient sages and four circle elders shattered the five elemental keystones atop the western ridge to erect an impassable celestial dome, sealing both the enemy and our ancestors within this valley.",
+        primary: "Two hundred and twelve years ago, during the War of the Sundered Crown, an unstoppable shadow army marched through the mountain pass. The ancient sages and four circle elders shattered the five elemental keystones atop the western ridge to erect an impassable celestial dome, sealing both the enemy and our ancestors within this valley.",
         causal: "The cataclysm was a deliberate sacrifice. The High King's forces were routed, and had the pass fallen, the entire realm would have been consumed. Our forebears chose imprisonment and eternal vigilance over annihilation.",
         continuation: "The celestial seal saved the valley, but fracturing the keystones warped the local flow of time and leylines. The seal still holds, but like an ancient bell with hairline cracks, it resonates with ominous tremors whenever celestial alignments shift.",
         philosophical: "Every peace we enjoy in Thornhaven was purchased with the tears and stone-bound souls of those who came before us. We are not owners of this valley — we are merely custodians of their sacrifice.",
         followup: "Do you believe some secrets are too dangerous to be unearthed?"
       }
     ],
-        finn: [
+    finn: [
       {
         id: "secret_trails_and_goblin_camps",
         title: "Hidden Ridge Paths and The Goblin Vanguard",
@@ -378,14 +369,58 @@ const CONFIG = {
         procedural: "When tracking in the forest: walk on the balls of your feet, step on moss rather than dry twigs, keep the wind in your face so your scent doesn't spook the game, and always mark trail forks with three stacked pebbles on the left side.",
         philosophical: "People think being sixteen means you don't know anything. But being a teenager means you notice all the things adults are too busy, tired, or arrogant to look at.",
         followup: "Do you want to check out my ridge map together?"
+      },
+      {
+        id: "finn_on_sports_and_running",
+        title: "Finn on Running, Athletics, and Rooftop Games",
+        keywords: ["sports", "athletics", "running", "race", "racing", "climbing roofs", "obstacle course", "agility", "do you play sports", "fitness"],
+        primary: "I run sprint drills every single morning across the ridge bluffs and rooftop beams! We don't have stadium sports here, but I practice timed belltower climbs and sprint races with the courier riders. Speed and stamina keep you alive when you're scouting dangerous territory!",
+        causal: "Outrunning a shadow beast or scrambling up a sheer rock face before a goblin archer draws an arrow requires serious athletic conditioning. I train my calves and core every day.",
+        philosophical: "Sports and drills aren't just games to pass time — they're how you teach your body to react without hesitation when the real moment arrives.",
+        followup: "Do you train in running, climbing, or any specific athletic sports?"
       }
     ],
     pip: [
-      "Wait, what does that word even mean?! My brain is full of bumblebees right now! Look at this beetle instead!",
-      "I don't understand that grown-up stuff! But do you know what's cool? Secret tunnels! Ask me about secret tunnels!",
-      "Ooh, that sounds complicated! I gotta go check if my acorn collection is still under the porch before a squirrel takes it!"
+      {
+        id: "river_treasures",
+        title: "Pip's River Treasure Collection",
+        keywords: ["river", "treasure", "shiny", "rocks", "pebbles", "beetle", "barnaby", "collection", "blue rock", "magic", "fairy"],
+        primary: "I found the most amazing shiny blue rock by the river yesterday! It glitters like captured starlight when you hold it up to the sun. I have three shiny river pebbles now, and a rusty gear from the old watermill, and a friendly green beetle named Barnaby who lives in my pocket!",
+        causal: "The river washes down all sorts of secret things from the castle ruins upstream. When the water gets low after summer, you can find the BEST treasures stuck in the mud and sand. I know all the best spots!",
+        continuation: "Sometimes I trade my extra shiny rocks with the traveling merchants for candy or pretty ribbons. But my favorite blue rock? That one's never leaving my pouch. It's got real fairy magic inside, I just know it!",
+        procedural: "To find river treasures: walk slowly along the water's edge when the sun is high. Look for places where the current slows down — that's where the heavy shiny things settle. Bring a small sieve or just use your hands!",
+        philosophical: "Adults say rocks are just rocks. But every shiny stone has a story — where it came from, how far it traveled, what ancient mountain broke it off. You just have to listen closely.",
+        followup: "Have you ever found something that felt like it was meant just for you?"
+      },
+      {
+        id: "pip_on_games_and_sports",
+        title: "Pip's Games, Sports, and Running Adventures",
+        keywords: ["sports", "sport", "game", "games", "do you play sports", "do you like sports", "play games", "tag", "hide and seek", "racing", "climbing trees", "outdoor games", "athletics", "running fast"],
+        primary: "I LOVE playing games and running super fast! Finn and I play rooftop tag, and I practice racing against grasshoppers down by the creek! Grown-ups call it 'sports' when there are teams and rules, but my absolute favorite game is seeing who can climb to the top branch of the big apple tree the fastest without dropping any shiny river stones!",
+        causal: "Running fast is super important because when you're eight years old, all the adults have giant legs and take huge steps! So you have to be extra speedy and know all the secret crawlspaces under fences!",
+        philosophical: "Games and sports are the greatest thing ever because nobody is mad at each other while they're playing, and everyone laughs when you trip over a pumpkin in the garden!",
+        followup: "What's your absolute favorite sport or game to play?"
+      },
+      {
+        id: "pip_on_food_and_fun",
+        title: "Pip's Favorite Food and Treats",
+        keywords: ["favorite food", "favorite meal", "eva's berry pie", "berry pie", "smoked fish rolls", "favorite pie", "what do you eat", "favorite snack", "pastry", "sweets", "pies"],
+        primary: "My ABSOLUTE favorite food is Eva's berry pie with the crumbly top! She makes it when someone in the village has a sad thing happen, which is great for the pie but obviously not great for the sad thing. Also I really like the smoked fish rolls from the market on Tuesdays!",
+        causal: "I eat a LOT because I run everywhere all day. Sam says I have the metabolism of a dire wolf pup. I don't know what that means exactly but it sounded like a good thing in context!",
+        philosophical: "The best things in life are free OR very cheap because I only have a few coins and I still have an amazing life so that proves it!",
+        followup: "What's your absolute favorite thing that you look forward to every single day?"
+      }
     ],
     ash: [
+      {
+        id: "ash_ancient_ruins_smuggler_route",
+        title: "Safe Smuggler Route to the Ancient Castle Ruins",
+        keywords: ["ancient ruins", "castle ruins", "safe path", "ruins", "path to ruins", "safe path for the ancient ruins", "safe path into the ancient ruins", "smuggler tunnels", "castle", "subterranean", "vaults"],
+        primary: "Looking for a safe path into the ancient ruins? Don't take the main surface road through the gorge — it's swarming with dire wolves and guard patrols. The old wine smugglers carved subterranean drainage flumes beneath the tavern cellar that connect directly into the lower foundation vaults of the castle ruins. Keep your lantern low and watch for damp shale.",
+        causal: "When the castle fell two centuries ago, the garrison sealed the main gates with stone boulders. But the smugglers' drainage tunnels were carved out of living limestone, so they bypassed the collapse entirely.",
+        philosophical: "The front door is for armies and fools. Anyone who understands leverage enters through the foundation.",
+        followup: "Are you prepared to navigate unmapped tunnels in the dark?"
+      },
       {
         id: "underworld_intelligence_network",
         title: "The Thornhaven Shadow Network and Smuggler Tunnels",

@@ -298,5 +298,185 @@
     "npc_id": "ash",
     "player_id": "test_player",
     "timestamp": "2026-08-23T01:27:33.780952"
+  },
+  {
+    "text": "My opinion of the player changed (improved). Reputation is now 1. Reason: 'Hello there, got any rumors?'",
+    "npc_id": "ash",
+    "player_id": "test_player",
+    "timestamp": "2026-08-24T01:03:38.280852"
+  },
+  {
+    "text": "My opinion of the player changed (improved). Reputation is now 1. Reason: 'Hello there, got any rumors?'",
+    "npc_id": "ash",
+    "player_id": "test_player",
+    "timestamp": "2026-08-24T01:07:11.172892"
+  },
+  {
+    "text": "My opinion of the player changed (improved). Reputation is now 1. Reason: 'Hello there, got any rumors?'",
+    "npc_id": "ash",
+    "player_id": "test_player",
+    "timestamp": "2026-08-24T01:09:18.674671"
+  },
+  {
+    "text": "My opinion of the player changed (improved). Reputation is now 1. Reason: 'i know something'",
+    "npc_id": "ash",
+    "player_id": "player_1",
+    "timestamp": "2026-08-24T01:15:00.749036"
+  },
+  {
+    "text": "I gave the player Reinforced Whetstone. Context: 'can you fix my sword'",
+    "npc_id": "sam",
+    "player_id": "player_1",
+    "timestamp": "2026-08-24T01:16:57.243328"
+  },
+  {
+    "text": "My opinion of the player changed (improved). Reputation is now 1. Reason: 'Hello there, got any rumors?'",
+    "npc_id": "ash",
+    "player_id": "test_player",
+    "timestamp": "2026-08-24T20:42:21.730696"
+  },
+  {
+    "text": "My opinion of the player changed (improved). Reputation is now 1. Reason: 'Hello there, got any rumors?'",
+    "npc_id": "ash",
+    "player_id": "test_player",
+    "timestamp": "2026-08-24T20:48:11.258267"
+  },
+  {
+    "text": "Reputation updated to 1",
+    "npc_id": "ash",
+    "player_id": "test_player",
+    "timestamp": "2026-08-24T20:51:13.264725"
+  },
+  {
+    "text": "Reputation updated to 1",
+    "npc_id": "ash",
+    "player_id": "p1",
+    "timestamp": "2026-08-24T23:17:25.022408"
+  },
+  {
+    "text": "Started quest: Ash's Discreet Errand",
+    "npc_id": "ash",
+    "player_id": "player_1",
+    "timestamp": "2026-08-24T23:17:25.044576"
+  },
+  {
+    "text": "Reputation updated to 1",
+    "npc_id": "ash",
+    "player_id": "player_1",
+    "timestamp": "2026-08-24T23:30:21.968153"
+  },
+  {
+    "text": "Reputation updated to 1",
+    "npc_id": "ash",
+    "player_id": "player_1",
+    "timestamp": "2026-08-24T23:43:05.809915"
+  },
+  {
+    "text": "Reputation updated to 1",
+    "npc_id": "ash",
+    "player_id": "player_1",
+    "timestamp": "2026-08-26T09:41:01.758762"
+  },
+  {
+    "text": "Reputation updated to 2",
+    "npc_id": "ash",
+    "player_id": "player_1",
+    "timestamp": "2026-08-26T09:44:48.115222"
+  },
+  {
+    "text": "Started quest: Ash's Discreet Errand",
+    "npc_id": "ash",
+    "player_id": "player_1",
+    "timestamp": "2026-08-26T10:29:37.357134"
+  },
+  {
+    "text": "Reputation updated to 1",
+    "npc_id": "ash",
+    "player_id": "player_1",
+    "timestamp": "2026-08-26T11:19:08.495120"
+  },
+  {
+    "text": "Started quest: explore_ancient_ruins",
+    "npc_id": "ash",
+    "player_id": "player_1",
+    "timestamp": "2026-08-26T11:32:46.461380"
+  },
+  {
+    "text": "Started quest: explore_ancient_ruins",
+    "npc_id": "tabitha",
+    "player_id": "player_1",
+    "timestamp": "2026-08-26T11:33:11.400834"
+  },
+  {
+    "text": "Started quest: explore_ancient_ruins",
+    "npc_id": "ash",
+    "player_id": "player_1",
+    "timestamp": "2026-08-26T11:33:47.020275"
+  },
+  {
+    "text": "Reputation updated to 1",
+    "npc_id": "ash",
+    "player_id": "player_1",
+    "timestamp": "2026-08-26T12:11:16.019148"
+  },
+  {
+    "text": "Started quest: explore_ancient_ruins",
+    "npc_id": "tabitha",
+    "player_id": "player_1",
+    "timestamp": "2026-08-26T12:22:30.017186"
+  },
+  {
+    "text": "Gave player item: Meadowstem Tincture",
+    "npc_id": "eva",
+    "player_id": "player_1",
+    "timestamp": "2026-08-26T12:30:36.534513"
+  },
+  {
+    "text": "Gave player item: Meadowstem Tincture",
+    "npc_id": "eva",
+    "player_id": "player_1",
+    "timestamp": "2026-08-26T12:31:42.737124"
+  },
+  {
+    "text": "Started quest: explore_ancient_ruins",
+    "npc_id": "ash",
+    "player_id": "player_1",
+    "timestamp": "2026-08-26T13:00:07.009639"
+  },
+  {
+    "text": "Started quest: explore_ancient_ruins",
+    "npc_id": "ash",
+    "player_id": "player_1",
+    "timestamp": "2026-08-20T00:06:42.383170"
+  },
+  {
+    "text": "Started quest: explore_ancient_ruins",
+    "npc_id": "ash",
+    "player_id": "player_1",
+    "timestamp": "2026-08-20T00:06:49.646485"
+  },
+  {
+    "text": "Started quest: explore_ancient_ruins",
+    "npc_id": "ash",
+    "player_id": "player_1",
+    "timestamp": "2026-08-20T00:06:58.275161"
+  },
+  {
+    "text": "Started quest: explore_ancient_ruins",
+    "npc_id": "pip",
+    "player_id": "player_1",
+    "timestamp": "2026-08-20T00:54:44.429414"
+  },
+  {
+    "text": "Started quest: explore_ancient_ruins",
+    "npc_id": "ash",
+    "player_id": "player_1",
+    "timestamp": "2026-08-20T01:11:36.173679"
+  },
+  {
+    "text": "Started quest: explore_ancient_ruins",
+    "npc_id": "ash",
+    "player_id": "player_1",
+    "timestamp": "2026-08-20T01:11:51.635983"
   }
 ]

@@ -263,6 +263,20 @@ class NPCTalkApp {
       this.dom.clearHistoryBtn.addEventListener("click", () => this.clearHistory());
     }
 
+    // Portrait image fallback error recovery
+    if (this.dom.characterPortrait) {
+      this.dom.characterPortrait.addEventListener("error", () => {
+        const src = this.dom.characterPortrait.src;
+        if (src.includes("?v=")) {
+          this.dom.characterPortrait.src = src.split("?")[0];
+        } else if (src.endsWith(".png")) {
+          this.dom.characterPortrait.src = src.replace(/\.png$/, ".svg");
+        } else if (!src.includes("neutral.png")) {
+          this.dom.characterPortrait.src = `assets/characters/${this.currentNPCId}/neutral.png`;
+        }
+      });
+    }
+
     // Gear button → Settings Drawer (new top-left CoC gear icon)
     if (this.dom.gearBtn) {
       this.dom.gearBtn.addEventListener("click", () => {
@@ -960,7 +974,7 @@ class NPCTalkApp {
     }
 
     const emotionData = CONFIG.emotions[emotion] || CONFIG.emotions.neutral;
-    const portraitPath = (npc.portraits[emotion] || npc.portraits.neutral) + "?v=9.0";
+    const portraitPath = (npc.portraits[emotion] || npc.portraits.neutral) + "?v=15.0";
 
     // Update Mood Badge inside speech bubble
     if (this.dom.moodIcon)  this.dom.moodIcon.textContent  = emotionData.icon;
@@ -1179,9 +1193,9 @@ class NPCTalkApp {
     this.setWaitingState(true);
 
     try {
-      // 1. Send to FastAPI backend /chat endpoint with a responsive 20-second timeout
+      // 1. Send to FastAPI backend /chat endpoint with a responsive 120-second timeout
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 20000);
+      const timeoutId = setTimeout(() => controller.abort(), 120000);
 
       const res = await fetch("/chat", {
         method: "POST",
@@ -1225,10 +1239,12 @@ class NPCTalkApp {
 
     // 2. Extract emotion (handles "emotion" or inferred from action / sentiment)
     let emotion = data.emotion;
-    if (!emotion || emotion === "neutral") {
+    if (!emotion || emotion === "unknown") {
       if (data.action === "give_item" || data.action === "start_quest") emotion = "happy";
       else if (data.action === "hostile") emotion = "angry";
       else emotion = this.inferEmotionFromText(replyText, npcId);
+    } else if (data.action === "give_item" || data.action === "start_quest") {
+      emotion = "happy";
     }
 
     // 3. Capture authoritative backend state, if returned.
@@ -1372,33 +1388,58 @@ class NPCTalkApp {
     const corpus = (CONFIG.narrativeCorpus && CONFIG.narrativeCorpus[npcId]) || [];
     let bestConcept = null;
     let bestConceptScore = 0;
-    
+
     // Check if continuation / causal / procedural
-    const isContinuation = ["what happened next", "what next", "and then", "tell me more", "elaborate", "continue", "what happened after"].some(p => lower.includes(p));
+    const isContinuation = ["what happened next", "what next", "and then", "tell me more", "elaborate", "continue", "what happened after", "go on", "and after", "then what"].some(p => lower.includes(p));
     const isCausal = ["why", "how come", "what caused", "what was the reason"].some(p => lower.startsWith(p)) || lower === "why?" || lower === "why" || lower === "why did you do that?";
     const isProcedural = ["how do i", "how to", "how do you", "can you teach me", "what are the steps", "how is it made"].some(p => lower.startsWith(p));
 
+    // Context inheritance: only for explicit follow-up / causal questions
     if ((isContinuation || isCausal) && this.conversationHistory.length > 0) {
-      for (const turn of [...this.conversationHistory].reverse()) {
-        const tLower = turn.text.toLowerCase();
+      // Search both player and NPC turns from last 8 turns
+      const recentTurns = this.conversationHistory.slice(-8);
+      for (const turn of [...recentTurns].reverse()) {
+        const tLower = (turn.text || turn.reply || "").toLowerCase();
+        let bestMatch = null, bestMatchScore = 0;
         for (const concept of corpus) {
-          if (tLower.includes(concept.id.replace(/_/g, " ")) || concept.keywords.some(k => tLower.includes(k))) {
-            bestConcept = concept;
-            bestConceptScore = 10;
-            break;
+          if (tLower.includes(concept.id.replace(/_/g, " "))) {
+            bestMatch = concept; bestMatchScore = 10; break;
           }
+          const kwMatches = concept.keywords.filter(k => new RegExp("\\b" + k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "\\b", "i").test(tLower)).length;
+          if (kwMatches > bestMatchScore) { bestMatchScore = kwMatches; bestMatch = concept; }
         }
-        if (bestConcept) break;
+        if (bestMatch && bestMatchScore >= 1) {
+          bestConcept = bestMatch;
+          bestConceptScore = 10;
+          break;
+        }
       }
     }
+
+    const GENERIC_STOPWORDS = new Set([
+      "like", "love", "enjoy", "play", "game", "happy", "food", "eat", "day",
+      "what", "good", "nice", "fun", "thing", "things", "said", "about", "tell",
+      "look", "much", "many", "feel", "want", "know", "see", "make", "give"
+    ]);
 
     if (!bestConcept) {
       for (const concept of corpus) {
         let score = 0;
         if (concept.title && lower.includes(concept.title.toLowerCase())) score += 15;
         for (const kw of concept.keywords) {
-          if (kw.includes(" ") ? lower.includes(kw) : new RegExp("\\b" + kw + "\\b", "i").test(lower)) {
-            score += kw.includes(" ") ? 4 : 2;
+          const kwClean = kw.trim().toLowerCase();
+          if (!kwClean) continue;
+          if (kwClean.includes(" ")) {
+            if (lower.includes(kwClean)) {
+              score += kwClean.split(/\s+/).length * 4;
+            }
+          } else {
+            if (!GENERIC_STOPWORDS.has(kwClean) && kwClean.length >= 3) {
+              const re = new RegExp("\\b" + kwClean.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "(s|es|ed|ing)?\\b", "i");
+              if (re.test(lower)) {
+                score += 2.5;
+              }
+            }
           }
         }
         if (score > bestConceptScore) {
@@ -1408,7 +1449,8 @@ class NPCTalkApp {
       }
     }
 
-    if (bestConcept && bestConceptScore >= 2) {
+    // Require >= 3.0 points for narrative story match
+    if (bestConcept && (bestConceptScore >= 3.0 || isContinuation || isCausal)) {
       let body = bestConcept.primary;
       let opener = "";
       if (isContinuation) {
@@ -1427,9 +1469,10 @@ class NPCTalkApp {
       if (bestConcept.followup && !fullText.endsWith(bestConcept.followup)) {
         fullText += " " + bestConcept.followup;
       }
+      const conceptEmotion = (npcId === "tabitha" || isCausal || isProcedural) ? "thinking" : (npcId === "finn" || npcId === "pip") ? "happy" : (npcId === "ash") ? "suspicious" : "neutral";
       return {
         reply: fullText,
-        emotion: (npcId === "tabitha" || isCausal) ? "thinking" : "neutral",
+        emotion: conceptEmotion,
         action: "none",
         action_params: {},
         game_state: this.gameState
@@ -1576,6 +1619,25 @@ class NPCTalkApp {
       };
     }
 
+    // 3b. Sports, Games & Athletics Queries
+    if (["sport", "sports", "play games", "playing games", "like sports", "like games", "athletics", "racing fast", "climbing trees"].some(s => new RegExp("\\b" + s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "\\b", "i").test(lower))) {
+      const sportReplies = {
+        pip: `I LOVE playing games and running super fast, ${pName}! Finn and I play rooftop tag, and I practice racing grasshoppers down by the creek! Grown-ups call it 'sports' when there are teams and rules, but my absolute favorite game is seeing who can climb to the top of the big apple tree the fastest without dropping any shiny river stones!`,
+        finn: `I run sprint drills every single morning across the ridge trails, ${pName}! We don't have stadium sports in Thornhaven, but I train for speed, rooftop climbs, and long-range archery drills. Being fast and agile is the number one rule for a scout!`,
+        sam: `Sports? If you mean lifting fifty-pound iron billets or endurance marches in full plate armor, then yes, that's my sport, ${pName}. Out here, physical conditioning isn't a leisure activity — it's what keeps your shield arm from faltering in battle.`,
+        eva: `The village youths often race along the meadow streams or play ball games in the square, ${pName}. While I spend most of my daylight hours tending the apothecary herbs, I always make sure the young runners have soothing arnica balms for sprained ankles!`,
+        ash: `Sports? The only game I play is high-stakes leverage, ${pName}. Though if you're talking about running — knowing how to scale a tavern drainpipe in ten seconds flat with twenty pounds of silver in your satchel certainly requires athletic stamina.`,
+        tabitha: `In the ancient records of the Old Kingdom, the seasonal festivals included archery contests, chariot races, and stone-lifting games to honor the harvest, ${pName}. Physical games have always brought communities together in joy and friendly contest.`
+      };
+      return {
+        reply: sportReplies[npcId] || sportReplies.pip,
+        emotion: (npcId === "pip" || npcId === "finn" || npcId === "eva") ? "happy" : (npcId === "tabitha" ? "thinking" : "neutral"),
+        action: "none",
+        action_params: {},
+        game_state: this.gameState
+      };
+    }
+
     // 4. Greetings
     if (["hello", "hi", "hey", "greetings", "good morning", "good evening", "how are you", "whats up"].some(g => lower.includes(g)) && words.length <= 6) {
       const greets = {
@@ -1658,19 +1720,34 @@ class NPCTalkApp {
       };
     }
 
-    // 5. In-character Busy / Dismissive responses for unknown messages
-    const fallbacks = CONFIG.npcFallbacks[npcId] || CONFIG.npcFallbacks.ash || [
-      "I'm in a bit of a rush right now, traveler. Let's speak when you have real business."
-    ];
-    let fallbackText = fallbacks[Math.floor(Math.random() * fallbacks.length)];
-    if (time === "night" && !fallbackText.toLowerCase().includes("night") && !fallbackText.toLowerCase().includes("tonight")) {
-      if (npcId === "tabitha") {
-        fallbackText = `The night is deep tonight. ${fallbackText}`;
-      }
-    }
+    // 5. In-character topic-aware fallback — acknowledge the topic rather than ignoring the question
+    const topicWords = words.filter(w => w.length > 3 && !["what", "tell", "about", "your", "have", "that", "with", "this", "from", "know", "does", "when", "where", "will", "would", "could", "should", "there", "then", "than", "they", "them", "their"].includes(w));
+    const topicHint = topicWords[0] || "";
 
+    const topicFallbacks = {
+      ash: topicHint
+        ? `An interesting question about ${topicHint}, ${pName}. I've heard whispers on that subject — but the full picture will cost you a moment of patience while I piece together what I know.`
+        : `Information is the only true currency in a divided realm. Keep your eyes sharp around Thornhaven, ${pName}.`,
+      finn: topicHint
+        ? `Ooh, ${topicHint}! I've been checking that out on my scouting runs, ${pName}! Give me a sec to remember exactly what I saw from the ridge lookout!`
+        : `I know every trail and rooftop in Thornhaven, ${pName}! Always keep your boots laced and watch the trees!`,
+      eva: topicHint
+        ? `Regarding ${topicHint} — that is a matter worth careful thought, ${pName}. Let me consider what my grandmother's folio says about that.`
+        : `Nature provides a remedy for those who seek with patience, ${pName}. Be mindful of where you tread.`,
+      sam: topicHint
+        ? `You want to talk about ${topicHint}, ${pName}? Fair enough. I've had some experience with that on the battlefield — let me think on it while I cool this iron.`
+        : `Words mean nothing without honest steel behind them, ${pName}. Keep your blade sharp and your armor intact.`,
+      tabitha: topicHint
+        ? `The chronicles speak of ${topicHint}, ${pName}. It is a subject the ancient texts treat with great weight. Give me a moment to recall the precise passages.`
+        : `The ancient chronicles remember all who walk this valley, ${pName}. Every question carries a history.`,
+      pip: topicHint
+        ? `Oh! ${topicHint.charAt(0).toUpperCase() + topicHint.slice(1)}! I asked Tabitha about that once and she told me SO MUCH stuff, ${pName}! Want me to try to remember what she said?`
+        : `Ooh! That sounds super exciting, ${pName}! Look at this shiny rock I found by the river yesterday!`,
+    };
+
+    const topicFallbackText = topicFallbacks[npcId] || `Welcome to Thornhaven, ${pName}. How can I assist you today?`;
     return {
-      reply: fallbackText,
+      reply: topicFallbackText,
       emotion: "neutral",
       action: "none",
       action_params: {},
@@ -1681,17 +1758,25 @@ class NPCTalkApp {
   inferEmotionFromText(text, npcId = "ash") {
     const lower = text.toLowerCase().trim();
 
+    const hasWord = (wordList) => wordList.some(w => {
+      if (w.includes(" ")) {
+        return lower.includes(w);
+      }
+      const re = new RegExp("(?:^|[^a-z0-9_])" + w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "(?:$|[^a-z0-9_])", "i");
+      return re.test(lower);
+    });
+
     // 1. ANGRY (Fury, battle scowl, grumpiness, defense of humanity, insults)
     const angryWords = [
-      "not human", "fool", "idiot", "get out", "leave my", "die", "kill", "shut up",
+      "not human", "fool", "idiot", "get out", "leave my", "die", "kill you", "shut up",
       "madness", "insult", "how dare", "fury", "rage", "scowl", "snarl", "clenched",
-      "temper", "blood", "sword", "fight", "attack", "strike", "smash", "battle",
-      "war", "insolent", "disrespect", "insolence", "dare you", "halt!", "scoundrel",
-      "threat", "enemy", "punish", "liar", "cheat", "thief", "bellows duty",
-      "bizarre and feverish", "questioning my humanity", "preposterous", "unscientific absurdity",
+      "temper", "fight me", "attack", "strike", "smash", "insolent", "disrespect",
+      "insolence", "dare you", "halt!", "scoundrel", "threat", "enemy", "punish",
+      "liar", "cheat", "thief", "bellows duty", "bizarre and feverish",
+      "questioning my humanity", "preposterous", "unscientific absurdity",
       "grumpy", "pout", "i'm not an ai", "what?! are you out of your mind"
     ];
-    if (angryWords.some(w => lower.includes(w))) {
+    if (hasWord(angryWords)) {
       return "angry";
     }
 
@@ -1702,7 +1787,7 @@ class NPCTalkApp {
       "melancholy", "broken heart", "buried", "dead", "perished", "fell in battle",
       "mass graves", "crying", "sniffling", "bleeding out"
     ];
-    if (sadWords.some(w => lower.includes(w))) {
+    if (hasWord(sadWords)) {
       return "sad";
     }
 
@@ -1713,7 +1798,7 @@ class NPCTalkApp {
       "heavens", "whoa", "impossible", "startled", "spotted", "sighting", "suddenly",
       "laser eyes", "seventeen centimeters", "breathing under the old well"
     ];
-    if (surprisedWords.some(w => lower.includes(w)) || lower.startsWith("what?!") || lower.startsWith("wait,")) {
+    if (hasWord(surprisedWords) || lower.startsWith("what?!") || lower.startsWith("wait,")) {
       return "surprised";
     }
 
@@ -1725,7 +1810,7 @@ class NPCTalkApp {
       "behind the scenes", "eyes and ears", "what's your game", "keep your purse",
       "provenance", "tread with discernment"
     ];
-    if (suspiciousWords.some(w => lower.includes(w))) {
+    if (hasWord(suspiciousWords)) {
       return "suspicious";
     }
 
@@ -1737,7 +1822,7 @@ class NPCTalkApp {
       "keystones", "phenomenon", "study", "cataclysm", "pre-cataclysm", "archives",
       "poison", "toxic", "disease", "illness", "symptoms"
     ];
-    if (thinkingWords.some(w => lower.includes(w)) || npcId === "tabitha") {
+    if (hasWord(thinkingWords) || npcId === "tabitha") {
       return "thinking";
     }
 
@@ -1748,7 +1833,11 @@ class NPCTalkApp {
       "friend", "cheers", "good morning", "bless", "excited", "yay", "ooh!", "yes!",
       "yes yes", "super bright", "coolest", "treasure", "shiny"
     ];
-    if (happyWords.some(w => lower.includes(w)) || lower.startsWith("yes!") || lower.startsWith("ooh!") || lower.startsWith("hey!")) {
+    if (hasWord(happyWords) || lower.startsWith("yes!") || lower.startsWith("ooh!") || lower.startsWith("hey!")) {
+      return "happy";
+    }
+
+    if (npcId === "pip") {
       return "happy";
     }
 

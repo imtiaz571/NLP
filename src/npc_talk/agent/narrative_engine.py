@@ -293,6 +293,14 @@ NPC_NARRATIVE_CORPUS: Dict[str, List[Dict[str, Any]]] = {
     ]
 }
 
+# Merge extra corpus entries (covers random everyday questions for all characters)
+try:
+    from npc_talk.agent.narrative_corpus_extra import EXTRA_NARRATIVE_CORPUS
+    for _npc, _entries in EXTRA_NARRATIVE_CORPUS.items():
+        NPC_NARRATIVE_CORPUS.setdefault(_npc, []).extend(_entries)
+except ImportError:
+    pass
+
 # Alias mapping
 ALIAS_TO_CANONICAL = {
     "shadow_vex": "ash",
@@ -336,20 +344,26 @@ def _classify_discourse_intent(text: str) -> str:
 
 def _extract_active_context_concept(messages: list[dict], npc_id: str) -> Optional[Dict[str, Any]]:
     """Inspects recent conversation turns to determine the currently discussed concept."""
-    corpus = NPC_NARRATIVE_CORPUS.get(npc_id, NPC_NARRATIVE_CORPUS.get("ash", []))
+    corpus = NPC_NARRATIVE_CORPUS.get(npc_id, [])
+    if not corpus:
+        return None
     history_turns = [m.get("content", "").lower() for m in messages if m.get("role") in ("user", "assistant")]
-    
+
     if not history_turns:
         return None
 
-    # Search backwards through recent history turns
-    for turn_text in reversed(history_turns[-6:]):
+    # Search backwards through recent history turns; require >=1 keyword match
+    for turn_text in reversed(history_turns[-8:]):
+        best_concept, best_matches = None, 0
         for concept in corpus:
             if concept["id"].replace("_", " ") in turn_text:
                 return concept
             matches = sum(1 for kw in concept["keywords"] if re.search(r"\b" + re.escape(kw) + r"\b", turn_text))
-            if matches >= 1:
-                return concept
+            if matches > best_matches:
+                best_matches = matches
+                best_concept = concept
+        if best_matches >= 1:
+            return best_concept
 
     return None
 
@@ -364,8 +378,9 @@ def retrieve_best_narrative_concept(
     using SentenceTransformer embeddings + keyword N-gram scoring.
     """
     canonical_id = ALIAS_TO_CANONICAL.get(npc_id, npc_id)
-    corpus = NPC_NARRATIVE_CORPUS.get(canonical_id, NPC_NARRATIVE_CORPUS.get("ash", []))
-    
+    # Only use the matched character's corpus — never cross-contaminate with another NPC
+    corpus = NPC_NARRATIVE_CORPUS.get(canonical_id, [])
+
     if not corpus:
         return None, 0.0, "general"
 
@@ -373,13 +388,19 @@ def retrieve_best_narrative_concept(
     lower = user_text.lower().strip()
     words = re.findall(r"\b\w+\b", lower)
 
-    # If it's a short continuation or causal question, inherit prior context concept
-    if (discourse_intent in ("continuation", "causal") and len(words) <= 7) or discourse_intent == "continuation":
+    # For explicit continuation / causal follow-up questions ("what happened?", "why?", "tell me more", "and then?"),
+    # inherit the active narrative concept from the conversation history
+    if discourse_intent in ("continuation", "causal") and len(words) <= 12:
         prior_concept = _extract_active_context_concept(messages, canonical_id)
         if prior_concept:
             return prior_concept, 10.0, discourse_intent
 
     # 1. Lexical Keyword & Substring Scoring
+    GENERIC_STOPWORDS = {
+        "like", "love", "enjoy", "play", "game", "happy", "food", "eat", "day",
+        "what", "good", "nice", "fun", "thing", "things", "said", "about", "tell",
+        "look", "much", "many", "feel", "want", "know", "see", "make", "give"
+    }
     best_concept = None
     best_score = 0.0
 
@@ -389,7 +410,7 @@ def retrieve_best_narrative_concept(
         if concept["title"].lower() in lower:
             score += 15.0
         
-        # Keyword matches
+        # Keyword matches — multi-word phrases score higher
         for kw in concept["keywords"]:
             kw_clean = kw.strip().lower()
             if not kw_clean:
@@ -398,18 +419,21 @@ def retrieve_best_narrative_concept(
                 if kw_clean in lower:
                     score += len(kw_clean.split()) * 4.0
             else:
-                if re.search(r"\b" + re.escape(kw_clean) + r"(s|es|ed|ing)?\b", lower):
-                    score += 2.5
+                if kw_clean not in GENERIC_STOPWORDS and len(kw_clean) >= 3:
+                    if re.search(r"\b" + re.escape(kw_clean) + r"(s|es|ed|ing)?\b", lower):
+                        score += 2.5
 
         if score > best_score:
             best_score = score
             best_concept = concept
 
     # 2. Embedding Cosine Similarity (if embedder available)
+    # Require strong semantic similarity (>= 0.45 for pure zero-keyword embedding match,
+    # or >= 0.35 if keyword overlap reinforces the match)
     embedder = _get_embedder()
     if embedder and len(words) >= 3:
         try:
-            concept_texts = [f"{c['title']}. {c['primary']} {c['causal']}" for c in corpus]
+            concept_texts = [f"{c['title']}. {c['primary']} {c.get('causal', '')}" for c in corpus]
             corpus_embs = embedder.encode(concept_texts, normalize_embeddings=True)
             query_emb = embedder.encode([user_text], normalize_embeddings=True)[0]
             
@@ -417,8 +441,7 @@ def retrieve_best_narrative_concept(
             max_idx = int(np.argmax(sims))
             max_sim = float(sims[max_idx])
             
-            # If semantic similarity is strong, blend with lexical score
-            if max_sim > 0.48:
+            if (best_score == 0.0 and max_sim >= 0.48) or (best_score >= 2.5 and max_sim >= 0.35):
                 embedding_boost = max_sim * 10.0
                 if embedding_boost > best_score:
                     best_score = embedding_boost
@@ -478,7 +501,9 @@ def synthesize_deep_dialogue_response(
 
     # Emotion mapping
     emotion = "neutral"
-    if canonical_id == "tabitha" or discourse_intent in ("causal", "philosophical"):
+    if canonical_id == "pip":
+        emotion = "happy"
+    elif canonical_id == "tabitha" or discourse_intent in ("causal", "philosophical"):
         emotion = "thinking"
     elif canonical_id == "finn":
         emotion = "happy"

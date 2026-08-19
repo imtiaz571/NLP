@@ -7,3 +7,22 @@ __pycache__/
 .ruff_cache/
 memory/store_test/
 data/external/raw/
+
+# Large model files (too big for GitHub)
+models/
+
+# Large data files
+data/raw/*.csv
+data/processed/*.jsonl
+data/external/
+
+# OS files
+.DS_Store
+
+# Push helper scripts (no longer needed)
+push.bat
+push.ps1
+push_to_github.js
+
+# Offline test scripts
+test_offline.py
