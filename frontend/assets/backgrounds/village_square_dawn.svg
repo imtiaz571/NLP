@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="55%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#fde68a"/>
+    </linearGradient>
+
+    <radialGradient id="celestialGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="35%" stop-color="#fbbf24" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="torchGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="25%" stop-color="#fbbf24" stop-opacity="0.85"/>
+      <stop offset="60%" stop-color="#ea580c" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#ea580c" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="lanternGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="40%" stop-color="#fef08a" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#fef08a" stop-opacity="0"/>
+    </radialGradient>
+
+  </defs>
+
+  <!-- Sky Background -->
+  <rect width="1600" height="900" fill="url(#skyGrad)"/>
+
+  <!-- Celestial Element (Sun or Moon) -->
+    <!-- Celestial Sun with Radiant Atmospheric Glow -->
+    <circle cx="280" cy="380" r="150" fill="url(#celestialGlow)"/>
+    <circle cx="280" cy="380" r="45" fill="#ffffff"/>
+    <polygon points="80,380 480,380 730,900 -170,900" fill="#ffffff" opacity="0.04"/>
+    <polygon points="280,180 280,580 630,900 130,900" fill="#ffffff" opacity="0.04"/>
+
+  <!-- Clouds or Twinkling Stars -->
+    <!-- Layered Drifting Clouds -->
+    <g id="clouds" opacity="0.65">
+      <path d="M 60 220 Q 120 160 200 180 Q 280 140 360 190 Q 420 170 480 210 Q 520 250 460 280 L 80 280 Z" fill="#fed7aa" opacity="0.85"/>
+      <path d="M 100 240 Q 180 190 280 220 Q 360 200 440 240 L 120 270 Z" fill="#f472b6" opacity="0.5"/>
+      <path d="M 720 160 Q 800 100 900 130 Q 980 90 1080 140 Q 1160 110 1240 160 Q 1280 200 1200 230 L 740 230 Z" fill="#fed7aa" opacity="0.8"/>
+      <path d="M 760 180 Q 860 130 980 160 Q 1060 130 1180 180 L 800 210 Z" fill="#f472b6" opacity="0.45"/>
+      <path d="M 1300 320 Q 1380 270 1460 290 Q 1520 260 1580 310 L 1320 340 Z" fill="#fed7aa" opacity="0.6"/>
+    </g>
+
+  <!-- Location Scenery Geometry -->
+    <!-- Distant Mountain Ranges -->
+    <path d="M 0 520 L 160 380 L 320 480 L 580 340 L 840 470 L 1100 360 L 1360 480 L 1600 390 L 1600 900 L 0 900 Z" fill="#312e81" opacity="0.6"/>
+    <path d="M 0 580 L 240 450 L 520 540 L 880 430 L 1200 520 L 1600 440 L 1600 900 L 0 900 Z" fill="#1e1b4b" opacity="0.85"/>
+
+    <!-- Midground Village Houses & Trees -->
+    <!-- Background House 1 (Left Distant) -->
+    <polygon points="300,530 380,450 460,530" fill="#7c2d12"/>
+    <rect x="320" y="530" width="120" height="150" fill="#1e293b"/>
+    <rect x="360" y="550" width="30" height="35" rx="4" fill="#fef08a" opacity="0.85"/>
+
+    <!-- Background House 2 (Right Distant) -->
+    <polygon points="1060,520 1150,440 1240,520" fill="#7c2d12"/>
+    <rect x="1080" y="520" width="140" height="160" fill="#1e293b"/>
+    <rect x="1125" y="545" width="35" height="40" rx="4" fill="#fef08a" opacity="0.85"/>
+
+    <!-- Midground Foliage Trees -->
+    <g fill="#064e3b" opacity="0.85">
+      <ellipse cx="260" cy="520" rx="70" ry="90"/>
+      <ellipse cx="500" cy="540" rx="60" ry="80"/>
+      <ellipse cx="1020" cy="530" rx="65" ry="85"/>
+      <ellipse cx="1270" cy="510" rx="75" ry="95"/>
+    </g>
+
+    <!-- Foreground Village Timber Houses -->
+    <!-- Left Main 2-Story House -->
+    <g id="left-house">
+      <polygon points="20,530 180,390 340,530" fill="#7c2d12"/>
+      <rect x="50" y="530" width="260" height="270" fill="#1e293b"/>
+      <!-- Timber framing -->
+      <rect x="45" y="530" width="10" height="270" fill="#451a03"/>
+      <rect x="305" y="530" width="10" height="270" fill="#451a03"/>
+      <rect x="175" y="530" width="10" height="270" fill="#451a03"/>
+      <line x1="50" y1="650" x2="310" y2="650" stroke="#451a03" stroke-width="8"/>
+      <!-- Stone Chimney with Smoke -->
+      <rect x="80" y="410" width="36" height="80" fill="#475569"/>
+      <!-- Glowing Windows -->
+      <rect x="85" y="560" width="55" height="65" rx="6" fill="#fef08a" opacity="0.85"/>
+      <rect x="220" y="560" width="55" height="65" rx="6" fill="#fef08a" opacity="0.85"/>
+      <rect x="85" y="680" width="55" height="65" rx="6" fill="#fef08a" opacity="0.85"/>
+      <rect x="210" y="680" width="70" height="120" rx="4" fill="#451a03"/>
+    </g>
+
+    <!-- Right Tavern/Manor House -->
+    <g id="right-house">
+      <polygon points="1260,510 1440,370 1620,510" fill="#7c2d12"/>
+      <rect x="1280" y="510" width="300" height="290" fill="#1e293b"/>
+      <!-- Timber Eaves & Beams -->
+      <rect x="1275" y="510" width="10" height="290" fill="#451a03"/>
+      <rect x="1575" y="510" width="10" height="290" fill="#451a03"/>
+      <line x1="1280" y1="640" x2="1580" y2="640" stroke="#451a03" stroke-width="8"/>
+      <!-- Windows -->
+      <rect x="1330" y="550" width="60" height="70" rx="6" fill="#fef08a" opacity="0.85"/>
+      <rect x="1460" y="550" width="60" height="70" rx="6" fill="#fef08a" opacity="0.85"/>
+      <rect x="1330" y="680" width="60" height="70" rx="6" fill="#fef08a" opacity="0.85"/>
+      <rect x="1450" y="670" width="80" height="130" rx="4" fill="#451a03"/>
+    </g>
+
+    <!-- Wooden Post & Rail Fence -->
+    <g id="fence" stroke="#451a03" stroke-width="6" fill="none">
+      <line x1="320" y1="710" x2="620" y2="710"/>
+      <line x1="320" y1="740" x2="620" y2="740"/>
+      <line x1="360" y1="690" x2="360" y2="760"/>
+      <line x1="440" y1="690" x2="440" y2="760"/>
+      <line x1="520" y1="690" x2="520" y2="760"/>
+      <line x1="600" y1="690" x2="600" y2="760"/>
+    </g>
+
+    <!-- Flat-Shape Farm Animals (Chickens & Goat) -->
+    <!-- Chickens -->
+    <g id="animals" fill="#f8fafc" opacity="0.9">
+      <ellipse cx="400" cy="745" rx="14" ry="10"/>
+      <circle cx="410" cy="738" r="6"/>
+      <polygon points="415,738 422,740 415,742" fill="#ea580c"/>
+      <ellipse cx="480" cy="750" rx="12" ry="9"/>
+      <circle cx="472" cy="744" r="5"/>
+      <polygon points="468,744 462,746 468,748" fill="#ea580c"/>
+    </g>
+    <!-- Goat near fence -->
+    <g id="goat" fill="#cbd5e1">
+      <ellipse cx="560" cy="730" rx="22" ry="16"/>
+      <circle cx="580" cy="718" r="10"/>
+      <polygon points="576,712 580,698 584,712" fill="#94a3b8"/>
+      <line x1="548" y1="740" x2="548" y2="765" stroke="#94a3b8" stroke-width="4"/>
+      <line x1="570" y1="740" x2="570" y2="765" stroke="#94a3b8" stroke-width="4"/>
+    </g>
+
+    <!-- Central Stone Well with Canopy -->
+    <g id="village-well">
+      <ellipse cx="800" cy="750" rx="130" ry="36" fill="#0f172a"/>
+      <rect x="730" y="660" width="140" height="90" rx="10" fill="#334155"/>
+      <polygon points="700,660 800,590 900,660" fill="#7c2d12"/>
+      <line x1="745" y1="660" x2="745" y2="600" stroke="#451a03" stroke-width="8"/>
+      <line x1="855" y1="660" x2="855" y2="600" stroke="#451a03" stroke-width="8"/>
+      <circle cx="800" cy="630" r="12" fill="#64748b"/>
+    </g>
+
+    <!-- Ornate Street Lanterns with Radial Illumination -->
+    <g id="lanterns">
+      <!-- Left Lantern -->
+      <line x1="660" y1="760" x2="660" y2="570" stroke="#0f172a" stroke-width="12"/>
+      <line x1="660" y1="580" x2="690" y2="550" stroke="#0f172a" stroke-width="6"/>
+      <circle cx="690" cy="550" r="45" fill="url(#lanternGlow)"/>
+      <circle cx="690" cy="550" r="14" fill="#fef08a"/>
+      
+      <!-- Right Lantern -->
+      <line x1="980" y1="760" x2="980" y2="570" stroke="#0f172a" stroke-width="12"/>
+      <line x1="980" y1="580" x2="950" y2="550" stroke="#0f172a" stroke-width="6"/>
+      <circle cx="950" cy="550" r="45" fill="url(#lanternGlow)"/>
+      <circle cx="950" cy="550" r="14" fill="#fef08a"/>
+    </g>
+
+    <!-- Cobblestone Plaza & Foreground Ground -->
+    <path d="M 0 740 Q 800 680 1600 740 L 1600 900 L 0 900 Z" fill="#0f172a"/>
+
+  <!-- Atmospheric Tint Blend Overlay -->
+  <rect width="1600" height="900" fill="#f59e0b" opacity="0.12" style="mix-blend-mode: overlay; pointer-events: none;"/>
+</svg>

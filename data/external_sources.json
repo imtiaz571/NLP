@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "id": "dailydialog",
+      "kaggle": "thedevastator/dailydialog-unlock-the-conversation-potential-in",
+      "license": "CC0-1.0",
+      "tasks": ["emotion", "dialogue_act", "dialogue"],
+      "local_dir": "data/external/dailydialog",
+      "notes": "Provided train/validation/test splits are preserved."
+    },
+    {
+      "id": "goemotions",
+      "kaggle": "shivamb/go-emotions-google-emotions-dataset",
+      "license": "CC0-1.0",
+      "tasks": ["emotion"],
+      "local_dir": "data/external/goemotions"
+    },
+    {
+      "id": "smalltalk",
+      "kaggle": "salmanfaroz/small-talk-intent-classification-data",
+      "license": "CC0-1.0",
+      "tasks": ["intent"],
+      "local_dir": "data/external/smalltalk",
+      "notes": "Only conservative mappings to existing NPC intents are used by the live classifier."
+    },
+    {
+      "id": "viggo",
+      "kaggle": "thedevastator/viggo-video-game-chatbot-dataset",
+      "license": "CC0-1.0",
+      "tasks": ["dialogue_act", "dialogue"],
+      "local_dir": "data/external/viggo",
+      "notes": "Kept as game-domain dialogue/reference data; labels do not match NPC intents."
+    },
+    {
+      "id": "viggo_challenge",
+      "kaggle": "thedevastator/viggo-video-game-chatbot-dataset",
+      "license": "CC0-1.0",
+      "tasks": ["dialogue_act", "dialogue"],
+      "local_dir": "data/external/viggo",
+      "notes": "Challenge-split subsets (1/2/5/10/20% of challenge training set). Same license as viggo."
+    },
+    {
+      "id": "fallout_new_vegas",
+      "kaggle": "grimespoint/fallout-new-vegas-dataset",
+      "license": "CC0 metadata; underlying dialogue is copyrighted",
+      "tasks": ["dialogue", "persona_style"],
+      "local_dir": "data/external/fallout",
+      "trainable": false,
+      "notes": "Research/reference only. Do not train or redistribute commercially without permission."
+    },
+    {
+      "id": "bitext",
+      "kaggle": "bitext/training-dataset-for-chatbotsvirtual-assistants",
+      "license": "Data files copyright original authors; bundled license applies",
+      "tasks": ["intent", "noise_robustness"],
+      "local_dir": "data/external/bitext",
+      "trainable": false,
+      "notes": "Customer-service labels do not match NPC intents; retained for experiments only."
+    },
+    {
+      "id": "chatbot_intent",
+      "kaggle": "sahideseker/chatbot-intent-classification-dataset",
+      "license": "CC-BY-SA-4.0",
+      "tasks": ["intent"],
+      "local_dir": "data/external/chatbot_intent",
+      "notes": "Synthetic and domain-mismatched; normalized but not used by the live NPC model."
+    },
+    {
+      "id": "meld_text",
+      "kaggle": "seniruepasinghe/meld-emotion-detection-preprocessed",
+      "license": "GPL-3.0",
+      "tasks": ["emotion"],
+      "local_dir": "data/external/meld_text",
+      "download_file": "MELD_dataset_with_emotions.csv",
+      "notes": "Only the 1 MB text/label CSV is downloaded; the 4.5 GB media bundle is unnecessary."
+    }
+  ]
+}

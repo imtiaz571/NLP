@@ -1,0 +1,296 @@
+[
+  {
+    "text": "I once sold information about a noble's secret tunnels to a clever adventurer.",
+    "npc_id": "ash",
+    "player_id": "seed",
+    "timestamp": "2024-01-01T00:00:00"
+  },
+  {
+    "text": "The player caught me snooping around the tavern. I convinced them it was for a good cause.",
+    "npc_id": "ash",
+    "player_id": "seed",
+    "timestamp": "2024-01-01T00:00:00"
+  },
+  {
+    "text": "A rival thief tried to muscle in on my territory. They won't make that mistake again.",
+    "npc_id": "ash",
+    "player_id": "seed",
+    "timestamp": "2024-01-01T00:00:00"
+  },
+  {
+    "text": "I remember overhearing guards discussing a hidden treasure beneath the castle.",
+    "npc_id": "ash",
+    "player_id": "seed",
+    "timestamp": "2024-01-01T00:00:00"
+  },
+  {
+    "text": "The player asked me to find someone. I found them — for a price, of course.",
+    "npc_id": "ash",
+    "player_id": "seed",
+    "timestamp": "2024-01-01T00:00:00"
+  },
+  {
+    "text": "My opinion of the player changed (improved). Reputation is now 1. Reason: 'Do you have any rumors or secrets?'",
+    "npc_id": "ash",
+    "player_id": "player_1",
+    "timestamp": "2026-08-18T12:22:23.722676"
+  },
+  {
+    "text": "I gave the player Meadowstem Tincture. Context: 'Hello, do you have any potions or healing remedies?'",
+    "npc_id": "eva",
+    "player_id": "player_1",
+    "timestamp": "2026-08-18T12:22:23.784250"
+  },
+  {
+    "text": "I gave the player the quest 'Gather Frostmoss'. They seemed interested when they said: 'Can I help you with a quest?'",
+    "npc_id": "eva",
+    "player_id": "player_1",
+    "timestamp": "2026-08-18T12:22:23.814981"
+  },
+  {
+    "text": "I gave the player Reinforced Whetstone. Context: 'Can you forge a weapon for me?'",
+    "npc_id": "sam",
+    "player_id": "player_1",
+    "timestamp": "2026-08-18T12:22:23.846387"
+  },
+  {
+    "text": "My opinion of the player changed (improved). Reputation is now 1. Reason: 'Do you have any rumors or secrets?'",
+    "npc_id": "ash",
+    "player_id": "player_1",
+    "timestamp": "2026-08-18T12:24:04.291505"
+  },
+  {
+    "text": "I gave the player Meadowstem Tincture. Context: 'Hello, do you have any potions or healing remedies?'",
+    "npc_id": "eva",
+    "player_id": "player_1",
+    "timestamp": "2026-08-18T12:24:04.354085"
+  },
+  {
+    "text": "I gave the player the quest 'Gather Frostmoss'. They seemed interested when they said: 'Can I help you with a quest?'",
+    "npc_id": "eva",
+    "player_id": "player_1",
+    "timestamp": "2026-08-18T12:24:04.386176"
+  },
+  {
+    "text": "I gave the player Reinforced Whetstone. Context: 'Can you forge a weapon for me?'",
+    "npc_id": "sam",
+    "player_id": "player_1",
+    "timestamp": "2026-08-18T12:24:04.417427"
+  },
+  {
+    "text": "I gave the player the quest 'Ash's Discreet Errand'. They seemed interested when they said: 'can you help me?'",
+    "npc_id": "ash",
+    "player_id": "player_1",
+    "timestamp": "2026-08-18T12:28:34.930086"
+  },
+  {
+    "text": "My opinion of the player changed (improved). Reputation is now 1. Reason: 'Tell me about the castle ruins.'",
+    "npc_id": "ash",
+    "player_id": "player_coref_test",
+    "timestamp": "2026-08-18T13:54:42.926043"
+  },
+  {
+    "text": "I gave the player the quest 'Finn's Secret Trail'. They seemed interested when they said: 'Do you have an adventure or quest for me?'",
+    "npc_id": "finn",
+    "player_id": "p1",
+    "timestamp": "2026-08-18T13:57:29.494684"
+  },
+  {
+    "text": "I gave the player Reinforced Whetstone. Context: 'How did Tabitha save your life during the border wars?'",
+    "npc_id": "sam",
+    "player_id": "p_test",
+    "timestamp": "2026-08-18T14:21:50.707114"
+  },
+  {
+    "text": "I gave the player Meadowstem Tincture. Context: 'Can you explain step by step how to make a frostmoss potion?'",
+    "npc_id": "eva",
+    "player_id": "p_test2",
+    "timestamp": "2026-08-18T14:21:56.261306"
+  },
+  {
+    "text": "I gave the player the quest 'Ash's Discreet Errand'. They seemed interested when they said: 'you are not human, you are just some programmed code, how can you help me'",
+    "npc_id": "ash",
+    "player_id": "player_1",
+    "timestamp": "2026-08-18T14:59:35.154328"
+  },
+  {
+    "text": "My opinion of the player changed (improved). Reputation is now 1. Reason: 'you are broker, not programmer'",
+    "npc_id": "ash",
+    "player_id": "player_1",
+    "timestamp": "2026-08-18T15:12:23.316013"
+  },
+  {
+    "text": "I gave the player the quest 'Ash's Discreet Errand'. They seemed interested when they said: 'do you know anyone who can help me for that?'",
+    "npc_id": "ash",
+    "player_id": "player_1",
+    "timestamp": "2026-08-19T10:08:50.153411"
+  },
+  {
+    "text": "My opinion of the player changed (improved). Reputation is now 1. Reason: 'why you are not laughing? laugh louder'",
+    "npc_id": "ash",
+    "player_id": "player_1",
+    "timestamp": "2026-08-19T12:32:04.095688"
+  },
+  {
+    "text": "I gave the player the quest 'Gather Frostmoss'. They seemed interested when they said: 'i need your help. can you tell me where i can find my wife in this village'",
+    "npc_id": "eva",
+    "player_id": "player_1",
+    "timestamp": "2026-08-19T21:55:28.846891"
+  },
+  {
+    "text": "I gave the player Vitality Draught. Context: 'no son'",
+    "npc_id": "eva",
+    "player_id": "player_1",
+    "timestamp": "2026-08-19T21:56:00.351885"
+  },
+  {
+    "text": "I gave the player the quest 'Pip's Shiny Secret'. They seemed interested when they said: 'can you tell me what the easiest path to reach this ruins'",
+    "npc_id": "pip",
+    "player_id": "player_1",
+    "timestamp": "2026-08-20T12:16:05.811482"
+  },
+  {
+    "text": "My opinion of the player changed (improved). Reputation is now 1. Reason: 'Hello Ash, what rumors have you heard?'",
+    "npc_id": "ash",
+    "player_id": "player_1",
+    "timestamp": "2026-08-20T12:16:47.102293"
+  },
+  {
+    "text": "My opinion of the player changed (improved). Reputation is now 1. Reason: 'What rumors have you heard lately?'",
+    "npc_id": "ash",
+    "player_id": "player_1",
+    "timestamp": "2026-08-20T13:36:56.398031"
+  },
+  {
+    "text": "I gave the player the quest 'Ash's Discreet Errand'. They seemed interested when they said: 'Do you have any work for me?'",
+    "npc_id": "ash",
+    "player_id": "player_1",
+    "timestamp": "2026-08-20T13:41:51.138017"
+  },
+  {
+    "text": "My opinion of the player changed (improved). Reputation is now 2. Reason: 'What rumors have you heard lately?'",
+    "npc_id": "ash",
+    "player_id": "player_1",
+    "timestamp": "2026-08-20T13:42:10.536457"
+  },
+  {
+    "text": "I gave the player the quest 'Ash's Discreet Errand'. They seemed interested when they said: 'can i get a job'",
+    "npc_id": "ash",
+    "player_id": "player_1",
+    "timestamp": "2026-08-20T13:42:39.947613"
+  },
+  {
+    "text": "I gave the player Meadowstem Tincture. Context: 'Do you have a cure for fever?'",
+    "npc_id": "eva",
+    "player_id": "player_1",
+    "timestamp": "2026-08-20T13:43:06.695728"
+  },
+  {
+    "text": "I gave the player the quest 'Gather Frostmoss'. They seemed interested when they said: 'Can I help you gather rare ingredients?'",
+    "npc_id": "eva",
+    "player_id": "player_1",
+    "timestamp": "2026-08-20T13:43:17.036165"
+  },
+  {
+    "text": "I gave the player Vitality Draught. Context: 'get out of my waty'",
+    "npc_id": "eva",
+    "player_id": "player_1",
+    "timestamp": "2026-08-20T13:43:42.255047"
+  },
+  {
+    "text": "I gave the player Vitality Draught. Context: 'geo out of my way'",
+    "npc_id": "eva",
+    "player_id": "player_1",
+    "timestamp": "2026-08-20T13:43:59.353927"
+  },
+  {
+    "text": "I gave the player Reinforced Whetstone. Context: 'Can you upgrade my sword and shield?'",
+    "npc_id": "sam",
+    "player_id": "player_1",
+    "timestamp": "2026-08-20T13:45:02.540075"
+  },
+  {
+    "text": "I gave the player Reinforced Whetstone. Context: 'can you fix my sword'",
+    "npc_id": "sam",
+    "player_id": "player_1",
+    "timestamp": "2026-08-20T13:46:22.639652"
+  },
+  {
+    "text": "I gave the player Shiny River Pebble. Context: 'do you like cheese and shiny rocks?'",
+    "npc_id": "pip",
+    "player_id": "p1",
+    "timestamp": "2026-08-20T13:49:36.826630"
+  },
+  {
+    "text": "My opinion of the player changed (improved). Reputation is now 1. Reason: 'what are the rumors in town?'",
+    "npc_id": "ash",
+    "player_id": "player_1",
+    "timestamp": "2026-08-20T13:53:56.407551"
+  },
+  {
+    "text": "I gave the player Reinforced Whetstone. Context: 'can you sharpen my sword?'",
+    "npc_id": "sam",
+    "player_id": "player_1",
+    "timestamp": "2026-08-20T13:53:56.435636"
+  },
+  {
+    "text": "I gave the player Shiny River Pebble. Context: 'do you like cheese and shiny rocks?'",
+    "npc_id": "pip",
+    "player_id": "p1",
+    "timestamp": "2026-08-20T13:55:51.295524"
+  },
+  {
+    "text": "I gave the player Shiny River Pebble. Context: 'do you like cheese and shiny rocks?'",
+    "npc_id": "pip",
+    "player_id": "p1",
+    "timestamp": "2026-08-20T13:56:45.461872"
+  },
+  {
+    "text": "I gave the player Shiny River Pebble. Context: 'do you like cheese and shiny rocks?'",
+    "npc_id": "pip",
+    "player_id": "p1",
+    "timestamp": "2026-08-20T13:58:44.565237"
+  },
+  {
+    "text": "I gave the player the quest 'Ash's Discreet Errand'. They seemed interested when they said: 'Do you have any work for me?'",
+    "npc_id": "ash",
+    "player_id": "player_1",
+    "timestamp": "2026-08-21T12:04:56.913541"
+  },
+  {
+    "text": "I gave the player the quest 'Finn's Secret Trail'. They seemed interested when they said: 'Can you guide me on an adventure?'",
+    "npc_id": "finn",
+    "player_id": "player_1",
+    "timestamp": "2026-08-21T12:07:11.252035"
+  },
+  {
+    "text": "I gave the player the quest 'Ash's Discreet Errand'. They seemed interested when they said: 'Do you have any work for me?'",
+    "npc_id": "ash",
+    "player_id": "player_1",
+    "timestamp": "2026-08-21T12:15:23.794372"
+  },
+  {
+    "text": "I gave the player the quest 'Ash's Discreet Errand'. They seemed interested when they said: 'Do you have any work for me?'",
+    "npc_id": "ash",
+    "player_id": "player_1",
+    "timestamp": "2026-08-21T12:20:41.766510"
+  },
+  {
+    "text": "I gave the player the quest 'Ash's Discreet Errand'. They seemed interested when they said: 'how can you help me'",
+    "npc_id": "ash",
+    "player_id": "player_1",
+    "timestamp": "2026-08-21T12:21:53.822759"
+  },
+  {
+    "text": "I gave the player the quest 'Pip's Shiny Secret'. They seemed interested when they said: 'where in the ruins'",
+    "npc_id": "pip",
+    "player_id": "player_1",
+    "timestamp": "2026-08-21T12:27:17.146097"
+  },
+  {
+    "text": "My opinion of the player changed (improved). Reputation is now 1. Reason: 'Hello there, got any rumors?'",
+    "npc_id": "ash",
+    "player_id": "test_player",
+    "timestamp": "2026-08-22T20:23:24.248598"
+  }
+]

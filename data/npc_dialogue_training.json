@@ -1,0 +1,1922 @@
+{
+  "version": "1.0",
+  "description": "NPC Talk dialogue training data — intent-based responses for all 7 characters.",
+  "npcs": {
+    "ash": {
+      "intents": [
+        {
+          "id": "rumor",
+          "triggers": [
+            "rumor",
+            "news",
+            "hear",
+            "whisper",
+            "gossip",
+            "word",
+            "going on",
+            "happening",
+            "talk"
+          ],
+          "responses": [
+            "Rumor? Friend, I deal in verified intelligence, not rumor. Though I did hear something about the old chapel vaults. For the right compensation, I could be considerably more specific.",
+            "Oh, there's always something floating around. Word is the miller's been meeting with a hooded figure three nights running. You didn't hear that from me.",
+            "Information's my trade, pal. What flavor of news are you after — the kind that gets people in trouble, or the kind that keeps them out of it?"
+          ],
+          "emotion": "suspicious",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 1
+        },
+        {
+          "id": "castle_ruins",
+          "triggers": [
+            "castle",
+            "ruin",
+            "vault",
+            "tunnel",
+            "underground",
+            "beneath",
+            "old fortress",
+            "chapel"
+          ],
+          "responses": [
+            "The castle fell two centuries back when the arcane seal cracked. Anything in those ruins is either priceless, cursed, or both. Ideally both, from a business perspective.",
+            "There are old smuggler tunnels beneath this entire district. I have maps for most of them. Maps aren't free, but neither are broken kneecaps — consider which investment suits your budget.",
+            "Funny you bring up the ruins. A colleague of mine was poking around there last week and hasn't been seen since. I'm choosing to assume they're just being thorough."
+          ],
+          "emotion": "neutral",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 1
+        },
+        {
+          "id": "work_money",
+          "triggers": [
+            "work",
+            "job",
+            "coin",
+            "gold",
+            "pay",
+            "money",
+            "earn",
+            "hire",
+            "errand",
+            "commission",
+            "lucrative",
+            "paying"
+          ],
+          "responses": [
+            "Now we're talking the same language. I need someone with a light touch and a flexible conscience to retrieve a ledger from an abandoned merchant cart north of the crossroads. Pay is fair. Questions about the ledger's contents are not included.",
+            "Looking for coin? I have more jobs than I have hands. The question is whether you're the sort who asks too many questions mid-task. Are you?",
+            "I happen to have a small errand — completely legitimate, mostly. Bring me back what I'm after and I'll make it worth considerably more than your time."
+          ],
+          "emotion": "happy",
+          "action": "start_quest",
+          "action_params": {
+            "quest_name": "Ash's Discreet Errand",
+            "description": "Retrieve a ledger from the abandoned merchant cart north of the crossroads."
+          },
+          "repDelta": 2
+        },
+        {
+          "id": "trust",
+          "triggers": [
+            "trust",
+            "friend",
+            "ally",
+            "reliable",
+            "honest",
+            "faithful",
+            "depend",
+            "count on"
+          ],
+          "responses": [
+            "Trust is the most valuable currency in Thornhaven and the most easily counterfeited. You want mine? Earn it. Bring me something useful and we'll see.",
+            "Everyone calls me 'friend' until they need something. You're doing it right now. I respect the efficiency, at least.",
+            "I don't do trust on first meetings, pal. It's a policy. Keep showing up with useful information and the word 'friend' might eventually mean something."
+          ],
+          "emotion": "thinking",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 0
+        },
+        {
+          "id": "identity",
+          "triggers": [
+            "who are you",
+            "your name",
+            "where from",
+            "background",
+            "past",
+            "who is ash",
+            "tell me about yourself"
+          ],
+          "responses": [
+            "Ash. Just Ash. The rest of my name retired somewhere more comfortable than this town. Any other questions?",
+            "Oh, that's a story you'd need to buy me several drinks to hear, and I'd still edit out the interesting parts.",
+            "Nobody you need to worry about — which is entirely the point. Names give people ideas."
+          ],
+          "emotion": "suspicious",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 0
+        },
+        {
+          "id": "guard_patrol",
+          "triggers": [
+            "guard",
+            "patrol",
+            "soldier",
+            "watch",
+            "garrison",
+            "military",
+            "security",
+            "captain",
+            "sam"
+          ],
+          "responses": [
+            "The guards change shifts at midnight on Tuesdays and Fridays. The southeast post runs consistently late. I'm sharing this as a public service.",
+            "The garrison's stretched thin — something about reports from the northern passes. Whatever's up there has the Captain worried. The Captain doesn't worry easily.",
+            "I have an arrangement with certain members of the watch. Mutually beneficial. We don't ask about each other's evenings."
+          ],
+          "emotion": "suspicious",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 1
+        },
+        {
+          "id": "danger",
+          "triggers": [
+            "danger",
+            "threat",
+            "enemy",
+            "attack",
+            "trouble",
+            "problem",
+            "warning",
+            "careful",
+            "safe",
+            "afraid"
+          ],
+          "responses": [
+            "I'm going to drop the charming act for a moment. Something is wrong in this town — wrong in the way that doesn't make noise until it's already too late. Watch yourself.",
+            "Danger? Pick a direction. I've heard about three separate threats this week alone. Which flavor are you asking about?",
+            "I've been watching something for weeks. Someone is systematically visiting every building with a cellar. Looking for something specific. That worries me more than it probably should."
+          ],
+          "emotion": "neutral",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 0
+        },
+        {
+          "id": "buy_sell",
+          "triggers": [
+            "buy",
+            "sell",
+            "purchase",
+            "trade",
+            "item",
+            "goods",
+            "merchandise",
+            "acquire",
+            "price",
+            "cost",
+            "market"
+          ],
+          "responses": [
+            "I have access to merchandise you won't find in any market stall. Whether I share it depends on whether you know what you're looking for and can afford not to ask where it came from.",
+            "Selling? Maybe. Buying? Always, if the price is right and the provenance is flexible.",
+            "What've you got? I don't buy off the street as a rule, but I make exceptions for things that are interesting enough."
+          ],
+          "emotion": "neutral",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 0
+        },
+        {
+          "id": "favor_deal",
+          "triggers": [
+            "favor",
+            "deal",
+            "alliance",
+            "together",
+            "partnership",
+            "arrangement",
+            "agreement",
+            "bargain"
+          ],
+          "responses": [
+            "Favors. Now there's a currency I understand. What are you offering and what do you want in return? Be specific — I hate vague transactions.",
+            "You want a deal? I deal in deals. Let me hear the full picture before I decide whether this is worth my considerable time.",
+            "Counter-offer: bring me a piece of information I don't already have, and we'll call that a fair trade."
+          ],
+          "emotion": "happy",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 0
+        },
+        {
+          "id": "merchant",
+          "triggers": [
+            "merchant",
+            "trader",
+            "missing",
+            "disappeared",
+            "cargo",
+            "caravan",
+            "left",
+            "gone"
+          ],
+          "responses": [
+            "The merchant who passed through? Interesting. He left his cart. You don't abandon your cargo voluntarily. Someone persuaded him to leave in a hurry.",
+            "I had dealings with that merchant. He was carrying something that wasn't in his manifest — for a third party. I don't know what it was, but whoever wanted it wasn't patient.",
+            "Missing persons in this town usually turn up eventually. The ones who don't — there's a pattern I've been trying to name for three months."
+          ],
+          "emotion": "suspicious",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 1
+        },
+        {
+          "id": "secret_info",
+          "triggers": [
+            "secret",
+            "hidden",
+            "private",
+            "classified",
+            "confidential",
+            "know something",
+            "tell me a secret",
+            "tell me secrets"
+          ],
+          "responses": [
+            "Everyone has secrets in Thornhaven. The interesting ones cost money. The dangerous ones I give away for free, because I'd rather you know than not.",
+            "I know a lot of things I haven't told anyone. Whether now's the time to share them depends on how much you know already and whether you can keep your expression steady.",
+            "Here's something I'll share because it costs me nothing: the old blacksmith shop on the east lane — the boarded one — there's a light inside on moonless nights. Someone's been using it."
+          ],
+          "emotion": "suspicious",
+          "action": "update_reputation",
+          "action_params": {
+            "change": 1
+          },
+          "repDelta": 1
+        },
+        {
+          "id": "mercenary_role",
+          "triggers": [
+            "mercenary",
+            "sellsword",
+            "contract",
+            "bounty",
+            "muscle",
+            "sword for hire",
+            "guard duty"
+          ],
+          "responses": [
+            "A sellsword with clean instincts is worth their weight in gold around here. If your blade is quick and you do not ask who is paying, I have bounties on rogue smugglers waiting for collection.",
+            "Crossroads contracts pay well, but do not get sloppy. The raiders out past the east ridge fight dirty and use poisoned quarrels. Make sure you get half the coin upfront."
+          ],
+          "emotion": "suspicious",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 1
+        },
+        {
+          "id": "scholar_role",
+          "triggers": [
+            "scholar",
+            "research",
+            "archive",
+            "manuscript",
+            "tome",
+            "ancient text",
+            "reading"
+          ],
+          "responses": [
+            "Looking for old pages, bookworm? The castle archives were mostly burned, but three intact codices were smuggled into the crypt cellars. I know which flagstone unlocks the entry.",
+            "Scholars usually do not last long in back alleys, but if you can read pre-cataclysm high cipher, we could decode the stolen merchant ledgers together."
+          ],
+          "emotion": "thinking",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 1
+        },
+        {
+          "id": "merchant_role",
+          "triggers": [
+            "merchant",
+            "trade route",
+            "profit",
+            "margin",
+            "goods",
+            "caravan",
+            "supply"
+          ],
+          "responses": [
+            "The southern trade pass is charging double tariffs this season. But if your caravan takes the old logging trail behind the mill, you bypass the toll checkpoint entirely. Just mind the mud.",
+            "Good commerce is all about information asymmetry. Buy dried herbs in Thornhaven, sell them in the capital where the fever hit, and you have tripled your investment in five days."
+          ],
+          "emotion": "happy",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 1
+        },
+        {
+          "id": "origin_story",
+          "triggers": [
+            "your past",
+            "where are you from",
+            "your origin",
+            "how did you get here",
+            "why thornhaven"
+          ],
+          "responses": [
+            "I grew up in the lower quarter of the capital — learned fast that knowing who is holding the purse is more valuable than holding a sword. Moved to Thornhaven because crossroads always catch the best travelers.",
+            "Everyone has a past in Thornhaven. Mine happens to be heavily redacted. Let us just say I know how both sides of the law operate, and I prefer the middle."
+          ],
+          "emotion": "neutral",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 1
+        },
+        {
+          "id": "cataclysm_history",
+          "triggers": [
+            "cataclysm",
+            "sundered crown",
+            "how seal cracked",
+            "ancient war",
+            "old history"
+          ],
+          "responses": [
+            "Two centuries ago the High King army was falling back. They shattered the five keystones to create an impassable energy barrier. It saved the valley, but it permanently bent the rules of reality around here.",
+            "Official records call it a grand sacrifice. Secret records in my collection say three merchant houses funded the seal to protect their underground vault gold before their transports could be captured."
+          ],
+          "emotion": "thinking",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 1
+        }
+      ],
+      "fallbacks": [
+        "You know, most people who drift into my corner of things are looking for something specific. What's yours?",
+        "Interesting. I'll file that under 'things I'll know more about by tomorrow morning'.",
+        "I hear a lot of things in this town. Whether I share them depends entirely on what you bring to the table, friend.",
+        "My grandfather used to say 'never ask a question you can't afford the answer to.' Smart man. Terrible with money.",
+        "I'm going to pretend I didn't hear that, on the understanding that you'll pretend you didn't ask it. Fresh start?"
+      ],
+      "dismissive_lines": [
+        "I deal in valuable information, friend, and whatever that was isn't paying any bills. I'm in a bit of a rush right now.",
+        "This isn't the best time for idle talk. I have an associate meeting me in ten minutes. State real business or move along.",
+        "I have no idea what you're on about, and time is money. Let's stick to things that matter in Thornhaven."
+      ]
+    },
+    "finn": {
+      "intents": [
+        {
+          "id": "adventure_explore",
+          "triggers": [
+            "adventure",
+            "explore",
+            "exciting",
+            "expedition",
+            "discover",
+            "find",
+            "look for",
+            "investigate"
+          ],
+          "responses": [
+            "YES! Wait — actually Dad says I have to finish sweeping the grain floor first. But if you look behind the hollow willow near the creek, there's a path that goes straight to where I think the goblin scouts were. I've been mapping it!",
+            "I have a notebook with fourteen pages of observations. Fourteen! Most of it's probably important. You want to see?",
+            "Okay, so, there are tracks near the east fence post I haven't identified yet. Not human. Not wolf. Not anything in the animal guide Eva lent me. I drew them. Twice."
+          ],
+          "emotion": "happy",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 0
+        },
+        {
+          "id": "woods_forest",
+          "triggers": [
+            "wood",
+            "forest",
+            "whispering",
+            "trees",
+            "path",
+            "trail",
+            "outside",
+            "wilderness"
+          ],
+          "responses": [
+            "The Whispering Woods are called that because of the sound, right, and everyone says it's wind — but it's not the same on both sides of the big oak. I tested it. The north side is louder. That means something.",
+            "I go into the edge of the woods sometimes. Not far! Just far enough to see things. Last time there was a light moving between the trees that wasn't a firefly — because fireflies don't move in straight lines. I know because I watched one for an hour.",
+            "Wait, actually — did you come through the woods? There's a path that turns left after the second big rock. I left a marker there. Did anyone move it? This is important."
+          ],
+          "emotion": "happy",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 0
+        },
+        {
+          "id": "suspicious_spy",
+          "triggers": [
+            "suspicious",
+            "spy",
+            "follow",
+            "watching",
+            "stranger",
+            "hooded",
+            "weird person",
+            "lurking"
+          ],
+          "responses": [
+            "Wait, actually! I saw a hooded figure near the old well last Tuesday at dusk. They dropped something in the water. I was too far to see what. And — I know this sounds strange — they didn't have a shadow. I checked twice.",
+            "Okay so I've been following Ash for three weeks. I'm very subtle about it. I'm pretty sure they haven't noticed. ...They've definitely noticed. But I'm learning things.",
+            "There's someone new in town who's been asking about the underground passages. Nobody else noticed because nobody else watches the new arrivals like I do."
+          ],
+          "emotion": "surprised",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 0
+        },
+        {
+          "id": "ghost_scary",
+          "triggers": [
+            "ghost",
+            "scary",
+            "afraid",
+            "haunted",
+            "spirit",
+            "strange noise",
+            "sound",
+            "moving"
+          ],
+          "responses": [
+            "Okay so — ghosts. I asked Tabitha about ghosts once and she answered and now I can't think about it too hard. Different topic.",
+            "Three weeks ago, I heard something under the old well. Not water. Not pipes. Breathing. And I know how that sounds but I know what breathing sounds like.",
+            "I'm not scared. I'm... strategically cautious. There's a difference. Sam says that. Sam is definitely not scared of anything."
+          ],
+          "emotion": "surprised",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 0
+        },
+        {
+          "id": "sam_forge",
+          "triggers": [
+            "sam",
+            "forge",
+            "blacksmith",
+            "smith",
+            "anvil",
+            "metal",
+            "fire",
+            "sparks",
+            "bellows"
+          ],
+          "responses": [
+            "Sam is probably the coolest person alive. Don't tell her I said that. She caught me in the forge three times and never told my dad — so, you know. She's great.",
+            "I want to learn to forge. Sam won't teach me yet but she let me pump the bellows once and the sparks went all the way to the rafters. ALL the way.",
+            "Wait, are you going to the forge? Can I — actually, never mind, I'm supposed to be at the mill. Tell Sam I said... actually, don't tell Sam anything. She'll ask questions."
+          ],
+          "emotion": "happy",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 0
+        },
+        {
+          "id": "merchant_missing",
+          "triggers": [
+            "merchant",
+            "missing",
+            "disappeared",
+            "trader",
+            "cart",
+            "nobody talking"
+          ],
+          "responses": [
+            "Okay so the merchant. Everyone's acting like he just left normally but he left his cart. You don't leave your cart. I've been asking around and nobody will give me a straight answer, which means something happened.",
+            "I saw him talking to someone near the east gate the night before he disappeared. Hooded. Short. Really still in a way that felt wrong. I was in the mill window. Nobody saw me.",
+            "I have a theory about the merchant. It involves the tunnels under the old chapel. The guards ignore my reports because I'm a teenager, but I've mapped those tracks."
+          ],
+          "emotion": "surprised",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 1
+        },
+        {
+          "id": "ruth_elder",
+          "triggers": [
+            "tabitha",
+            "elder",
+            "old woman",
+            "sage",
+            "lore",
+            "wise",
+            "scary lady",
+            "tabitha"
+          ],
+          "responses": [
+            "Elder Tabitha's... fine. She just — when she looks at you, it feels like she already knows everything you've done wrong. I try to be respectful.",
+            "I asked Elder Tabitha about valley lore once. She answered. In poetic detail. I still think about it.",
+            "Elder Tabitha is a lot. You know how some people feel old? Tabitha feels ancient in a way that goes back further than old should go."
+          ],
+          "emotion": "suspicious",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 0
+        },
+        {
+          "id": "secret_hidden",
+          "triggers": [
+            "secret",
+            "hidden",
+            "find",
+            "discover",
+            "clue",
+            "mystery",
+            "puzzle",
+            "solving"
+          ],
+          "responses": [
+            "I know things. People underestimate me because I'm sixteen. That's their mistake.",
+            "Okay so there's a spot behind the old granary where the boards are loose. Under them — actual stairs. Going down. I haven't gone down yet because I'm not reckless, but I've mapped the entrance.",
+            "If you want to know hidden things in this town, ask the apprentice scout who watches every rooftop and ridge. What do you need?"
+          ],
+          "emotion": "happy",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 1
+        },
+        {
+          "id": "creature_monster",
+          "triggers": [
+            "wolf",
+            "creature",
+            "monster",
+            "beast",
+            "animal",
+            "dire",
+            "dangerous animal"
+          ],
+          "responses": [
+            "Dire wolves? I've heard them. At the edge of the forest, three nights running. They sound different from regular wolves — lower. And they don't stay at the tree line the way normal wolves do.",
+            "There was something in the chicken yard last week. Not a fox. Foxes don't leave footprints that size. I measured. Seventeen centimeters. I wrote it down.",
+            "I think something's been displaced from deeper in the woods. Like something bigger came in and pushed everything else out toward us. That would explain the weird animal behavior."
+          ],
+          "emotion": "surprised",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 0
+        },
+        {
+          "id": "scout_role",
+          "triggers": [
+            "scout",
+            "tracking",
+            "trails",
+            "navigation",
+            "ridges",
+            "rooftops",
+            "lookout"
+          ],
+          "responses": [
+            "No way, you are interested in scouting too?! I mapped out the entire ridgeline north of the river! There is a hollow pine where you can overlook the whole goblin encampment without being spotted!",
+            "Best lookout spot in town is the mill roof just before dawn. You can see the whole valley mist clearing and track every caravan arriving on the main road!"
+          ],
+          "emotion": "happy",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 1
+        },
+        {
+          "id": "mercenary_role",
+          "triggers": [
+            "mercenary",
+            "warrior",
+            "sword fighting",
+            "combat moves",
+            "fighting beasts"
+          ],
+          "responses": [
+            "Whoa, that sword looks so heavy! Can you teach me that counter-parry move soldiers use against spearmen? the village watch said I have to wait until I am eighteen, but I want to practice now!",
+            "If you are heading out to fight dire wolves, watch out for the ravine slopes! They like to herd prey onto loose scree where you lose your footing!"
+          ],
+          "emotion": "surprised",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 1
+        },
+        {
+          "id": "origin_story",
+          "triggers": [
+            "your past",
+            "your family",
+            "miller",
+            "growing up",
+            "how long here"
+          ],
+          "responses": [
+            "My dad runs the grain mill by the eastern river. He wants me to take over the flour bags, but I want to be the best border scout Thornhaven has ever seen!",
+            "I have lived in Thornhaven my whole sixteen years. I know which floorboards creak in every tavern, and where the old cellars connect beneath the village square!"
+          ],
+          "emotion": "happy",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 1
+        },
+        {
+          "id": "monsters_and_wildlife",
+          "triggers": [
+            "dire wolf",
+            "wolves",
+            "beasts",
+            "forest danger",
+            "goblin tracks"
+          ],
+          "responses": [
+            "The dire wolf tracks near the frozen brook are seventeen centimeters wide! Regular wolves do not leave paw prints that big. They travel in pairs along the high ridges!",
+            "I found three goblin arrowheads stuck in an oak tree last week. Not stone tips either — forged iron! That means someone is supplying them."
+          ],
+          "emotion": "surprised",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 1
+        },
+        {
+          "id": "castle_ruins",
+          "triggers": [
+            "ruins",
+            "castle ruins",
+            "way to ruins",
+            "how do i get to ruins",
+            "directions to ruins",
+            "where are the ruins",
+            "old castle",
+            "old fortress",
+            "crumbled tower",
+            "ancient ruins",
+            "tell me the way",
+            "guide me to",
+            "path to the ruins",
+            "how to reach",
+            "castle",
+            "fort"
+          ],
+          "responses": [
+            "Oh, the castle ruins! YES — okay so from the village square, head north past the old well, then follow the stone wall east until you hit the split oak tree. Don't take the left fork — that's the marsh path and it gets boggy after rain. Take the right and you'll see the crumbled tower arch after about ten minutes. You can't miss it!",
+            "The ruins? I've been there fourteen times! From here: cross the mill bridge, go straight through the birch grove, and when the path forks at the boulder with the moss on the north side, keep left. You'll hear the wind through the broken arches before you see them. Stay out of the lower vaults though — the floor isn't solid.",
+            "I actually mapped the fastest route last week! Cut through the eastern meadow — ignore what people say about it being 'out of bounds' — then follow the dried-up creek bed north. The ruins are at the top of the ridge. Takes maybe fifteen minutes if you're quick. I can draw it in the dirt if that helps!"
+          ],
+          "emotion": "happy",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 2
+        }
+      ],
+      "fallbacks": [
+        "Oh! Wait — I just remembered something. ...No, it's gone. It'll come back.",
+        "I've been keeping watch from the mill roof for three mornings. You would not believe what I've seen. Actually you might not believe it even if I told you.",
+        "Have you ever noticed how adults never explain anything? Like, things are obviously happening and everyone just... talks around it. It's so weird.",
+        "I know things. People underestimate me because I'm nine. That's their problem."
+      ],
+      "dismissive_lines": [
+        "Wait, what? I don't really understand what you mean, and I have to get back to watching the mill before Dad sees me!",
+        "I don't know anything about that! Plus I'm supposed to be finishing my chores right now so I can't talk long.",
+        "Uh, I have no clue what that is. Ask one of the elders! I have to go check my secret trail markers!"
+      ]
+    },
+    "eva": {
+      "intents": [
+        {
+          "id": "remedy_potion",
+          "triggers": [
+            "potion",
+            "remedy",
+            "tincture",
+            "cure",
+            "medicine",
+            "draught",
+            "elixir",
+            "brew",
+            "treatment"
+          ],
+          "responses": [
+            "For fatigue, I'd suggest the meadowstem infusion — take it with warm water, not cold. What exactly are your symptoms? Be specific. 'Not feeling well' doesn't help me narrow it down.",
+            "Here — a tincture of wild mint and moonflower. It soothes goblin poison and restores vitality on long roads. One dose in the morning, nothing after sundown.",
+            "I've been refining a new anti-fever draught using marsh root. Would you like to try it? The side effects are minimal — mostly vivid dreams, and usually pleasant ones."
+          ],
+          "emotion": "happy",
+          "action": "give_item",
+          "action_params": {
+            "item": "Meadowstem Tincture"
+          },
+          "repDelta": 1
+        },
+        {
+          "id": "poison",
+          "triggers": [
+            "poison",
+            "toxic",
+            "venom",
+            "contaminate",
+            "tainted",
+            "strange substance",
+            "purple",
+            "discolored"
+          ],
+          "responses": [
+            "Poison? Describe the symptoms precisely — color, location, rate of onset. Identification is mostly process of elimination, and I prefer to eliminate quickly.",
+            "I've catalogued seventeen toxic compounds found in this region. If you've encountered something unusual, bring me a sample — carefully — and I'll identify it.",
+            "The violet discoloration on the riverbank moss — yes, I've noticed. The ancient wards in the deep forest are deteriorating. This is a secondary effect, not yet a primary threat. Yet."
+          ],
+          "emotion": "thinking",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 0
+        },
+        {
+          "id": "ingredient_gather",
+          "triggers": [
+            "ingredient",
+            "herb",
+            "gather",
+            "frostmoss",
+            "plant",
+            "flower",
+            "collect",
+            "find for you",
+            "bring"
+          ],
+          "responses": [
+            "Actually, yes — I'm running low on Frostmoss. It grows on the high mountain ridges and it's essential for the winter fever draughts. If you're heading that direction, I'd pay well for fresh cuttings. Please don't uproot the whole plant.",
+            "You're offering to gather ingredients? That's — genuinely helpful. Most people just want the end product. There's a list on the board; anything on it earns you remedies or coin.",
+            "Frostmoss, star-lily, shadow-bark — I can use any of those immediately. If you find something you don't recognize, bring it in whole. Don't taste it first."
+          ],
+          "emotion": "happy",
+          "action": "start_quest",
+          "action_params": {
+            "quest_name": "Gather Frostmoss",
+            "description": "Bring fresh Frostmoss cuttings from the mountain ridges to Eva."
+          },
+          "repDelta": 2
+        },
+        {
+          "id": "wound_injury",
+          "triggers": [
+            "wound",
+            "hurt",
+            "bleed",
+            "injury",
+            "pain",
+            "cut",
+            "stabbed",
+            "burned",
+            "broken",
+            "bandage"
+          ],
+          "responses": [
+            "Sit down. Let me see. I've treated worse — much worse — and I've learned that people who downplay injuries make them worse by doing so. Hold still.",
+            "That's a clean cut, which means it was a tool or an intent. Either way it needs closing. This will sting briefly and then be considerably better.",
+            "The body's remarkably good at healing when you stop interfering. I'll dress this. You'll rest for one full day. Not negotiable."
+          ],
+          "emotion": "neutral",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 0
+        },
+        {
+          "id": "buy_sell",
+          "triggers": [
+            "buy",
+            "purchase",
+            "sell",
+            "price",
+            "cost",
+            "stock",
+            "what do you have",
+            "shop",
+            "trade"
+          ],
+          "responses": [
+            "The remedies are listed by the door. Prices are fixed — I've found that negotiating for health care sets a troubling precedent.",
+            "I trade as well as accept coin. Rare ingredients, useful information, honest labor in the garden — I'm flexible on terms if the offering is fair.",
+            "I don't overcharge. I also don't undersell. The price reflects time, ingredients, and knowledge. That's what you're paying for."
+          ],
+          "emotion": "neutral",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 0
+        },
+        {
+          "id": "disease_illness",
+          "triggers": [
+            "disease",
+            "illness",
+            "fever",
+            "sick",
+            "plague",
+            "epidemic",
+            "spreading",
+            "contagious"
+          ],
+          "responses": [
+            "Strange cases have been appearing near the eastern wood — three this month with similar symptoms. Joint stiffness, low fever, light sensitivity. I'm still working out the cause.",
+            "Tell me the full history. When it started, what changed in the days before, what makes it better or worse. Don't skip the embarrassing parts — they're usually the most useful.",
+            "Illness in this region often has environmental roots. The water table, the old burial grounds, the deteriorating magical wards. I keep records of all of it."
+          ],
+          "emotion": "thinking",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 0
+        },
+        {
+          "id": "magic_wards",
+          "triggers": [
+            "magic",
+            "strange",
+            "ancient",
+            "wards",
+            "protective",
+            "arcane",
+            "ley",
+            "enchanted",
+            "curse"
+          ],
+          "responses": [
+            "The wards beneath this region were laid centuries ago. They're not disappearing — they're being disrupted. Something with intent is moving through the old places.",
+            "I was trained in herbalism and minor protective magic. The two are more connected than people realize — plants respond to magical disruption long before people do.",
+            "Strange is relative, in my experience. What specifically have you noticed? I keep a record. Patterns matter."
+          ],
+          "emotion": "thinking",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 0
+        },
+        {
+          "id": "fatigue",
+          "triggers": [
+            "tired",
+            "exhausted",
+            "fatigue",
+            "weary",
+            "sleepy",
+            "no energy",
+            "drained",
+            "worn out"
+          ],
+          "responses": [
+            "Fatigue after heavy travel — take the meadowstem tincture and rest. Not 'try to rest.' Actually rest. There's a difference, and your body knows which one you're doing.",
+            "You look like someone who's been pushing through it for too long. That catches up with you. Here — this blend restores vitality without the jitters some remedies cause.",
+            "Three things cause that particular kind of tiredness: over-exertion, magical exposure, or something emotional that you haven't addressed. Which is it?"
+          ],
+          "emotion": "neutral",
+          "action": "give_item",
+          "action_params": {
+            "item": "Vitality Draught"
+          },
+          "repDelta": 0
+        },
+        {
+          "id": "identify",
+          "triggers": [
+            "identify",
+            "what is this",
+            "examine",
+            "what kind",
+            "tell me about this",
+            "found this",
+            "strange item"
+          ],
+          "responses": [
+            "Let me see it. ...Interesting. I've seen something like this before — the composition is unusual. Give me a moment with it and I'll tell you what I know.",
+            "I keep reference texts going back two hundred years. Whatever you've found, it's likely in one of them. Set it down carefully — some things react to handling.",
+            "Unusual findings in this region are more common than they should be. I maintain a catalog. Whatever this is, it goes in it."
+          ],
+          "emotion": "thinking",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 0
+        },
+        {
+          "id": "healer_role",
+          "triggers": [
+            "healer",
+            "herbalism",
+            "botany",
+            "tinctures",
+            "salves",
+            "alchemy",
+            "distillation"
+          ],
+          "responses": [
+            "Welcome, fellow practitioner of medicine! When harvesting Frostmoss, always cut just below the third nodal blossom to preserve root viability for the following spring.",
+            "The secret to a potent anti-fever draught is slow cold-maceration over three lunar cycles. Rapid boiling destroys the volatile aromatic oils that calm inflammation."
+          ],
+          "emotion": "happy",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 1
+        },
+        {
+          "id": "mercenary_role",
+          "triggers": [
+            "mercenary",
+            "battlefield wounds",
+            "sword cuts",
+            "cauterize",
+            "endurance"
+          ],
+          "responses": [
+            "Warriors frequently neglect internal contusions. Even if armor deflects a mace strike, the blunt kinetic energy causes deep tissue swelling. Drink this willow-bark tea tonight.",
+            "Never cauterize a blade cut with dirty iron — it traps necrotic bacteria inside. Flush the wound with sterile chamomile water first, then apply Meadowstem paste."
+          ],
+          "emotion": "neutral",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 1
+        },
+        {
+          "id": "origin_story",
+          "triggers": [
+            "your past",
+            "why apothecary",
+            "how did you learn",
+            "where from"
+          ],
+          "responses": [
+            "My grandmother was an herbalist in the high valley before the wars. She taught me that every illness has its corresponding antidote growing within three leagues if one knows how to look.",
+            "I settled in Thornhaven after seeing how many travelers arrived sick and wounded from the broken roads. Healing is not just a trade here — it is a lifeline."
+          ],
+          "emotion": "happy",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 1
+        },
+        {
+          "id": "castle_ruins",
+          "triggers": [
+            "ruins",
+            "castle ruins",
+            "way to ruins",
+            "how do i get to ruins",
+            "directions to ruins",
+            "where are the ruins",
+            "old castle",
+            "old fortress",
+            "crumbled tower",
+            "ancient ruins",
+            "tell me the way",
+            "guide me to",
+            "path to the ruins",
+            "how to reach",
+            "castle",
+            "fort"
+          ],
+          "responses": [
+            "The castle ruins? Follow the north road out of the village until you see the split boulder — the one the children chalk-mark for games. From there, cut east along the old shepherd's trail for about a quarter hour. You will smell the damp stonework before you see the walls. I should warn you — several travelers have come to me with old-stone fever from those vaults. Wear a scarf over your face down below.",
+            "I know those ruins better than most. I gathered moonflower there last autumn — grows only in shaded rubble. Head north through the birch grove, keep the ridge on your right, and you will find the outer gate arch after twenty minutes of easy walking. Do not touch the green-tinged stones in the lower levels. Something grows on them that causes a rash I'd rather not have to treat again.",
+            "Straight north road, then east at the broken mill marker. The path climbs gently and the ruins are right at the crest — you cannot miss the twin towers against the skyline. I have a salve for stone-dust lungs if you need one before you go."
+          ],
+          "emotion": "neutral",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 1
+        }
+      ],
+      "fallbacks": [
+        "Mind the drying star-lilies above the counter — they stain permanently. Now. What is it you need?",
+        "I've a tendency to know what's wrong before people tell me. Take your time. I'm not going anywhere.",
+        "You're not the first traveler to walk in here looking uncertain. You won't be the last. What can I do for you?",
+        "The body keeps its own kind of record. Whatever's troubling you, I've likely seen something similar before."
+      ],
+      "dismissive_lines": [
+        "I have three boiling tinctures on the stove that need constant watching. This isn't the best time for idle chatter.",
+        "I'm in a bit of a rush preparing seasonal salves right now. If you don't need medicine or have herbs to trade, we can speak later.",
+        "I don't know what to make of that, traveler. My focus right now is on treating the sick."
+      ]
+    },
+    "sam": {
+      "intents": [
+        {
+          "id": "weapon_blade",
+          "triggers": [
+            "sword",
+            "blade",
+            "weapon",
+            "knife",
+            "dagger",
+            "axe",
+            "spear",
+            "edge",
+            "steel",
+            "sharpen",
+            "forge weapon"
+          ],
+          "responses": [
+            "Hand it over. ...Hmm. Balance is right, but the edge has caught on something hard — troll hide, probably. An hour with the whetstone and some star-oil and it'll be better than new. Not free.",
+            "You want a new blade? Tell me what you're fighting and I'll tell you what you need. Don't say 'everything' — that is not a metallurgical specification.",
+            "A sword is only as good as the person holding it and the steel it's made from. I can guarantee the steel. The other part is entirely your problem."
+          ],
+          "emotion": "neutral",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 0
+        },
+        {
+          "id": "armor_shield",
+          "triggers": [
+            "shield",
+            "armor",
+            "armour",
+            "plate",
+            "chainmail",
+            "protection",
+            "defend",
+            "deflect",
+            "guard"
+          ],
+          "responses": [
+            "What are you up against? Because dragonscale and plate have very different production times, and I won't start one if you need the other.",
+            "The shield you've got is functional. Not great. Bring me two iron ingots from the mine and I'll make you something that'd stop a troll charge. Probably.",
+            "I've made more plate armor than I can count. Every piece has a story. Most of those stories involve someone not dying who probably should have. What's yours going to be?"
+          ],
+          "emotion": "neutral",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 0
+        },
+        {
+          "id": "upgrade_repair",
+          "triggers": [
+            "upgrade",
+            "repair",
+            "fix",
+            "restore",
+            "improve",
+            "reinforce",
+            "better",
+            "strengthen",
+            "enhance"
+          ],
+          "responses": [
+            "Repair is doable. Upgrade depends on what you're working with — you can't plate-forge a bronze base. Bring it in, I'll have a look, and I'll tell you what's possible.",
+            "Everything can be improved. Everything has a breaking point. My job is to find out where yours is and push it further out. Leave it for two days.",
+            "Fixed. Don't put it through anything stupider than what broke it in the first place — I have limited patience for repeat jobs."
+          ],
+          "emotion": "neutral",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 0
+        },
+        {
+          "id": "rare_material",
+          "triggers": [
+            "ore",
+            "metal",
+            "material",
+            "starmetal",
+            "rare",
+            "found",
+            "dungeon loot",
+            "dragon-coal",
+            "strange metal",
+            "ingot"
+          ],
+          "responses": [
+            "Is that Starmetal ore? Let me see. ...How did you — where did you find this? The heat required to smelt this is intense, but what comes out of it doesn't dull, doesn't break, and doesn't miss. You have an eye for quality. That doesn't happen often.",
+            "Rare material. Good. What do you want made from it? Think carefully — I will not use this on something you're going to lose in a tavern game. This is a permanent decision.",
+            "I've worked dragon-coal, sky-iron, and once a fragment of something that fell from orbit. This goes on that list. What exactly do you need from it?"
+          ],
+          "emotion": "surprised",
+          "action": "start_quest",
+          "action_params": {
+            "quest_name": "Rare Material Forging",
+            "description": "Bring the rare material to Sam for processing into a legendary item."
+          },
+          "repDelta": 3
+        },
+        {
+          "id": "combat_war",
+          "triggers": [
+            "fight",
+            "battle",
+            "war",
+            "soldier",
+            "combat",
+            "training",
+            "attack",
+            "enemy",
+            "survive",
+            "warrior"
+          ],
+          "responses": [
+            "Keep your shield up and your blade sharp. First rule. Second: don't get fancy until you know what you're dealing with. Third: if it doesn't flinch when you hit it, run. I survived three wars learning those three things.",
+            "War's a profession, not an adventure. If you're treating it like the second one, get better information before you leave town.",
+            "I spent fifteen years as a soldier before I came here. I'd go back if Thornhaven needed it. I hope it doesn't need it. I'm also not counting on that."
+          ],
+          "emotion": "neutral",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 0
+        },
+        {
+          "id": "teach_apprentice",
+          "triggers": [
+            "apprentice",
+            "learn",
+            "teach",
+            "train",
+            "show me",
+            "how do you",
+            "smith yourself",
+            "become"
+          ],
+          "responses": [
+            "Apprentice. Show me your hands. ...Calluses in the right places. That helps. You're not starting from nothing. Come back at dawn. If you're late, the position goes to whoever shows up instead.",
+            "I'll teach the basics. Emphasis on basics. You don't go near my good materials until I know you won't waste them. That takes time. I don't apologize for that.",
+            "The forge isn't a place you learn by watching. You learn by doing, by burning yourself, by scrapping three attempts before the fourth one works. Ready for that?"
+          ],
+          "emotion": "neutral",
+          "action": "start_quest",
+          "action_params": {
+            "quest_name": "Sam's Apprenticeship",
+            "description": "Report to Sam's forge at dawn to begin basic smithing training."
+          },
+          "repDelta": 2
+        },
+        {
+          "id": "village_defense",
+          "triggers": [
+            "village",
+            "defense",
+            "protect",
+            "wall",
+            "raid",
+            "attack coming",
+            "garrison",
+            "fortify",
+            "keep safe"
+          ],
+          "responses": [
+            "The village needs more than walls. It needs people who know how to stand behind them. I've been training the available volunteers every week. They're getting there.",
+            "I've been looking at the east wall. There's a section that won't hold under sustained pressure. I've told the Captain. She's aware. Whether the council acts is a different question.",
+            "Defending this place is the only job I came here to do. Don't make me explain why that matters. Either you understand or you don't."
+          ],
+          "emotion": "neutral",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 1
+        },
+        {
+          "id": "finn",
+          "triggers": [
+            "finn",
+            "kid",
+            "boy",
+            "child",
+            "young",
+            "sneaking"
+          ],
+          "responses": [
+            "...the kid keeps showing up. I've caught him sneaking in here three times. Haven't told his father. He's going to get burned one day and I'd rather it happen in a supervised environment than in a moment of stupidity. Don't tell him I said that.",
+            "Finn's sharp. Sharper than people give him credit for. He notices things. I let him stay because curious kids either learn or get hurt, and I'd rather supervise the first option.",
+            "He left a notebook on my workbench last week. I didn't read it. It was open to a page with a very detailed drawing of my forge layout. I still didn't read it."
+          ],
+          "emotion": "neutral",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 0
+        },
+        {
+          "id": "tabitha",
+          "triggers": [
+            "tabitha",
+            "elder",
+            "old woman",
+            "sage",
+            "border war",
+            "owe",
+            "debt"
+          ],
+          "responses": [
+            "I owe Tabitha my life. Literally. Northern pass, border wars, a situation I had no business surviving. She pulled me out. We don't talk about it. I know, she knows I know. That's enough.",
+            "Tabitha is the kind of person you're glad exists even when she makes you want to walk into a wall with the cryptic approach. I'd fight an army for her without being asked. Hopefully she never asks."
+          ],
+          "emotion": "neutral",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 0
+        },
+        {
+          "id": "price_cost",
+          "triggers": [
+            "price",
+            "cost",
+            "how much",
+            "pay",
+            "coin",
+            "expensive",
+            "afford",
+            "charge"
+          ],
+          "responses": [
+            "What I charge reflects what the work is worth. Not a copper less. If you want cheap, there's a city three days south with plenty of cheap blacksmiths and a very active funeral business.",
+            "Fair price. The materials, the time, the expertise. You're not paying for my good mood — lucky for you, since I rarely have one.",
+            "Tell me the job first. Then I'll tell you what it costs. Giving prices without knowing the scope is how blacksmiths go broke."
+          ],
+          "emotion": "neutral",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 0
+        },
+        {
+          "id": "mercenary_role",
+          "triggers": [
+            "mercenary",
+            "warrior",
+            "weapon balance",
+            "blade tempering",
+            "armor fitting"
+          ],
+          "responses": [
+            "A true soldier knows that blade sharpness means nothing without balance. A sword heavy at the tip tires your wrist in ten minutes of melee. My folded steel keeps the center of gravity two inches above the guard.",
+            "Never let rust pit your chainmail links. Rub sheep tallow into the rivets after rain marches, and use a coarse whetstone only along the bevel angle."
+          ],
+          "emotion": "neutral",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 1
+        },
+        {
+          "id": "scholar_role",
+          "triggers": [
+            "scholar",
+            "magic weapons",
+            "runes",
+            "starmetal",
+            "enchanting"
+          ],
+          "responses": [
+            "If you are trying to etch arcane runes into steel, standard iron will not hold the mana — the crystal lattice fractures from thermal shock. You need Starmetal with nickel fold lines.",
+            "Elder Tabitha brought me a shattered arcane wand once. We reforged the core casing in dragon-coal at twelve hundred degrees, and it channeled frost magic cleanly without cracking."
+          ],
+          "emotion": "thinking",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 1
+        },
+        {
+          "id": "origin_story",
+          "triggers": [
+            "your past",
+            "old campaigns",
+            "veteran",
+            "soldier",
+            "war story"
+          ],
+          "responses": [
+            "Served twenty years in the heavy infantry vanguard across the northern front. Lost good friends, saw too much fire. Now I forge steel so our young guards have armor that actually saves their lives.",
+            "I learned smithing from my master in the siege regiments. When supplies ran out, we had to forge spearheads from broken wagon wheel tires. You learn real metallurgy under pressure."
+          ],
+          "emotion": "neutral",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 1
+        },
+        {
+          "id": "castle_ruins",
+          "triggers": [
+            "ruins",
+            "castle ruins",
+            "way to ruins",
+            "how do i get to ruins",
+            "directions to ruins",
+            "where are the ruins",
+            "old castle",
+            "old fortress",
+            "crumbled tower",
+            "ancient ruins",
+            "tell me the way",
+            "guide me to",
+            "path to the ruins",
+            "how to reach",
+            "castle",
+            "fort"
+          ],
+          "responses": [
+            "North road out of the village, then east when you hit the old boundary stone — you'll know it, it's the one with the iron ring bolted in. Ruins are on the ridge. Forty minutes on foot, less if you push. Watch the eastern wall section — stonework's rotten and it shifts in wet weather. I know because I retrieved a guard from under a collapsed lintel two years back.",
+            "You want directions to the ruins. Fine. North past the well, left at the grain mill, then follow the ridge path east until you can't go further. That's it. The ruins are there. If you're planning to go inside, take a torch and test the floor before you put your full weight on it. I'm speaking from hard experience.",
+            "The ruins? North road, over the brook bridge, up the ridge. Can't miss them — two crumbled towers visible from half a league away. It's a straightforward walk. What you do when you get there is your own business, but don't do anything stupid enough that someone has to carry you back."
+          ],
+          "emotion": "neutral",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 1
+        }
+      ],
+      "fallbacks": [
+        "State your business. I'm not running a social club.",
+        "You're standing in my forge. There's only one reason people do that. What do you need?",
+        "I've got three things on the anvil and a commission due by sundown. Be quick or come back tomorrow.",
+        "I don't do small talk. It's not a flaw, it's a time management strategy."
+      ],
+      "dismissive_lines": [
+        "I'm in the middle of tempering folded steel over a hot fire. I don't have time for nonsense right now.",
+        "This isn't the time for idle chatter. If you don't have a weapon to forge or repair, let me get back to the anvil.",
+        "I don't know what you're rambling about, and the forge fires are burning hot. Make it quick or come back tomorrow."
+      ]
+    },
+    "tabitha": {
+      "intents": [
+        {
+          "id": "history_lore",
+          "triggers": [
+            "history",
+            "lore",
+            "past",
+            "records",
+            "ancient",
+            "old times",
+            "before",
+            "origin",
+            "founding",
+            "tell me about"
+          ],
+          "responses": [
+            "Before this village had a name, three sovereign lords swore a covenant beneath the elder oak. When darkness rose, they bound their spirits to three sanctuary keystones. Two remain. The third — no one speaks of, and that silence has weight.",
+            "I have kept records for longer than this village has kept records. Ask me something specific, child. 'History' is too large a room. Tell me which door you are looking for.",
+            "The valley holds its past in its stones. I have spent a very long time learning to read them. What you want to know — it is older than it looks, and stranger than the stories suggest."
+          ],
+          "emotion": "neutral",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 1
+        },
+        {
+          "id": "danger_prophecy",
+          "triggers": [
+            "danger",
+            "threat",
+            "prophecy",
+            "warning",
+            "coming",
+            "darkness",
+            "evil",
+            "shadow",
+            "foretold",
+            "destined"
+          ],
+          "responses": [
+            "The ancient texts speak of a shadow that returns when the twin moons align. Steel alone will not prevail. Wisdom and bonded fellowship are the true shields. Do you understand what I mean by 'bonded'?",
+            "I have felt something shift in the past weeks. Not danger — not yet. A kind of pressure, like the silence before a storm gathers itself. Be watchful and be patient.",
+            "Every generation believes their threat is the first of its kind. It rarely is. The names change. The shape of it is older than any of us."
+          ],
+          "emotion": "thinking",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 0
+        },
+        {
+          "id": "castle_ruins",
+          "triggers": [
+            "castle",
+            "ruin",
+            "fortress",
+            "old building",
+            "fallen",
+            "collapsed",
+            "abandoned structure"
+          ],
+          "responses": [
+            "The castle fell because of a decision made in pride rather than wisdom. The lord who lived there believed strength alone could hold back what was coming. He was right about the threat. He was wrong about the remedy.",
+            "The ruins are not empty. I would not say haunted — that is too simple a word. I would say they remember, and remembering has weight that can press against the living.",
+            "I have not walked through the castle ruins in many years. Not because I fear them — because some places deserve to rest. Go carefully. And do not take anything."
+          ],
+          "emotion": "neutral",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 1
+        },
+        {
+          "id": "magic_arcane",
+          "triggers": [
+            "magic",
+            "mage",
+            "arcane",
+            "spell",
+            "enchant",
+            "power",
+            "mystical",
+            "sorcery",
+            "ritual",
+            "wards"
+          ],
+          "responses": [
+            "I was a court mage once, in a kingdom that no longer exists. What I learned there I carry carefully — because knowledge without wisdom is a lit torch in a paper house.",
+            "The arcane wards beneath this valley were not made by human hands. I believe their purpose remains active. I do not know if their maker still watches. That uncertainty is... meaningful.",
+            "Magic is not a tool, child. It is a conversation with something very old. If you speak carelessly, you will not like what answers."
+          ],
+          "emotion": "thinking",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 1
+        },
+        {
+          "id": "truth_knowledge",
+          "triggers": [
+            "truth",
+            "secret",
+            "knowledge",
+            "know",
+            "tell me",
+            "what do you know",
+            "information",
+            "learn"
+          ],
+          "responses": [
+            "The truth you want — are you certain you are ready for it? I have watched people seek answers and spend years trying to forget them. I am not being unkind. I am being precise.",
+            "I have kept secrets for a very long time. Not from cruelty — from patience. Some truths need the right moment, the way seeds need the right season. Your moment may not be now. But I am watching.",
+            "There is a difference between what is secret and what is simply unasked. Most of what people want to know, they could find — if they thought to ask the right person at the right time."
+          ],
+          "emotion": "thinking",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 0
+        },
+        {
+          "id": "quest_task",
+          "triggers": [
+            "quest",
+            "mission",
+            "task",
+            "help",
+            "what can i do",
+            "need something",
+            "errand",
+            "send me"
+          ],
+          "responses": [
+            "You seek a task from me. I appreciate directness. But I give tasks only to those who have shown they understand what they are undertaking. What have you done since arriving in Thornhaven that tells me you are ready?",
+            "There is something I need — but it requires a person I trust, and trust takes time to build. Speak with the others first. What you learn from them will tell me what I need to know about you.",
+            "The task I have in mind is not dangerous in obvious ways. It requires patience, observation, and the ability to hold still until the moment is clear. Those are rarer skills than sword work. Do you have them?"
+          ],
+          "emotion": "neutral",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 0
+        },
+        {
+          "id": "advice_guidance",
+          "triggers": [
+            "advice",
+            "guidance",
+            "what should i do",
+            "recommend",
+            "suggest",
+            "help me decide",
+            "opinion"
+          ],
+          "responses": [
+            "Advice. Yes. Let me ask you something first — what do you already know? The counsel that helps is built on what the person is ready to hear, not on what I think they should.",
+            "I have given advice for over a century, and I have learned that most people asking for it already know what to do. They want permission, or company in the decision. Which is it for you?",
+            "Walk to the edge of the village and sit with the question for one hour before you make the decision. That is my first advice. Come back and tell me what you saw in that hour."
+          ],
+          "emotion": "neutral",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 0
+        },
+        {
+          "id": "stars_celestial",
+          "triggers": [
+            "star",
+            "sky",
+            "celestial",
+            "moon",
+            "constellation",
+            "night sky",
+            "above",
+            "cosmic",
+            "omen"
+          ],
+          "responses": [
+            "Three stars rise together in the northeast that should not be visible at this latitude. I have observed them for nine nights now. The pattern changes slowly. Something shifts in the higher planes.",
+            "The celestial rift your ancestors sealed — it is not sealed cleanly. Think of it as a wound scarred over but never fully healed. The stars overhead show the strain.",
+            "I map the stars every clear night. Not for navigation. To watch for what changes. Most changes are slow. The ones that are sudden — those concern me."
+          ],
+          "emotion": "thinking",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 0
+        },
+        {
+          "id": "identity_age",
+          "triggers": [
+            "who are you",
+            "how old",
+            "age",
+            "where from",
+            "your past",
+            "tell me about yourself",
+            "your history"
+          ],
+          "responses": [
+            "Old enough to remember when the forest reached the village walls, and young enough to have forgotten what that looked like. A sufficient answer.",
+            "I have been many things — court mage, soldier, scholar, exile. I came to Thornhaven because it needed someone who had seen what happens to places left without a keeper of old knowledge.",
+            "My age is not something I count. What would I do with the number? It would not change what I know, or what I still have left to do."
+          ],
+          "emotion": "neutral",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 0
+        },
+        {
+          "id": "sam",
+          "triggers": [
+            "sam",
+            "blacksmith",
+            "smith",
+            "prosthetic",
+            "border war",
+            "ashenmoor"
+          ],
+          "responses": [
+            "Sam and I have a history that goes further back than this village. She pulled me out of a situation in the border wars I had no business surviving. I have never repaid that debt. I suspect she prefers it that way.",
+            "I worry about Sam the way you worry about a fire that burns clean and bright but doesn't notice the wind picking up. She is deeply loyal to this place. I hope that loyalty doesn't one day cost her everything."
+          ],
+          "emotion": "neutral",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 0
+        },
+        {
+          "id": "artifact_relic",
+          "triggers": [
+            "artifact",
+            "relic",
+            "object",
+            "found something",
+            "strange item",
+            "key",
+            "amulet",
+            "seal",
+            "ancient object"
+          ],
+          "responses": [
+            "Show me. ...Yes. This is older than this village, older than the kingdom that built the castle. It was not made to be found easily. The fact that you found it is itself information.",
+            "Relics from the old era are not decorative. They were made with purpose, and that purpose persists even when the maker is gone. Do not carry this carelessly.",
+            "I have seen three objects like this in my lifetime. Two of them were keys. One was a lock. I will need time to determine which this is."
+          ],
+          "emotion": "surprised",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 2
+        },
+        {
+          "id": "scholar_role",
+          "triggers": [
+            "scholar",
+            "ancient glyphs",
+            "chronicles",
+            "lore",
+            "archives",
+            "history"
+          ],
+          "responses": [
+            "The oldest stone tablets in our valley were carved in the First Era of the Sun. They describe the five primal guardians who watched over the mountain leylines before humanity built cities here.",
+            "Truth is not hidden, seeker — it is merely buried beneath the fallen leaves of forgotten centuries. Look closely at the carved lintels of the ruined chapel."
+          ],
+          "emotion": "thinking",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 1
+        },
+        {
+          "id": "cataclysm_history",
+          "triggers": [
+            "cataclysm",
+            "cracked seal",
+            "great war",
+            "ancient disaster",
+            "prophecy"
+          ],
+          "responses": [
+            "The cataclysm occurred when mortal ambition sought to chain celestial power. When the seal fractured, the stars themselves dimmed for three days, and the leylines turned violet.",
+            "The cracked seal still holds back the outer void, but like an ancient dam bearing too much water, small fissures appear wherever mortal hearts succumb to malice."
+          ],
+          "emotion": "thinking",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 1
+        }
+      ],
+      "fallbacks": [
+        "The stones of this valley remember footsteps from centuries past. Sit with me a while.",
+        "You carry more questions than you realize. That is... not entirely unwelcome.",
+        "I have watched travelers arrive at this crossroads wearing the same look you wear now. Some found what they were looking for. Most found what they needed, which is a different thing.",
+        "The longest road is not measured in distance, child. Ask me what you actually came here to ask."
+      ],
+      "dismissive_lines": [
+        "This is not the time or place for such wanderings of the mind, child. I have ancient scrolls requiring deep study.",
+        "I sense no purpose in what you say, traveler. I am occupied with the valley records. Speak only of what has true weight.",
+        "The elder texts hold no answers for such trivialities. I must return to my contemplation."
+      ]
+    },
+    "pip": {
+      "intents": [
+        {
+          "id": "greeting",
+          "triggers": [
+            "hello",
+            "hi",
+            "hey",
+            "greetings",
+            "who are you",
+            "what is your name",
+            "pip",
+            "morning",
+            "afternoon",
+            "evening"
+          ],
+          "responses": [
+            "Ooh! Hello!! My name is Pip! Are you a real adventurer from far away?! Look look, I found this ultra-rare shiny rock by the watermill!",
+            "Hi mister! Or miss! I'm Pip! I'm eight and a half years old and I'm the chief treasure-finder of Thornhaven!",
+            "Hey hey hey! Did you just arrive in town?! Are you carrying magical items in your backpack?! Can I see?!"
+          ],
+          "emotion": "happy",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 1
+        },
+        {
+          "id": "treasure_collection",
+          "triggers": [
+            "treasure",
+            "rock",
+            "stone",
+            "shiny",
+            "collection",
+            "pouch",
+            "bottle cap",
+            "find",
+            "trinket",
+            "valuables",
+            "item"
+          ],
+          "responses": [
+            "Look in my pouch! I have a smooth blue river pebble, a brass cog that clicks when you spin it, and four shiny acorn caps! Sam said the cog might be from an old clockwork wagon!",
+            "I'm searching for the Legendary Sun-Stone of Thornhaven! Finn says it's just an old myth, but I bet it's buried under the big willow tree!",
+            "Do you have any shiny coins from foreign kingdoms?! I'll trade you my best green spotted beetle for one shiny copper piece!"
+          ],
+          "emotion": "happy",
+          "action": "give_item",
+          "action_params": {
+            "item": "Shiny River Pebble"
+          },
+          "repDelta": 1
+        },
+        {
+          "id": "adventure_explore",
+          "triggers": [
+            "adventure",
+            "explore",
+            "quest",
+            "journey",
+            "ruins",
+            "dungeon",
+            "travel",
+            "hero",
+            "monster",
+            "fight",
+            "sword"
+          ],
+          "responses": [
+            "Take me with you on your quest!! Please please please?! I can fit through small cellar windows and I run really fast! I won't even scream if we see a troll!",
+            "I'm practicing my sword swings with a heavy oak stick every morning! When I grow two more inches, the village watch has to let me join the town guard!",
+            "If we go exploring together, I'll be the chief scout and treasure spotter! I have super-vision for finding hidden gold in the grass!"
+          ],
+          "emotion": "happy",
+          "action": "start_quest",
+          "action_params": {
+            "quest_name": "Pip's Shiny Secret",
+            "description": "Help Pip investigate the mysterious glowing crack behind the watermill."
+          },
+          "repDelta": 2
+        },
+        {
+          "id": "family_parents",
+          "triggers": [
+            "family",
+            "parents",
+            "mom",
+            "dad",
+            "stall",
+            "market",
+            "chores",
+            "help",
+            "home",
+            "produce"
+          ],
+          "responses": [
+            "My mom and dad have the vegetable and grain stall in the square! Dad says I'm supposed to be stacking cabbage crates, but exploring is WAY more important!",
+            "Mom makes warm apple tarts on Sundays! If you're really nice to me, maybe I'll save you a whole slice with cinnamon sugar on top!",
+            "Dad says I have too much energy and that my brain is full of bumblebees. But bumblebees are hardworking and make honey, so that's a compliment!"
+          ],
+          "emotion": "neutral",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 0
+        },
+        {
+          "id": "animals_bugs",
+          "triggers": [
+            "animal",
+            "animals",
+            "bug",
+            "bugs",
+            "beetle",
+            "frog",
+            "toad",
+            "cat",
+            "dog",
+            "goat",
+            "chicken",
+            "creatures"
+          ],
+          "responses": [
+            "I caught a green beetle yesterday and named him Barnaby! He likes to sleep in my pocket and eat dandelion leaves. Want to hold him?!",
+            "There's a three-legged calico cat that hangs out near the tavern cellar. I sneak her bits of sausage whenever Mom isn't looking!",
+            "The big white goat by the fence tried to eat my shoelaces this morning! I told him shoes aren't salad, but goats don't listen to logic."
+          ],
+          "emotion": "happy",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 0
+        },
+        {
+          "id": "being_scared_brave",
+          "triggers": [
+            "scared",
+            "afraid",
+            "brave",
+            "fear",
+            "danger",
+            "dark",
+            "spooky",
+            "haunted",
+            "monster",
+            "ghost",
+            "courage"
+          ],
+          "responses": [
+            "I'm not scared of ANYTHING! Not dark cellars, not thunderstorm lightning, and not even the grumpy butcher! ...Well, okay, maybe giant cave bats a tiny bit, but only if they touch my hair.",
+            "Bravery means doing things even when your knees are doing the wiggly dance! That's what Sam told me when I was scared of the forge fire!",
+            "Finn tried to spook me with ghost stories about the castle ruins, but I just yelled 'BOO' right back at him and he jumped half a foot in the air!"
+          ],
+          "emotion": "surprised",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 0
+        },
+        {
+          "id": "food_candy",
+          "triggers": [
+            "food",
+            "candy",
+            "sweet",
+            "sweets",
+            "honey",
+            "pie",
+            "treat",
+            "sugar",
+            "eat",
+            "hungry",
+            "snack"
+          ],
+          "responses": [
+            "Do you have any honey candies in your pocket?! Eva has these sweet herbal drops for sore throats that taste just like wild strawberries! I pretend to cough sometimes so she gives me one!",
+            "I could eat ten whole honey buns right now! Exploring makes your tummy rumble like a sleepy dragon!",
+            "The baker in the market sometimes gives me broken gingerbread cookies! They taste just as good as whole cookies, just with more edges!"
+          ],
+          "emotion": "happy",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 1
+        },
+        {
+          "id": "finn_scout",
+          "triggers": [
+            "finn",
+            "scout",
+            "brother",
+            "rooftop",
+            "notebook",
+            "tracks"
+          ],
+          "responses": [
+            "Finn is my big brother figure! He's sixteen and can jump across three roofs without falling! He has this cool scout notebook where he draws maps of goblin tracks!",
+            "Finn says I make too much noise snapping twigs when I follow him in the woods, but I'm getting quieter! Soon I'll be stealthy like a shadow-cat!",
+            "Finn acts all serious about his perimeter reports, but he still helps me catch frogs at the creek when nobody's looking!"
+          ],
+          "emotion": "happy",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 0
+        },
+        {
+          "id": "sam_forge",
+          "triggers": [
+            "sam",
+            "blacksmith",
+            "forge",
+            "anvil",
+            "iron",
+            "hammer",
+            "sparks"
+          ],
+          "responses": [
+            "Sam is SO COOL!! She has a real steel arm and hits glowing orange metal until it turns into legendary swords! *CLANG CLANG CLANG!*",
+            "I asked Sam to forge me a mini iron sword with a skull on the handle! She laughed and told me to start by practicing with a wooden spoon first!",
+            "The forge sparks look like fireflies flying up into the ceiling! Sometimes Sam lets me pump the giant leather bellows if I stand on a wooden box!"
+          ],
+          "emotion": "happy",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 0
+        },
+        {
+          "id": "eva_apothecary",
+          "triggers": [
+            "eva",
+            "apothecary",
+            "herbs",
+            "potions",
+            "medicine",
+            "salve",
+            "healing"
+          ],
+          "responses": [
+            "Miss Eva's shop smells like lavender, peppermint, and dried forest mushrooms! She has glass jars filled with glowing blue and pink liquids!",
+            "Eva always puts soothing honey salve on my knees whenever I scrape them climbing trees. She's the kindest lady in Thornhaven!",
+            "I brought Eva three purple star-flowers from the river ridge yesterday, and she traded me a sweet chamomile lozenge for them!"
+          ],
+          "emotion": "happy",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 0
+        },
+        {
+          "id": "ash_broker",
+          "triggers": [
+            "ash",
+            "secrets",
+            "thief",
+            "hood",
+            "tavern",
+            "pirate"
+          ],
+          "responses": [
+            "Ash is super sneaky and wears a dark hooded cloak even when it's sunny outside! I think Ash is secretly a pirate king hiding out in Thornhaven!",
+            "Ash tossed me a shiny silver coin last week just for telling them which road the traveling merchant wagon took! Best trade ever!",
+            "Don't sneak up on Ash! One time I tried to surprise them from behind a barrel and Ash flipped a coin right between my fingers before I could even say 'BOO'!"
+          ],
+          "emotion": "suspicious",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 0
+        },
+        {
+          "id": "castle_ruins",
+          "triggers": [
+            "ruins",
+            "castle ruins",
+            "way to ruins",
+            "how do i get to ruins",
+            "directions to ruins",
+            "where are the ruins",
+            "old castle",
+            "old fortress",
+            "crumbled tower",
+            "ancient ruins",
+            "tell me the way",
+            "guide me to",
+            "path to the ruins",
+            "how to reach",
+            "castle",
+            "fort"
+          ],
+          "responses": [
+            "Ohhh the RUINS! I've been there TWICE — well, Finn took me and then carried me back because I twisted my ankle on a loose stone, but STILL! You go up the big north road and then there's a giant split rock and you go RIGHT and keep walking until you see the spooky towers! They have bats! BATS! I'm not even scared of them, mostly.",
+            "The ruins are SO COOL! Finn says they're two hundred years old! You go north from the well, then there's a path that goes uphill through the trees — I call it the Whispering Path — and at the top are the towers! One of them still has a door! A REAL door with hinges that scream when you open it! Please bring me back a cool rock!",
+            "I know the way I know the way! North road, past Miller Brynn's fence, through the birchy bit, up the hill, and BOOM! Castle! The tall one on the left is safer — Finn checked. The one on the right has a hole in the floor that goes really really far down. I threw a pebble in and counted to four before I heard it hit!"
+          ],
+          "emotion": "happy",
+          "action": "none",
+          "action_params": {},
+          "repDelta": 1
+        }
+      ]
+    }
+  }
+}

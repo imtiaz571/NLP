@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "counts": {
+    "emotion": 188536,
+    "intent": 103147,
+    "dialogue": 136723
+  },
+  "source_records_before_deduplication": {
+    "bitext": 8175,
+    "chatbot_intent": 1000,
+    "dailydialog": 308410,
+    "fallout_new_vegas": 53379,
+    "goemotions": 186009,
+    "meld_text": 3667,
+    "smalltalk": 2547,
+    "viggo": 13800,
+    "viggo_challenge": 3880
+  },
+  "live_mapped_intent_records_before_deduplication": 387,
+  "outputs": {
+    "emotion": "data\\processed\\external_emotions.jsonl",
+    "intent": "data\\processed\\external_intents.jsonl",
+    "dialogue": "data\\processed\\external_dialogue.jsonl"
+  }
+}

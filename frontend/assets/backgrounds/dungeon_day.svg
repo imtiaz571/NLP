@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a8a"/>
+      <stop offset="55%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#bae6fd"/>
+    </linearGradient>
+
+    <radialGradient id="celestialGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="35%" stop-color="#93c5fd" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="torchGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="25%" stop-color="#fbbf24" stop-opacity="0.85"/>
+      <stop offset="60%" stop-color="#ea580c" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#ea580c" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="lanternGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="40%" stop-color="#ffffff" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+
+  </defs>
+
+  <!-- Sky Background -->
+  <rect width="1600" height="900" fill="url(#skyGrad)"/>
+
+  <!-- Celestial Element (Sun or Moon) -->
+    <!-- Celestial Sun with Radiant Atmospheric Glow -->
+    <circle cx="1220" cy="180" r="180" fill="url(#celestialGlow)"/>
+    <circle cx="1220" cy="180" r="50" fill="#ffffff"/>
+    <polygon points="1020,180 1420,180 1670,900 770,900" fill="#ffffff" opacity="0.04"/>
+    <polygon points="1220,-20 1220,380 1570,900 1070,900" fill="#ffffff" opacity="0.04"/>
+
+  <!-- Clouds or Twinkling Stars -->
+    <!-- Layered Drifting Clouds -->
+    <g id="clouds" opacity="0.75">
+      <path d="M 60 220 Q 120 160 200 180 Q 280 140 360 190 Q 420 170 480 210 Q 520 250 460 280 L 80 280 Z" fill="#ffffff" opacity="0.85"/>
+      <path d="M 100 240 Q 180 190 280 220 Q 360 200 440 240 L 120 270 Z" fill="#e0f2fe" opacity="0.5"/>
+      <path d="M 720 160 Q 800 100 900 130 Q 980 90 1080 140 Q 1160 110 1240 160 Q 1280 200 1200 230 L 740 230 Z" fill="#ffffff" opacity="0.8"/>
+      <path d="M 760 180 Q 860 130 980 160 Q 1060 130 1180 180 L 800 210 Z" fill="#e0f2fe" opacity="0.45"/>
+      <path d="M 1300 320 Q 1380 270 1460 290 Q 1520 260 1580 310 L 1320 340 Z" fill="#ffffff" opacity="0.6"/>
+    </g>
+
+  <!-- Location Scenery Geometry -->
+    <!-- Dungeon Vault Interior -->
+    <rect width="1600" height="900" fill="#020617"/>
+
+    <!-- Vaulted Rib Arches in Deep Perspective -->
+    <g id="vault-arches" fill="#0f172a" stroke="#1e293b" stroke-width="6">
+      <!-- Arch 1 (Foreground) -->
+      <path d="M 0 0 L 180 0 L 180 780 L 0 780 Z"/>
+      <path d="M 1420 0 L 1600 0 L 1600 780 L 1420 780 Z"/>
+      <path d="M 180 0 Q 800 240 1420 0 L 1420 80 Q 800 320 180 80 Z"/>
+
+      <!-- Arch 2 (Midground) -->
+      <path d="M 280 100 L 380 100 L 380 720 L 280 720 Z" fill="#090d16"/>
+      <path d="M 1220 100 L 1320 100 L 1320 720 L 1220 720 Z" fill="#090d16"/>
+      <path d="M 380 100 Q 800 290 1220 100 L 1220 160 Q 800 340 380 160 Z" fill="#090d16"/>
+
+      <!-- Arch 3 (Background End Corridor) -->
+      <path d="M 520 200 L 580 200 L 580 660 L 520 660 Z" fill="#030712"/>
+      <path d="M 1020 200 L 1080 200 L 1080 660 L 1020 660 Z" fill="#030712"/>
+      <path d="M 580 200 Q 800 340 1020 200 L 1020 240 Q 800 380 580 240 Z" fill="#030712"/>
+    </g>
+
+    <!-- Iron Portcullis Gate in End Archway -->
+    <g id="portcullis" stroke="#475569" stroke-width="8">
+      <!-- Vertical Bars -->
+      <line x1="620" y1="260" x2="620" y2="660"/>
+      <line x1="670" y1="275" x2="670" y2="660"/>
+      <line x1="720" y1="285" x2="720" y2="660"/>
+      <line x1="770" y1="290" x2="770" y2="660"/>
+      <line x1="820" y1="290" x2="820" y2="660"/>
+      <line x1="870" y1="285" x2="870" y2="660"/>
+      <line x1="920" y1="275" x2="920" y2="660"/>
+      <line x1="970" y1="260" x2="970" y2="660"/>
+      <!-- Horizontal Bars -->
+      <line x1="590" y1="360" x2="1010" y2="360"/>
+      <line x1="590" y1="460" x2="1010" y2="460"/>
+      <line x1="590" y1="560" x2="1010" y2="560"/>
+    </g>
+
+    <!-- Wall Torches with Atmospheric Lighting -->
+    <g id="dungeon-torches">
+      <!-- Left Torch -->
+      <line x1="180" y1="420" x2="240" y2="390" stroke="#000000" stroke-width="10"/>
+      <circle cx="240" cy="390" r="90" fill="url(#torchGlow)" opacity="0.7"/>
+      <polygon points="230,390 245,340 260,390" fill="#f59e0b"/>
+      <polygon points="238,390 245,360 252,390" fill="#ffffff"/>
+
+      <!-- Right Torch -->
+      <line x1="1420" y1="420" x2="1360" y2="390" stroke="#000000" stroke-width="10"/>
+      <circle cx="1360" cy="390" r="90" fill="url(#torchGlow)" opacity="0.7"/>
+      <polygon points="1350,390 1365,340 1380,390" fill="#f59e0b"/>
+      <polygon points="1358,390 1365,360 1372,390" fill="#ffffff"/>
+    </g>
+
+    <!-- Hanging Iron Chains & Shackles -->
+    <g id="chains" stroke="#334155" stroke-width="6" fill="none">
+      <path d="M 340 260 Q 350 320 340 380 Q 330 440 340 500"/>
+      <circle cx="340" cy="510" r="14" fill="#000000" stroke="#475569" stroke-width="6"/>
+      <path d="M 1260 260 Q 1250 320 1260 380 Q 1270 440 1260 500"/>
+      <circle cx="1260" cy="510" r="14" fill="#000000" stroke="#475569" stroke-width="6"/>
+    </g>
+
+    <!-- Damp Flagged Dungeon Floor with Light Reflections -->
+    <path d="M 0 760 L 1600 760 L 1600 900 L 0 900 Z" fill="#030712"/>
+    <line x1="800" y1="660" x2="100" y2="900" stroke="#0f172a" stroke-width="6"/>
+    <line x1="800" y1="660" x2="500" y2="900" stroke="#0f172a" stroke-width="6"/>
+    <line x1="800" y1="660" x2="1100" y2="900" stroke="#0f172a" stroke-width="6"/>
+    <line x1="800" y1="660" x2="1500" y2="900" stroke="#0f172a" stroke-width="6"/>
+
+  <!-- Atmospheric Tint Blend Overlay -->
+  <rect width="1600" height="900" fill="#38bdf8" opacity="0.08" style="mix-blend-mode: overlay; pointer-events: none;"/>
+</svg>

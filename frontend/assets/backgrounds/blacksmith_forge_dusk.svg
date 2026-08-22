@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#311042"/>
+      <stop offset="55%" stop-color="#9f1239"/>
+      <stop offset="100%" stop-color="#fbbf24"/>
+    </linearGradient>
+
+    <radialGradient id="celestialGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fffbeb" stop-opacity="1"/>
+      <stop offset="35%" stop-color="#f97316" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#be123c" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="torchGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="25%" stop-color="#fbbf24" stop-opacity="0.85"/>
+      <stop offset="60%" stop-color="#ea580c" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#ea580c" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="lanternGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="40%" stop-color="#fbbf24" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#fbbf24" stop-opacity="0"/>
+    </radialGradient>
+
+  </defs>
+
+  <!-- Sky Background -->
+  <rect width="1600" height="900" fill="url(#skyGrad)"/>
+
+  <!-- Celestial Element (Sun or Moon) -->
+    <!-- Celestial Sun with Radiant Atmospheric Glow -->
+    <circle cx="1340" cy="480" r="160" fill="url(#celestialGlow)"/>
+    <circle cx="1340" cy="480" r="48" fill="#ffffff"/>
+    <polygon points="1140,480 1540,480 1790,900 890,900" fill="#ffffff" opacity="0.04"/>
+    <polygon points="1340,280 1340,680 1690,900 1190,900" fill="#ffffff" opacity="0.04"/>
+
+  <!-- Clouds or Twinkling Stars -->
+    <!-- Layered Drifting Clouds -->
+    <g id="clouds" opacity="0.7">
+      <path d="M 60 220 Q 120 160 200 180 Q 280 140 360 190 Q 420 170 480 210 Q 520 250 460 280 L 80 280 Z" fill="#fda4af" opacity="0.85"/>
+      <path d="M 100 240 Q 180 190 280 220 Q 360 200 440 240 L 120 270 Z" fill="#c084fc" opacity="0.5"/>
+      <path d="M 720 160 Q 800 100 900 130 Q 980 90 1080 140 Q 1160 110 1240 160 Q 1280 200 1200 230 L 740 230 Z" fill="#fda4af" opacity="0.8"/>
+      <path d="M 760 180 Q 860 130 980 160 Q 1060 130 1180 180 L 800 210 Z" fill="#c084fc" opacity="0.45"/>
+      <path d="M 1300 320 Q 1380 270 1460 290 Q 1520 260 1580 310 L 1320 340 Z" fill="#fda4af" opacity="0.6"/>
+    </g>
+
+  <!-- Location Scenery Geometry -->
+    <!-- Smithy Stone Workshop Interior -->
+    <rect width="1600" height="900" fill="#0f172a"/>
+
+    <!-- Back Wall Stone Masonry & Tool Racks -->
+    <g id="tool-rack" stroke="#334155" stroke-width="6">
+      <line x1="120" y1="240" x2="680" y2="240"/>
+      <!-- Hanging Tongs & Hammers -->
+      <line x1="180" y1="240" x2="180" y2="340"/>
+      <rect x="170" y="340" width="20" height="15" fill="#475569"/>
+      <line x1="260" y1="240" x2="260" y2="380"/>
+      <rect x="245" y="380" width="30" height="20" fill="#475569"/>
+      <line x1="360" y1="240" x2="360" y2="350"/>
+      <line x1="460" y1="240" x2="460" y2="400"/>
+      <line x1="560" y1="240" x2="560" y2="360"/>
+    </g>
+
+    <!-- Weapon Display Rack (Left) -->
+    <g id="weapon-rack">
+      <rect x="100" y="440" width="280" height="260" fill="#1e293b" stroke="#334155" stroke-width="6"/>
+      <!-- Swords and Axes mounted -->
+      <!-- Broadsword -->
+      <line x1="140" y1="460" x2="140" y2="680" stroke="#94a3b8" stroke-width="10"/>
+      <line x1="120" y1="490" x2="160" y2="490" stroke="#d97706" stroke-width="8"/>
+      <!-- Battleaxe -->
+      <line x1="220" y1="460" x2="220" y2="680" stroke="#78350f" stroke-width="12"/>
+      <path d="M 220 480 Q 270 450 260 520 Q 220 500 220 480 Z" fill="#94a3b8"/>
+      <!-- Round Shield -->
+      <circle cx="310" cy="560" r="45" fill="#334155" stroke="#d97706" stroke-width="6"/>
+      <circle cx="310" cy="560" r="16" fill="#d97706"/>
+    </g>
+
+    <!-- Massive Blazing Forge Hearth (Right) -->
+    <g id="forge-furnace">
+      <!-- Stone Exhaust Hood -->
+      <polygon points="1060,0 1560,0 1600,420 1020,420" fill="#1e293b"/>
+      <!-- Forge Hearth Base -->
+      <rect x="1040" y="420" width="540" height="340" fill="#334155"/>
+      <!-- Fire Chamber Opening -->
+      <path d="M 1120 680 L 1120 520 Q 1320 440 1500 520 L 1500 680 Z" fill="#0f172a"/>
+      <!-- Intense Forge Radiant Glow -->
+      <circle cx="1310" cy="560" r="220" fill="url(#torchGlow)" opacity="0.9"/>
+      <!-- Blazing Coals & Fire -->
+      <ellipse cx="1310" cy="640" rx="160" ry="35" fill="#ea580c"/>
+      <polygon points="1180,640 1260,490 1340,640" fill="#f59e0b"/>
+      <polygon points="1280,640 1330,460 1400,640" fill="#fbbf24"/>
+      <polygon points="1340,640 1410,510 1470,640" fill="#ef4444"/>
+      <!-- White hot core -->
+      <ellipse cx="1310" cy="630" rx="80" ry="18" fill="#ffffff"/>
+    </g>
+
+    <!-- Center Heavy Anvil on Solid Oak Stump -->
+    <g id="anvil-stump">
+      <!-- Oak Log Stump -->
+      <path d="M 680 840 L 700 660 L 860 660 L 880 840 Z" fill="#451a03"/>
+      <ellipse cx="780" cy="660" rx="80" ry="20" fill="#5c2b09"/>
+      <!-- Heavy Iron Anvil -->
+      <path d="M 690 640 L 730 600 L 730 570 L 640 570 L 640 540 L 920 540 Q 940 570 900 600 L 830 600 L 870 640 Z" fill="#475569"/>
+      <!-- Highlight -->
+      <rect x="650" y="540" width="260" height="8" fill="#94a3b8"/>
+      <!-- Blacksmith Hammer resting on Anvil -->
+      <rect x="760" y="525" width="60" height="15" fill="#334155"/>
+      <rect x="800" y="475" width="10" height="60" fill="#78350f" transform="rotate(25 800 500)"/>
+    </g>
+
+    <!-- Water Quenching Barrel with Steam -->
+    <g id="quench-barrel">
+      <ellipse cx="540" cy="740" rx="55" ry="65" fill="#451a03"/>
+      <ellipse cx="540" cy="680" rx="50" ry="20" fill="#0284c7" opacity="0.8"/>
+      <!-- Steam motes -->
+      <circle cx="530" cy="640" r="12" fill="#cbd5e1" opacity="0.4"/>
+      <circle cx="550" cy="610" r="16" fill="#cbd5e1" opacity="0.3"/>
+    </g>
+
+    <!-- Stone Flagged Ground -->
+    <path d="M 0 760 L 1600 760 L 1600 900 L 0 900 Z" fill="#090d16"/>
+
+  <!-- Atmospheric Tint Blend Overlay -->
+  <rect width="1600" height="900" fill="#ea580c" opacity="0.15" style="mix-blend-mode: overlay; pointer-events: none;"/>
+</svg>

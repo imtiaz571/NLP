@@ -1,0 +1,32 @@
+[
+  {
+    "text": "I once sold information about a noble's secret tunnels to a clever adventurer.",
+    "npc_id": "ash",
+    "player_id": "seed",
+    "timestamp": "2024-01-01T00:00:00"
+  },
+  {
+    "text": "The player caught me snooping around the tavern. I convinced them it was for a good cause.",
+    "npc_id": "ash",
+    "player_id": "seed",
+    "timestamp": "2024-01-01T00:00:00"
+  },
+  {
+    "text": "A rival thief tried to muscle in on my territory. They won't make that mistake again.",
+    "npc_id": "ash",
+    "player_id": "seed",
+    "timestamp": "2024-01-01T00:00:00"
+  },
+  {
+    "text": "I remember overhearing guards discussing a hidden treasure beneath the castle.",
+    "npc_id": "ash",
+    "player_id": "seed",
+    "timestamp": "2024-01-01T00:00:00"
+  },
+  {
+    "text": "The player asked me to find someone. I found them — for a price, of course.",
+    "npc_id": "ash",
+    "player_id": "seed",
+    "timestamp": "2024-01-01T00:00:00"
+  }
+]

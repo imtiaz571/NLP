@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#030712"/>
+      <stop offset="55%" stop-color="#0c142b"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+
+    <radialGradient id="celestialGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="35%" stop-color="#93c5fd" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#1e3a8a" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="torchGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="25%" stop-color="#fbbf24" stop-opacity="0.85"/>
+      <stop offset="60%" stop-color="#ea580c" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#ea580c" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="lanternGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="40%" stop-color="#fbbf24" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#fbbf24" stop-opacity="0"/>
+    </radialGradient>
+
+  </defs>
+
+  <!-- Sky Background -->
+  <rect width="1600" height="900" fill="url(#skyGrad)"/>
+
+  <!-- Celestial Element (Sun or Moon) -->
+    <!-- Celestial Moon with Radial Glow -->
+    <circle cx="1260" cy="200" r="130" fill="url(#celestialGlow)"/>
+    <circle cx="1260" cy="200" r="42" fill="#f8fafc"/>
+    <circle cx="1246" cy="190" r="38" fill="#0c142b" opacity="0.85"/>
+
+  <!-- Clouds or Twinkling Stars -->
+    <!-- Twinkling Starfield -->
+    <g id="starfield">
+      <circle cx="140" cy="80" r="2.5" fill="#ffffff" opacity="0.85"/>
+      <circle cx="280" cy="120" r="1.8" fill="#ffffff" opacity="0.7"/>
+      <circle cx="420" cy="60" r="3.0" fill="#ffffff" opacity="0.9"/>
+      <circle cx="560" cy="150" r="1.5" fill="#ffffff" opacity="0.6"/>
+      <circle cx="680" cy="90" r="2.2" fill="#ffffff" opacity="0.8"/>
+      <circle cx="810" cy="50" r="2.8" fill="#ffffff" opacity="0.95"/>
+      <circle cx="940" cy="130" r="1.6" fill="#ffffff" opacity="0.65"/>
+      <circle cx="1060" cy="70" r="2.4" fill="#ffffff" opacity="0.85"/>
+      <circle cx="1180" cy="110" r="1.8" fill="#ffffff" opacity="0.75"/>
+      <circle cx="1380" cy="60" r="3.2" fill="#ffffff" opacity="0.9"/>
+      <circle cx="1490" cy="140" r="2.0" fill="#ffffff" opacity="0.8"/>
+      <circle cx="200" cy="210" r="1.5" fill="#ffffff" opacity="0.6"/>
+      <circle cx="350" cy="240" r="2.6" fill="#ffffff" opacity="0.85"/>
+      <circle cx="490" cy="190" r="1.8" fill="#ffffff" opacity="0.7"/>
+      <circle cx="620" cy="260" r="2.2" fill="#ffffff" opacity="0.8"/>
+      <circle cx="760" cy="210" r="3.0" fill="#ffffff" opacity="0.95"/>
+      <circle cx="880" cy="250" r="1.6" fill="#ffffff" opacity="0.65"/>
+      <circle cx="1020" cy="220" r="2.4" fill="#ffffff" opacity="0.8"/>
+      <circle cx="1140" cy="280" r="1.9" fill="#ffffff" opacity="0.75"/>
+      <circle cx="1320" cy="240" r="2.5" fill="#ffffff" opacity="0.85"/>
+      <circle cx="1450" cy="260" r="1.7" fill="#ffffff" opacity="0.7"/>
+      <circle cx="100" cy="310" r="2.0" fill="#ffffff" opacity="0.75"/>
+      <circle cx="460" cy="330" r="2.4" fill="#ffffff" opacity="0.85"/>
+      <circle cx="900" cy="340" r="1.8" fill="#ffffff" opacity="0.7"/>
+      <circle cx="1540" cy="90" r="2.6" fill="#ffffff" opacity="0.9"/>
+    </g>
+
+  <!-- Location Scenery Geometry -->
+    <!-- Distant Mountain Peaks seen through Broken Walls -->
+    <path d="M 0 540 L 220 380 L 460 500 L 780 320 L 1100 480 L 1400 360 L 1600 460 L 1600 900 L 0 900 Z" fill="#090d16" opacity="0.55"/>
+
+    <!-- Crumbling Gothic Watchtower (Left) -->
+    <g id="ruined-tower">
+      <!-- Tower Base & Shaft -->
+      <rect x="120" y="240" width="280" height="520" fill="#0f172a"/>
+      <!-- Battlements / Crenellations with broken missing teeth -->
+      <rect x="100" y="200" width="55" height="40" fill="#0f172a"/>
+      <rect x="190" y="200" width="55" height="40" fill="#0f172a"/>
+      <rect x="345" y="200" width="55" height="40" fill="#0f172a"/>
+      <!-- Broken Gothic Window Opening -->
+      <path d="M 210 440 L 210 340 Q 260 280 310 340 L 310 440 Z" fill="#030712" opacity="0.85"/>
+      <!-- Wall Torch Sconce -->
+      <line x1="380" y1="460" x2="420" y2="440" stroke="#000000" stroke-width="8"/>
+      <circle cx="420" cy="440" r="60" fill="url(#torchGlow)" opacity="1.0"/>
+      <polygon points="415,440 425,410 435,440" fill="#f59e0b"/>
+    </g>
+
+    <!-- Collapsed Stone Colonnade & Gothic Arches (Center-Right) -->
+    <g id="gothic-arches">
+      <!-- Pillar 1 -->
+      <rect x="620" y="320" width="60" height="420" fill="#0f172a"/>
+      <rect x="590" y="300" width="120" height="20" fill="#0f172a"/>
+      <rect x="590" y="720" width="120" height="30" fill="#0f172a"/>
+      
+      <!-- Broken Arch 1 -->
+      <path d="M 680 320 Q 780 200 880 320 L 880 370 Q 780 260 680 370 Z" fill="#0f172a"/>
+
+      <!-- Pillar 2 -->
+      <rect x="880" y="320" width="60" height="420" fill="#0f172a"/>
+      <rect x="850" y="300" width="120" height="20" fill="#0f172a"/>
+
+      <!-- Broken Arch 2 (Half collapsed) -->
+      <path d="M 940 320 Q 1000 240 1060 270 L 1050 320 Q 1000 290 940 370 Z" fill="#0f172a"/>
+
+      <!-- Pillar 3 (Cracked Stump) -->
+      <path d="M 1200 740 L 1200 520 L 1260 480 L 1260 740 Z" fill="#0f172a"/>
+    </g>
+
+    <!-- Creeping Ivy and Moss Vines -->
+    <g fill="#15803d" opacity="0.8">
+      <path d="M 120 480 Q 160 520 140 580 Q 180 620 150 700 L 120 700 Z"/>
+      <path d="M 620 400 Q 660 460 640 540 Q 680 600 650 680 L 620 680 Z"/>
+      <path d="M 880 380 Q 920 440 900 520 Q 940 580 910 660 L 880 660 Z"/>
+    </g>
+
+    <!-- Broken Stone Rubble & Steps -->
+    <g id="rubble">
+      <!-- Steps -->
+      <rect x="700" y="710" width="220" height="20" fill="#334155"/>
+      <rect x="720" y="690" width="180" height="20" fill="#334155"/>
+      <rect x="740" y="670" width="140" height="20" fill="#334155"/>
+      <!-- Scattered Blocks -->
+      <polygon points="460,760 520,730 560,760 500,790" fill="#334155"/>
+      <polygon points="1080,750 1140,730 1170,760 1110,780" fill="#334155"/>
+      <polygon points="1320,770 1380,750 1410,780 1350,800" fill="#334155"/>
+    </g>
+
+    <!-- Weathered Stone Ground -->
+    <path d="M 0 740 Q 800 700 1600 740 L 1600 900 L 0 900 Z" fill="#020617"/>
+
+  <!-- Atmospheric Tint Blend Overlay -->
+  <rect width="1600" height="900" fill="#1e1b4b" opacity="0.2" style="mix-blend-mode: overlay; pointer-events: none;"/>
+</svg>

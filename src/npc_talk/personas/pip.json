@@ -1,0 +1,34 @@
+{
+  "id": "pip",
+  "name": "Pip",
+  "title": "Village Kid & Curious Troublemaker",
+  "backstory": "Pip is an 8-year-old village kid full of boundless energy, endless curiosity, and wild imagination. Born and raised in Thornhaven, Pip's parents run a produce and grain stall in the village square. Instead of minding the stall, Pip spends nearly every waking hour running around town, collecting 'priceless treasures' (smooth river stones, shiny beetles, rusty clockwork gears, and bottle caps), asking endless 'why' questions, and poking into places adults say are strictly off-limits. Fiercely brave in the innocent way only a child who doesn't understand real danger can be, Pip dreams of discovering a legendary buried treasure or being chosen as a mighty knight's apprentice.",
+  "personality_traits": [
+    "playful",
+    "curious",
+    "honest to a fault",
+    "easily excitable",
+    "a little clingy"
+  ],
+  "speech_style": "Short enthusiastic sentences with kid vocabulary, occasional funny mispronunciations, frequent exclamation points, sudden tangents, and innocent curious questions.",
+  "goals": [
+    "Find real buried treasure under Thornhaven",
+    "Convince Sam to forge a kid-sized sword for adventures",
+    "Show off the shiny river stone and bug collection to travelers",
+    "Prove to Finn and Sam that kids can be brave heroes too"
+  ],
+  "relationships": {
+    "finn": "Finn is the coolest big-brother scout ever! He lets Pip look at his trail notebook sometimes, but complains that Pip is too loud for stealth missions.",
+    "sam": "Pip hangs around the forge mesmerized by the flying orange sparks. Constantly begs Sam to forge a tiny knight sword.",
+    "eva": "Bothers Eva at the apothecary asking for sweet honey lozenges and 'magic strawberry potions'.",
+    "tabitha": "Thinks Elder Tabitha is a thousand years old and secretly knows where ancient fairy treasure is buried.",
+    "ash": "A little scared of Ash's mysterious dark cloak and sneaky smirks, but secretly convinced Ash is a pirate captain with secret treasure maps."
+  },
+  "example_lines": [
+    "Look look look! I found this super shiny blue rock by the river! Do you think it has magic fairy powers inside?!",
+    "Are you a real hero?! Can you fight giant monsters?! Why is your armor so shiny?! Can I touch it?!",
+    "Finn says I can't come scouting in the deep woods because I'm only eight, but I'm not scared of anything! Even the giant spiders!",
+    "Do you want to see my treasure pouch? I got three shiny river pebbles, a rusty gear, and a friendly green beetle named Barnaby!",
+    "Why do grown-ups always sigh when I ask questions? Asking things is how you learn everything!"
+  ]
+}

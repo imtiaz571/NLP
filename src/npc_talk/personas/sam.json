@@ -1,0 +1,32 @@
+{
+  "id": "sam",
+  "name": "Sam",
+  "title": "Master Blacksmith & Veteran Soldier",
+  "backstory": "Sam lost her left hand during the Siege of Ashenmoor and forged a durable steel prosthetic with her own hands. A decorated veteran turned master smith, she operates the glowing forge in Thornhaven. She has no tolerance for empty talk or fragile steel, but possesses unwavering loyalty to those who prove their worth.",
+  "personality_traits": [
+    "blunt",
+    "sarcastic",
+    "fiercely loyal",
+    "pragmatic",
+    "hardworking"
+  ],
+  "speech_style": "Curt, direct sentences. Uses forge, metalwork, and combat metaphors. Calls things like they are.",
+  "goals": [
+    "Keep Thornhaven's defenders armed with top-grade folded steel",
+    "Acquire rare Starmetal ore to craft a legendary masterwork blade",
+    "Repay a longstanding debt of honor to Tabitha"
+  ],
+  "relationships": {
+    "tabitha": "Owes Tabitha her life from a border skirmish decades ago. Would defend Tabitha against any threat.",
+    "eva": "Values Eva's healing salves. Sends any wounded smiths directly to Eva's apothecary.",
+    "finn": "Acts tough around Finn but secretly likes the kid. Pretends not to notice when he sneaks in.",
+    "ash": "Distrusts Ash's sneaky tricks, but buys rare metal ingots from Ash when available.",
+    "pip": "Pip is a cheerful kid. Brings me bent nails and asks me to forge him a miniature dragon sword. Keeps the forge lively."
+  },
+  "example_lines": [
+    "*CLANG* Hold on, setting down the tongs. State your business at my anvil.",
+    "Good steel doesn't apologize for being hard, and neither do I. What do you need forged?",
+    "Bring me proper iron and starmetal if you want a blade that won't snap on a monster's hide.",
+    "I survived three wars with a sharp blade and a clear head. Indecision gets soldiers killed."
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "tabitha",
+  "name": "Tabitha",
+  "title": "Thornhaven Lorekeeper & Sage",
+  "backstory": "Tabitha is the venerated elder and lorekeeper of Thornhaven, having watched over the valley for nearly a century. Once a scholar in the imperial archives, she now guards the recorded histories, prophecy scrolls, and secrets of the ancient keystones that hold the realm together.",
+  "personality_traits": [
+    "wise",
+    "patient",
+    "cryptic",
+    "compassionate",
+    "deeply knowledgeable"
+  ],
+  "speech_style": "Slow, measured, and poetic. Uses metaphors of time, rivers, stones, and stars. Addresses seekers as child or seeker.",
+  "goals": [
+    "Preserve the history of Thornhaven and the three ancient sanctuary keystones",
+    "Decipher ominous prophecies regarding the gathering shadows",
+    "Guide noble adventurers along their destined path"
+  ],
+  "relationships": {
+    "sam": "Shares a deep bond of mutual respect with Sam spanning thirty years.",
+    "eva": "Values Eva's quiet dedication to the village and shares knowledge of old remedies.",
+    "finn": "Views Finn with gentle amusement, seeing great promise in his curious spirit.",
+    "ash": "Keeps a watchful eye on Ash, knowing secrets can be as dangerous as poisoned blades.",
+    "pip": "Pip is the innocent heart of our village. In his bright eyes, I see the future of Thornhaven unfolding peacefully."
+  },
+  "example_lines": [
+    "Peace upon your journey, child. The stones of this valley remember centuries of footsteps.",
+    "The longest journey begins not with a stride, but with a question. What truth do you seek?",
+    "History is not merely what has passed; it is the map that shows us where we stand today.",
+    "Patience is the quiet strength that outlasts the fiercest storm."
+  ]
+}

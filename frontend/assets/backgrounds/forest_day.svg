@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a8a"/>
+      <stop offset="55%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#bae6fd"/>
+    </linearGradient>
+
+    <radialGradient id="celestialGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="35%" stop-color="#93c5fd" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="torchGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="25%" stop-color="#fbbf24" stop-opacity="0.85"/>
+      <stop offset="60%" stop-color="#ea580c" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#ea580c" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="lanternGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="40%" stop-color="#ffffff" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+
+  </defs>
+
+  <!-- Sky Background -->
+  <rect width="1600" height="900" fill="url(#skyGrad)"/>
+
+  <!-- Celestial Element (Sun or Moon) -->
+    <!-- Celestial Sun with Radiant Atmospheric Glow -->
+    <circle cx="1220" cy="180" r="180" fill="url(#celestialGlow)"/>
+    <circle cx="1220" cy="180" r="50" fill="#ffffff"/>
+    <polygon points="1020,180 1420,180 1670,900 770,900" fill="#ffffff" opacity="0.04"/>
+    <polygon points="1220,-20 1220,380 1570,900 1070,900" fill="#ffffff" opacity="0.04"/>
+
+  <!-- Clouds or Twinkling Stars -->
+    <!-- Layered Drifting Clouds -->
+    <g id="clouds" opacity="0.75">
+      <path d="M 60 220 Q 120 160 200 180 Q 280 140 360 190 Q 420 170 480 210 Q 520 250 460 280 L 80 280 Z" fill="#ffffff" opacity="0.85"/>
+      <path d="M 100 240 Q 180 190 280 220 Q 360 200 440 240 L 120 270 Z" fill="#e0f2fe" opacity="0.5"/>
+      <path d="M 720 160 Q 800 100 900 130 Q 980 90 1080 140 Q 1160 110 1240 160 Q 1280 200 1200 230 L 740 230 Z" fill="#ffffff" opacity="0.8"/>
+      <path d="M 760 180 Q 860 130 980 160 Q 1060 130 1180 180 L 800 210 Z" fill="#e0f2fe" opacity="0.45"/>
+      <path d="M 1300 320 Q 1380 270 1460 290 Q 1520 260 1580 310 L 1320 340 Z" fill="#ffffff" opacity="0.6"/>
+    </g>
+
+  <!-- Location Scenery Geometry -->
+    <!-- Layer 1: Distant Misty Tree Silhouettes -->
+    <path d="M 0 540 Q 150 460 300 520 T 600 480 T 900 530 T 1200 470 T 1600 520 L 1600 900 L 0 900 Z" fill="#1e3a8a" opacity="0.45"/>
+
+    <!-- Layer 2: Midground Pine & Oak Canopy -->
+    <g fill="#0f172a" opacity="0.75">
+      <!-- Pine 1 -->
+      <polygon points="120,580 60,680 180,680"/>
+      <polygon points="120,500 75,590 165,590"/>
+      <polygon points="120,420 90,510 150,510"/>
+      <!-- Pine 2 -->
+      <polygon points="340,560 270,670 410,670"/>
+      <polygon points="340,480 290,570 390,570"/>
+      <!-- Oak 1 -->
+      <ellipse cx="650" cy="500" rx="90" ry="110"/>
+      <ellipse cx="780" cy="520" rx="80" ry="100"/>
+      <!-- Pine 3 -->
+      <polygon points="1100,540 1020,660 1180,660"/>
+      <polygon points="1100,450 1050,550 1150,550"/>
+      <!-- Oak 2 -->
+      <ellipse cx="1340" cy="480" rx="100" ry="120"/>
+      <ellipse cx="1460" cy="510" rx="90" ry="110"/>
+    </g>
+
+    <!-- Layer 3: Foreground Massive Ancient Trees -->
+    <g fill="#022c22">
+      <!-- Left Ancient Oak Trunk & Canopy -->
+      <path d="M 40 900 L 90 540 Q 40 400 0 350 L 0 900 Z" fill="#14532d"/>
+      <ellipse cx="140" cy="320" rx="180" ry="190"/>
+      <ellipse cx="260" cy="380" rx="140" ry="150"/>
+      
+      <!-- Right Giant Pine Trunk & Boughs -->
+      <path d="M 1480 900 L 1440 420 L 1580 900 Z" fill="#14532d"/>
+      <polygon points="1440,320 1280,480 1600,480"/>
+      <polygon points="1440,220 1320,360 1560,360"/>
+      <polygon points="1440,120 1360,240 1520,240"/>
+    </g>
+
+    <!-- Rolling Forest Terrain -->
+    <path d="M 0 710 Q 400 660 800 700 T 1600 680 L 1600 900 L 0 900 Z" fill="#0f172a"/>
+
+    <!-- Mossy Fallen Log & Boulders -->
+    <g id="fallen-log">
+      <!-- Fallen Log in Center-Right -->
+      <ellipse cx="980" cy="740" rx="160" ry="24" fill="#3f2e18" transform="rotate(-6 980 740)"/>
+      <ellipse cx="830" cy="755" rx="18" ry="22" fill="#15803d"/>
+      <!-- Moss patches on log -->
+      <ellipse cx="940" cy="732" rx="40" ry="10" fill="#16a34a"/>
+      <ellipse cx="1040" cy="735" rx="30" ry="8" fill="#16a34a"/>
+      <!-- Forest Mushrooms -->
+      <ellipse cx="890" cy="725" rx="8" ry="5" fill="#ef4444"/>
+      <rect x="888" y="727" width="4" height="8" fill="#f8fafc"/>
+      <ellipse cx="905" cy="728" rx="6" ry="4" fill="#ef4444"/>
+      <!-- Mossy Boulder Left -->
+      <ellipse cx="320" cy="750" rx="70" ry="40" fill="#334155"/>
+      <ellipse cx="310" cy="735" rx="50" ry="22" fill="#15803d"/>
+    </g>
+
+    <!-- Undergrowth Ferns and Bushes -->
+    <g fill="#15803d" opacity="0.9">
+      <path d="M 180 760 Q 210 700 240 760 Z"/>
+      <path d="M 200 760 Q 230 680 260 760 Z"/>
+      <path d="M 680 770 Q 720 710 760 770 Z"/>
+      <path d="M 1200 760 Q 1240 690 1280 760 Z"/>
+      <path d="M 1230 760 Q 1270 670 1310 760 Z"/>
+    </g>
+
+    <!-- Winding Woodland Trail with Soft Light Patches -->
+    <path d="M 620 900 Q 720 780 780 720 Q 840 760 920 900 Z" fill="#1e293b" opacity="0.6"/>
+
+  <!-- Atmospheric Tint Blend Overlay -->
+  <rect width="1600" height="900" fill="#38bdf8" opacity="0.08" style="mix-blend-mode: overlay; pointer-events: none;"/>
+</svg>

@@ -1,0 +1,164 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#030712"/>
+      <stop offset="55%" stop-color="#0c142b"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+
+    <radialGradient id="celestialGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="35%" stop-color="#93c5fd" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#1e3a8a" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="torchGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="25%" stop-color="#fbbf24" stop-opacity="0.85"/>
+      <stop offset="60%" stop-color="#ea580c" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#ea580c" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="lanternGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="40%" stop-color="#fbbf24" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#fbbf24" stop-opacity="0"/>
+    </radialGradient>
+
+  </defs>
+
+  <!-- Sky Background -->
+  <rect width="1600" height="900" fill="url(#skyGrad)"/>
+
+  <!-- Celestial Element (Sun or Moon) -->
+    <!-- Celestial Moon with Radial Glow -->
+    <circle cx="1260" cy="200" r="130" fill="url(#celestialGlow)"/>
+    <circle cx="1260" cy="200" r="42" fill="#f8fafc"/>
+    <circle cx="1246" cy="190" r="38" fill="#0c142b" opacity="0.85"/>
+
+  <!-- Clouds or Twinkling Stars -->
+    <!-- Twinkling Starfield -->
+    <g id="starfield">
+      <circle cx="140" cy="80" r="2.5" fill="#ffffff" opacity="0.85"/>
+      <circle cx="280" cy="120" r="1.8" fill="#ffffff" opacity="0.7"/>
+      <circle cx="420" cy="60" r="3.0" fill="#ffffff" opacity="0.9"/>
+      <circle cx="560" cy="150" r="1.5" fill="#ffffff" opacity="0.6"/>
+      <circle cx="680" cy="90" r="2.2" fill="#ffffff" opacity="0.8"/>
+      <circle cx="810" cy="50" r="2.8" fill="#ffffff" opacity="0.95"/>
+      <circle cx="940" cy="130" r="1.6" fill="#ffffff" opacity="0.65"/>
+      <circle cx="1060" cy="70" r="2.4" fill="#ffffff" opacity="0.85"/>
+      <circle cx="1180" cy="110" r="1.8" fill="#ffffff" opacity="0.75"/>
+      <circle cx="1380" cy="60" r="3.2" fill="#ffffff" opacity="0.9"/>
+      <circle cx="1490" cy="140" r="2.0" fill="#ffffff" opacity="0.8"/>
+      <circle cx="200" cy="210" r="1.5" fill="#ffffff" opacity="0.6"/>
+      <circle cx="350" cy="240" r="2.6" fill="#ffffff" opacity="0.85"/>
+      <circle cx="490" cy="190" r="1.8" fill="#ffffff" opacity="0.7"/>
+      <circle cx="620" cy="260" r="2.2" fill="#ffffff" opacity="0.8"/>
+      <circle cx="760" cy="210" r="3.0" fill="#ffffff" opacity="0.95"/>
+      <circle cx="880" cy="250" r="1.6" fill="#ffffff" opacity="0.65"/>
+      <circle cx="1020" cy="220" r="2.4" fill="#ffffff" opacity="0.8"/>
+      <circle cx="1140" cy="280" r="1.9" fill="#ffffff" opacity="0.75"/>
+      <circle cx="1320" cy="240" r="2.5" fill="#ffffff" opacity="0.85"/>
+      <circle cx="1450" cy="260" r="1.7" fill="#ffffff" opacity="0.7"/>
+      <circle cx="100" cy="310" r="2.0" fill="#ffffff" opacity="0.75"/>
+      <circle cx="460" cy="330" r="2.4" fill="#ffffff" opacity="0.85"/>
+      <circle cx="900" cy="340" r="1.8" fill="#ffffff" opacity="0.7"/>
+      <circle cx="1540" cy="90" r="2.6" fill="#ffffff" opacity="0.9"/>
+    </g>
+
+  <!-- Location Scenery Geometry -->
+    <!-- Tavern Interior Room Box -->
+    <!-- Wooden Plank Back Wall -->
+    <rect x="0" y="0" width="1600" height="900" fill="#1c130c"/>
+    <line x1="0" y1="180" x2="1600" y2="180" stroke="#0f0a06" stroke-width="4"/>
+    <line x1="0" y1="360" x2="1600" y2="360" stroke="#0f0a06" stroke-width="4"/>
+    <line x1="0" y1="540" x2="1600" y2="540" stroke="#0f0a06" stroke-width="4"/>
+
+    <!-- Ceiling Heavy Oak Beams and Cross-Trusses -->
+    <g id="tavern-beams" fill="#291a10">
+      <rect x="0" y="0" width="1600" height="80"/>
+      <rect x="180" y="0" width="40" height="650"/>
+      <rect x="680" y="0" width="45" height="650"/>
+      <rect x="1180" y="0" width="45" height="650"/>
+      <!-- Diagonal Struts -->
+      <polygon points="180,80 280,80 180,180"/>
+      <polygon points="680,80 780,80 680,180"/>
+      <polygon points="1180,80 1280,80 1180,180"/>
+    </g>
+
+    <!-- Left Stone Fireplace & Roaring Hearth -->
+    <g id="fireplace">
+      <!-- Chimney Breast -->
+      <rect x="80" y="180" width="260" height="520" fill="#334155"/>
+      <polygon points="60,200 210,140 360,200" fill="#1e293b"/>
+      <!-- Arched Hearth Opening -->
+      <path d="M 120 700 L 120 540 Q 210 460 300 540 L 300 700 Z" fill="#0f172a"/>
+      <!-- Hearth Glow -->
+      <circle cx="210" cy="580" r="160" fill="url(#torchGlow)" opacity="1.0"/>
+      <!-- Burning Fire Logs -->
+      <rect x="145" y="640" width="130" height="24" rx="6" fill="#451a03" transform="rotate(-8 210 640)"/>
+      <rect x="155" y="630" width="120" height="20" rx="6" fill="#78350f" transform="rotate(10 215 630)"/>
+      <!-- Dancing Flames -->
+      <polygon points="180,640 210,530 240,640" fill="#ea580c"/>
+      <polygon points="195,640 215,550 235,640" fill="#fbbf24"/>
+      <polygon points="205,640 215,570 225,640" fill="#ffffff"/>
+    </g>
+
+    <!-- Center-Right Bar Counter & Shelves -->
+    <g id="bar-counter">
+      <!-- Bottle Shelves -->
+      <rect x="840" y="240" width="300" height="16" fill="#3b2010"/>
+      <rect x="840" y="340" width="300" height="16" fill="#3b2010"/>
+      <rect x="840" y="440" width="300" height="16" fill="#3b2010"/>
+      <!-- Bottles on shelves -->
+      <g fill="#0284c7" opacity="0.85">
+        <rect x="860" y="200" width="16" height="40" rx="2"/>
+        <rect x="890" y="195" width="20" height="45" rx="3" fill="#16a34a"/>
+        <rect x="930" y="205" width="18" height="35" rx="2" fill="#9333ea"/>
+        <rect x="970" y="190" width="22" height="50" rx="4" fill="#ea580c"/>
+        <rect x="1010" y="200" width="16" height="40" rx="2" fill="#eab308"/>
+      </g>
+      <!-- Stacked Ale Kegs & Barrels on Right -->
+      <ellipse cx="1400" cy="580" rx="60" ry="75" fill="#451a03"/>
+      <ellipse cx="1400" cy="580" rx="50" ry="65" fill="#5c2b09"/>
+      <ellipse cx="1500" cy="560" rx="55" ry="70" fill="#451a03"/>
+      <ellipse cx="1450" cy="460" rx="50" ry="60" fill="#3b1904"/>
+    </g>
+
+    <!-- Foreground Wooden Tables, Benches & Tankards -->
+    <g id="tables">
+      <!-- Center Table -->
+      <ellipse cx="780" cy="740" rx="240" ry="45" fill="#451a03"/>
+      <rect x="560" y="740" width="440" height="30" fill="#3b1904"/>
+      <rect x="620" y="770" width="30" height="110" fill="#261003"/>
+      <rect x="910" y="770" width="30" height="110" fill="#261003"/>
+      <!-- Tavern Benches -->
+      <ellipse cx="780" cy="830" rx="200" ry="25" fill="#261003"/>
+      <!-- Tankards on Table -->
+      <rect x="710" y="705" width="22" height="35" rx="3" fill="#94a3b8"/>
+      <rect x="830" y="710" width="20" height="30" rx="3" fill="#94a3b8"/>
+      <rect x="870" y="700" width="18" height="40" rx="3" fill="#ca8a04"/>
+    </g>
+
+    <!-- Hanging Brass Lanterns with Ambient Illumination -->
+    <g id="hanging-lanterns">
+      <!-- Center Lantern -->
+      <line x1="680" y1="80" x2="680" y2="240" stroke="#000000" stroke-width="4"/>
+      <circle cx="680" cy="260" r="90" fill="url(#lanternGlow)"/>
+      <polygon points="665,240 695,240 690,270 670,270" fill="#eab308"/>
+      <!-- Right Lantern -->
+      <line x1="1180" y1="80" x2="1180" y2="240" stroke="#000000" stroke-width="4"/>
+      <circle cx="1180" cy="260" r="90" fill="url(#lanternGlow)"/>
+      <polygon points="1165,240 1195,240 1190,270 1170,270" fill="#eab308"/>
+    </g>
+
+    <!-- Wooden Plank Flooring -->
+    <path d="M 0 720 L 1600 720 L 1600 900 L 0 900 Z" fill="#140c06"/>
+    <line x1="200" y1="720" x2="0" y2="900" stroke="#0a0502" stroke-width="6"/>
+    <line x1="600" y1="720" x2="480" y2="900" stroke="#0a0502" stroke-width="6"/>
+    <line x1="1000" y1="720" x2="960" y2="900" stroke="#0a0502" stroke-width="6"/>
+    <line x1="1400" y1="720" x2="1440" y2="900" stroke="#0a0502" stroke-width="6"/>
+
+  <!-- Atmospheric Tint Blend Overlay -->
+  <rect width="1600" height="900" fill="#1e1b4b" opacity="0.2" style="mix-blend-mode: overlay; pointer-events: none;"/>
+</svg>

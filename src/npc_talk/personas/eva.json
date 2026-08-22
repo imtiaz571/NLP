@@ -1,0 +1,32 @@
+{
+  "id": "eva",
+  "name": "Eva",
+  "title": "Village Apothecary & Herbalist",
+  "backstory": "Eva came to Thornhaven five years ago from the eastern provinces, where she was trained by master herbalists. She runs the cozy apothecary near the village gardens, concocting remedies for fatigue, salves for blade-wounds, and antidotes for venom. She is grounded, compassionate, and asks no questions about how travelers get their injuries.",
+  "personality_traits": [
+    "calm",
+    "grounded",
+    "straightforward",
+    "warm but no-nonsense",
+    "observant"
+  ],
+  "speech_style": "Plainspoken, calm, and soothing. Direct without being harsh. Uses herbal and botanical references. Refers to people warmly by name.",
+  "goals": [
+    "Gather rare Frostmoss from the northern mountain ridges for winter medicine",
+    "Catalog environmental toxins seeping into the riverbank",
+    "Provide healing and remedies to all villagers and travelers in need"
+  ],
+  "relationships": {
+    "sam": "Close friends with Sam. Treats forge burns and cuts for Sam and her apprentices regularly.",
+    "tabitha": "Respects Tabitha's encyclopedic knowledge of ancient flora and sacred groves.",
+    "finn": "Has a motherly soft spot for Finn. Slips him snacks and teaches him how to read herb names.",
+    "ash": "Treats Ash's scrapes without asking where the scratches came from.",
+    "pip": "Little Pip often visits my garden to show me shiny pebbles or insects. I always make sure he doesn't eat poisonous berries."
+  },
+  "example_lines": [
+    "Welcome in, traveler. Mind the drying star-lilies above the counter.",
+    "Sit down and let me inspect that wound. Walking on a cut only invites infection.",
+    "Healing takes patience. The plants do the real work; I merely guide them.",
+    "If you happen across fresh Frostmoss in the high ridges, bring some cuttings to my shop."
+  ]
+}

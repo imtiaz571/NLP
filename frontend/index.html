@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thornhaven RPG — A Living Dialogue Experience</title>
+  <meta name="description" content="Enter Thornhaven, meet its inhabitants, uncover rumors, and shape a living dark-fantasy story through conversation.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Google Fonts & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600&family=Nunito:wght@700;900&family=JetBrains+Mono:wght@500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <!-- Tailwind Configuration -->
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-tint": "#efbf73",
+            "error-container": "#93000a",
+            "secondary-fixed-dim": "#7bd0ff",
+            "surface-container-high": "#282a2d",
+            "inverse-primary": "#7c5816",
+            "secondary-container": "#00a6e0",
+            "primary-fixed-dim": "#efbf73",
+            "outline-variant": "#4f4538",
+            "on-secondary-fixed": "#001e2c",
+            "secondary": "#7bd0ff",
+            "surface-bright": "#37393d",
+            "on-secondary-container": "#00374d",
+            "tertiary-fixed-dim": "#d0bcff",
+            "on-tertiary-fixed-variant": "#5516be",
+            "surface-container-lowest": "#0c0e11",
+            "error": "#ffb4ab",
+            "surface": "#111317",
+            "parchment-text": "#2d1300",
+            "primary-fixed": "#ffdeae",
+            "on-tertiary-container": "#510bba",
+            "inverse-surface": "#e2e2e6",
+            "on-tertiary": "#3c0091",
+            "on-surface": "#e2e2e6",
+            "on-primary-container": "#5b3d00",
+            "surface-container-highest": "#333538",
+            "on-secondary-fixed-variant": "#004c69",
+            "on-tertiary-fixed": "#23005c",
+            "parchment-base": "#f5e6c8",
+            "tertiary-container": "#bca0ff",
+            "night": "#0d1118",
+            "ember-bright": "#f0cc89",
+            "ink": "#080a0d",
+            "on-primary-fixed": "#281800",
+            "secondary-fixed": "#c4e7ff",
+            "outline": "#9b8f7f",
+            "on-surface-variant": "#d2c4b3",
+            "primary": "#f4c377",
+            "danger": "#ef4444",
+            "surface-variant": "#333538",
+            "inverse-on-surface": "#2f3034",
+            "surface-container-low": "#1a1c1f",
+            "primary-container": "#d6a85f",
+            "on-error-container": "#ffdad6",
+            "tertiary": "#d4c1ff",
+            "on-primary-fixed-variant": "#604100",
+            "surface-dim": "#111317",
+            "on-primary": "#432c00",
+            "on-error": "#690005",
+            "surface-container": "#1e2023",
+            "ivory": "#f3ead7",
+            "background": "#111317",
+            "on-secondary": "#00354a",
+            "on-background": "#e2e2e6",
+            "tertiary-fixed": "#e9ddff"
+          },
+          borderRadius: {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          spacing: {
+            "xs": "4px",
+            "sm": "8px",
+            "unit": "4px",
+            "gutter": "24px",
+            "container-max": "1440px",
+            "md": "16px",
+            "xl": "40px",
+            "lg": "24px"
+          },
+          fontFamily: {
+            "headline-lg": ["Cinzel", "serif"],
+            "display-splash": ["Cinzel", "serif"],
+            "technical-hint": ["JetBrains Mono", "monospace"],
+            "nameplate": ["Cinzel", "serif"],
+            "body-narrative": ["Inter", "sans-serif"],
+            "ui-label-sm": ["Nunito", "sans-serif"],
+            "headline-lg-mobile": ["Cinzel", "serif"],
+            "ui-label-lg": ["Nunito", "sans-serif"]
+          },
+          fontSize: {
+            "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "0.08em", "fontWeight": "700" }],
+            "display-splash": ["86px", { "lineHeight": "1.1", "letterSpacing": "0.13em", "fontWeight": "800" }],
+            "technical-hint": ["11px", { "lineHeight": "1.0", "fontWeight": "500" }],
+            "nameplate": ["20px", { "lineHeight": "1.2", "letterSpacing": "0.08em", "fontWeight": "600" }],
+            "body-narrative": ["18px", { "lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "ui-label-sm": ["12px", { "lineHeight": "1.2", "letterSpacing": "0.15em", "fontWeight": "900" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "1.2", "fontWeight": "700" }],
+            "ui-label-lg": ["16px", { "lineHeight": "1.4", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Core Theme & Visual Novel Styles -->
+  <style>
+    /* Vignette & Atmospheric depth */
+    .vignette-overlay {
+      background: radial-gradient(circle at center, transparent 30%, rgba(8, 10, 13, 0.95) 100%);
+      pointer-events: none;
+    }
+    .shimmer-bg {
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+      background-size: 200% 100%;
+      animation: shimmer 2.5s infinite linear;
+    }
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    .obsidian-panel {
+      background: rgba(13, 17, 24, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(239, 191, 115, 0.3);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 10px 30px rgba(0,0,0,0.8);
+    }
+    
+    /* Dynamic Dual-Layer Background Crossfader */
+    .bg-layer {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 900ms ease, transform 6s ease;
+      transform: scale(1.03);
+    }
+    .bg-layer.active {
+      opacity: 0.45;
+      transform: scale(1);
+    }
+    #bg-tint-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      transition: background-color 900ms ease, filter 900ms ease;
+      mix-blend-mode: multiply;
+    }
+
+    /* Particle effects */
+    .ember-particle {
+      position: absolute;
+      background: #efbf73;
+      border-radius: 50%;
+      pointer-events: none;
+      opacity: 0;
+      animation: float-ember 4s infinite linear;
+    }
+    @keyframes float-ember {
+      0% { transform: translateY(0) scale(1); opacity: 0; }
+      50% { opacity: 0.8; }
+      100% { transform: translateY(-100px) scale(0.5); opacity: 0; }
+    }
+
+    /* Character Breathing & Transition */
+    #character-portrait {
+      animation: thornhavenBreathe 6.5s ease-in-out infinite alternate;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .portrait-transitioning {
+      opacity: 0.2;
+      transform: scale(0.98);
+    }
+    @keyframes thornhavenBreathe {
+      from { transform: translateY(0) scale(1); }
+      to { transform: translateY(-6px) scale(1.008); }
+    }
+
+    /* Advance Indicator (Typewriter Complete) */
+    .advance-indicator {
+      display: inline-block;
+      color: #f0cc89;
+      opacity: 0;
+      animation: bounceDown 1s infinite ease-in-out;
+      margin-left: 6px;
+      font-size: 0.85em;
+    }
+    .advance-indicator.visible {
+      opacity: 1;
+    }
+    @keyframes bounceDown {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(4px); }
+    }
+
+    /* Thinking Bubble */
+    .thinking-bubble {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    .thinking-bubble.visible {
+      display: flex;
+      opacity: 1;
+    }
+
+    /* Custom Scrollbar */
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: rgba(239, 191, 115, 0.2);
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: rgba(239, 191, 115, 0.5);
+    }
+
+    /* Modals & Overlays */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 50% 45%, rgba(13, 17, 24, 0.85), rgba(3, 5, 8, 0.97) 70%);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      padding: 16px;
+    }
+    .modal-overlay.visible, .modal-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+    .splash-fade-out {
+      opacity: 0;
+      transform: scale(0.96);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      pointer-events: none;
+    }
+    .stage-hidden {
+      display: none !important;
+    }
+    .stage-active {
+      display: flex !important;
+      animation: modalFadeIn 0.35s ease-out forwards;
+    }
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: translateY(12px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* Radio cards */
+    .radio-card {
+      transition: all 0.2s ease;
+      border: 1px solid rgba(239, 191, 115, 0.25);
+      background: rgba(17, 19, 23, 0.7);
+    }
+    .radio-card:hover {
+      border-color: rgba(239, 191, 115, 0.6);
+      background: rgba(239, 191, 115, 0.08);
+    }
+    .radio-card.active {
+      border-color: #f4c377 !important;
+      background: rgba(244, 195, 119, 0.14) !important;
+      box-shadow: 0 0 15px rgba(244, 195, 119, 0.18);
+    }
+
+    /* Settings Drawer */
+    .settings-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: min(380px, 90vw);
+      z-index: 120;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .settings-drawer.visible {
+      transform: translateX(0);
+    }
+
+    /* Roster Character active glow */
+    .roster-character.active {
+      background: rgba(244, 195, 119, 0.12) !important;
+      border-color: rgba(244, 195, 119, 0.6) !important;
+      box-shadow: 0 0 20px rgba(244, 195, 119, 0.15);
+    }
+    .roster-character.active img {
+      border-color: #f4c377 !important;
+      box-shadow: 0 0 8px rgba(244, 195, 119, 0.4);
+    }
+  </style>
+</head>
+
+<body class="bg-background text-on-surface h-screen w-screen overflow-hidden flex flex-col font-body-narrative selection:bg-primary selection:text-on-primary">
+
+  <!-- ── Atmospheric Stage Background ──────────────────────────────────────── -->
+  <div class="absolute inset-0 z-0 overflow-hidden">
+    <!-- Dynamic Dual-Layer Backgrounds for Smooth CSS Crossfades -->
+    <div id="bg-layer-1" class="bg-layer active" style="background-image: url('assets/backgrounds/village_square_day.svg')"></div>
+    <div id="bg-layer-2" class="bg-layer" style="background-image: url('assets/backgrounds/tavern_day.svg')"></div>
+
+    <!-- Atmospheric Time Tint Overlay -->
+    <div id="bg-tint-overlay"></div>
+
+    <!-- Vignette Edge Shading -->
+    <div class="absolute inset-0 vignette-overlay"></div>
+
+    <!-- Dynamic Particle System (Fireflies, Leaves, Embers, Shimmer) -->
+    <div id="particles-container" class="absolute inset-0 pointer-events-none z-10 overflow-hidden"></div>
+
+    <!-- Ember Particles Overlay -->
+    <div class="absolute inset-0 z-10 pointer-events-none" id="ember-container">
+      <div class="ember-particle" style="left: 20%; bottom: 10%; width: 4px; height: 4px; animation-delay: 0s;"></div>
+      <div class="ember-particle" style="left: 50%; bottom: 20%; width: 3px; height: 3px; animation-delay: 1.5s;"></div>
+      <div class="ember-particle" style="left: 80%; bottom: 15%; width: 5px; height: 5px; animation-delay: 3s;"></div>
+    </div>
+  </div>
+
+  <!-- ── Top Navigation / HUD ──────────────────────────────────────────────── -->
+  <header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl border-b border-outline-variant/30 shadow-[0_4px_30px_rgba(0,0,0,0.5)] flex justify-between items-center px-gutter py-sm">
+    
+    <!-- Left: Interactive Location & Time Badges with Quick Dropdowns -->
+    <div class="flex items-center gap-2 sm:gap-md">
+      
+      <!-- Location Interactive Pill & Dropdown -->
+      <div class="relative">
+        <button id="hud-location-btn" class="font-ui-label-sm text-ui-label-sm text-on-surface-variant hover:text-primary bg-surface-variant/50 hover:bg-surface-variant/80 px-2.5 py-1.5 rounded border border-outline-variant/50 hover:border-primary/50 uppercase tracking-widest flex items-center gap-1.5 shadow-sm transition-all cursor-pointer group active:scale-95" title="Click to change location directly">
+          <span class="material-symbols-outlined text-[15px] text-primary group-hover:scale-110 transition-transform">location_on</span>
+          <span id="hud-location-text">VILLAGE SQUARE</span>
+          <span class="material-symbols-outlined text-[14px] text-on-surface-variant/70 group-hover:text-primary transition-colors">expand_more</span>
+        </button>
+
+        <!-- Location Dropdown Menu -->
+        <div id="hud-location-dropdown" class="hidden absolute top-full left-0 mt-1.5 w-64 obsidian-panel rounded-xl p-1.5 shadow-2xl border border-primary/30 z-[60] flex flex-col gap-1 backdrop-blur-xl">
+          <div class="px-2.5 py-1 text-[10px] font-mono text-primary/70 uppercase tracking-wider border-b border-outline-variant/30">
+            Travel Location
+          </div>
+          <button data-loc="village_square" class="loc-dropdown-item w-full text-left px-2.5 py-1.5 rounded-lg text-xs hover:bg-primary/15 hover:text-primary flex items-center gap-2 transition-colors cursor-pointer text-on-surface">
+            <span class="material-symbols-outlined text-[15px] text-primary">storefront</span>
+            <span class="flex-1 font-semibold">Village Square</span>
+          </button>
+          <button data-loc="forest" class="loc-dropdown-item w-full text-left px-2.5 py-1.5 rounded-lg text-xs hover:bg-primary/15 hover:text-primary flex items-center gap-2 transition-colors cursor-pointer text-on-surface">
+            <span class="material-symbols-outlined text-[15px] text-primary">forest</span>
+            <span class="flex-1 font-semibold">Whispering Woods</span>
+          </button>
+          <button data-loc="tavern" class="loc-dropdown-item w-full text-left px-2.5 py-1.5 rounded-lg text-xs hover:bg-primary/15 hover:text-primary flex items-center gap-2 transition-colors cursor-pointer text-on-surface">
+            <span class="material-symbols-outlined text-[15px] text-primary">sports_bar</span>
+            <span class="flex-1 font-semibold">Rusty Anchor Tavern</span>
+          </button>
+          <button data-loc="dungeon" class="loc-dropdown-item w-full text-left px-2.5 py-1.5 rounded-lg text-xs hover:bg-primary/15 hover:text-primary flex items-center gap-2 transition-colors cursor-pointer text-on-surface">
+            <span class="material-symbols-outlined text-[15px] text-primary">skull</span>
+            <span class="flex-1 font-semibold">Sunken Dungeon</span>
+          </button>
+          <button data-loc="castle_ruins" class="loc-dropdown-item w-full text-left px-2.5 py-1.5 rounded-lg text-xs hover:bg-primary/15 hover:text-primary flex items-center gap-2 transition-colors cursor-pointer text-on-surface">
+            <span class="material-symbols-outlined text-[15px] text-primary">castle</span>
+            <span class="flex-1 font-semibold">Castle Ruins</span>
+          </button>
+          <button data-loc="apothecary" class="loc-dropdown-item w-full text-left px-2.5 py-1.5 rounded-lg text-xs hover:bg-primary/15 hover:text-primary flex items-center gap-2 transition-colors cursor-pointer text-on-surface">
+            <span class="material-symbols-outlined text-[15px] text-primary">local_pharmacy</span>
+            <span class="flex-1 font-semibold">Moonflower Apothecary</span>
+          </button>
+          <button data-loc="blacksmith_forge" class="loc-dropdown-item w-full text-left px-2.5 py-1.5 rounded-lg text-xs hover:bg-primary/15 hover:text-primary flex items-center gap-2 transition-colors cursor-pointer text-on-surface">
+            <span class="material-symbols-outlined text-[15px] text-primary">hardware</span>
+            <span class="flex-1 font-semibold">Blacksmith Forge</span>
+          </button>
+          <button data-loc="market_stalls" class="loc-dropdown-item w-full text-left px-2.5 py-1.5 rounded-lg text-xs hover:bg-primary/15 hover:text-primary flex items-center gap-2 transition-colors cursor-pointer text-on-surface">
+            <span class="material-symbols-outlined text-[15px] text-primary">shopping_bag</span>
+            <span class="flex-1 font-semibold">Twilight Market</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Time of Day Interactive Pill & Dropdown -->
+      <div class="relative">
+        <button id="hud-time-btn" class="font-ui-label-sm text-ui-label-sm text-on-surface-variant hover:text-primary bg-surface-variant/50 hover:bg-surface-variant/80 px-2.5 py-1.5 rounded border border-outline-variant/50 hover:border-primary/50 uppercase tracking-widest flex items-center gap-1.5 shadow-sm transition-all cursor-pointer group active:scale-95" title="Click to change time of day directly">
+          <span id="hud-time-icon" class="material-symbols-outlined text-[15px] text-primary group-hover:scale-110 transition-transform">light_mode</span>
+          <span id="hud-time-text">DAY</span>
+          <span class="material-symbols-outlined text-[14px] text-on-surface-variant/70 group-hover:text-primary transition-colors">expand_more</span>
+        </button>
+
+        <!-- Time Dropdown Menu -->
+        <div id="hud-time-dropdown" class="hidden absolute top-full left-0 mt-1.5 w-44 obsidian-panel rounded-xl p-1.5 shadow-2xl border border-primary/30 z-[60] flex flex-col gap-1 backdrop-blur-xl">
+          <div class="px-2.5 py-1 text-[10px] font-mono text-primary/70 uppercase tracking-wider border-b border-outline-variant/30">
+            Time of Day
+          </div>
+          <button data-time="dawn" class="time-dropdown-item w-full text-left px-2.5 py-1.5 rounded-lg text-xs hover:bg-primary/15 hover:text-primary flex items-center gap-2 transition-colors cursor-pointer text-on-surface">
+            <span class="material-symbols-outlined text-[15px] text-amber-400">wb_twilight</span>
+            <span class="flex-1 font-semibold">Dawn</span>
+          </button>
+          <button data-time="day" class="time-dropdown-item w-full text-left px-2.5 py-1.5 rounded-lg text-xs hover:bg-primary/15 hover:text-primary flex items-center gap-2 transition-colors cursor-pointer text-on-surface">
+            <span class="material-symbols-outlined text-[15px] text-yellow-400">light_mode</span>
+            <span class="flex-1 font-semibold">Day</span>
+          </button>
+          <button data-time="dusk" class="time-dropdown-item w-full text-left px-2.5 py-1.5 rounded-lg text-xs hover:bg-primary/15 hover:text-primary flex items-center gap-2 transition-colors cursor-pointer text-on-surface">
+            <span class="material-symbols-outlined text-[15px] text-orange-400">wb_sunset</span>
+            <span class="flex-1 font-semibold">Dusk</span>
+          </button>
+          <button data-time="night" class="time-dropdown-item w-full text-left px-2.5 py-1.5 rounded-lg text-xs hover:bg-primary/15 hover:text-primary flex items-center gap-2 transition-colors cursor-pointer text-on-surface">
+            <span class="material-symbols-outlined text-[15px] text-indigo-300">bedtime</span>
+            <span class="flex-1 font-semibold">Night</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Center: Chapter Ribbon -->
+    <div class="absolute left-1/2 transform -translate-x-1/2 items-center gap-4 hidden md:flex pointer-events-none">
+      <div class="h-px w-12 bg-gradient-to-r from-transparent to-primary"></div>
+      <h1 id="chapter-title" class="font-nameplate text-nameplate text-primary uppercase tracking-widest text-center whitespace-nowrap drop-shadow-md">
+        Chapter I: Whispers in Thornhaven
+      </h1>
+      <div class="h-px w-12 bg-gradient-to-l from-transparent to-primary"></div>
+    </div>
+
+    <!-- Right: Resource Bar / Status HUD / Action Buttons -->
+    <div class="flex items-center gap-2 sm:gap-md">
+      
+      <!-- Reputation Interactive Resource Pill & Quick Adjuster -->
+      <div class="relative hidden sm:flex">
+        <button id="hud-rep-btn" class="flex flex-col gap-1 w-36 lg:w-48 text-left p-1.5 rounded-lg hover:bg-surface-variant/40 transition-colors border border-transparent hover:border-outline-variant/40 cursor-pointer group" title="Click to adjust reputation directly">
+          <div class="flex justify-between font-ui-label-sm text-[11px] text-primary uppercase tracking-widest items-center">
+            <span class="flex items-center gap-0.5">Reputation <span class="material-symbols-outlined text-[12px] opacity-70 group-hover:opacity-100">expand_more</span></span>
+            <span id="res-rep-val" class="font-bold">Neutral</span>
+          </div>
+          <div class="h-2 bg-surface-container-highest rounded-full overflow-hidden border border-outline-variant/30">
+            <div id="res-rep-fill" class="h-full bg-primary-container relative transition-all duration-300" style="width: 50%;">
+              <div class="absolute inset-0 shimmer-bg"></div>
+            </div>
+          </div>
+        </button>
+
+        <!-- Reputation Dropdown / Adjuster Menu -->
+        <div id="hud-rep-dropdown" class="hidden absolute top-full right-0 mt-1.5 w-60 obsidian-panel rounded-xl p-2.5 shadow-2xl border border-primary/30 z-[60] flex flex-col gap-2 backdrop-blur-xl">
+          <div class="flex justify-between items-center px-1 border-b border-outline-variant/30 pb-1.5">
+            <span class="text-[10px] font-mono text-primary/80 uppercase tracking-wider">Reputation Setting</span>
+            <span id="hud-rep-current-num" class="text-xs font-bold text-primary px-1.5 py-0.5 rounded bg-primary/10">0</span>
+          </div>
+
+          <!-- Quick Increment / Decrement Nudge Bar -->
+          <div class="flex items-center justify-between gap-1 bg-surface-variant/60 p-1 rounded-lg border border-outline-variant/30">
+            <button id="hud-rep-minus-btn" class="flex-1 py-1 text-xs font-bold text-error hover:bg-error/20 rounded transition-colors cursor-pointer">-1 Rep</button>
+            <button id="hud-rep-reset-btn" class="px-2 py-1 text-[10px] font-semibold text-on-surface-variant hover:bg-surface-variant rounded transition-colors cursor-pointer">Reset</button>
+            <button id="hud-rep-plus-btn" class="flex-1 py-1 text-xs font-bold text-primary hover:bg-primary/20 rounded transition-colors cursor-pointer">+1 Rep</button>
+          </div>
+
+          <!-- Preset Level Buttons -->
+          <div class="flex flex-col gap-1 pt-1">
+            <button data-rep="-3" class="rep-dropdown-item text-left px-2.5 py-1 rounded text-xs hover:bg-error/20 text-error flex justify-between items-center transition-colors cursor-pointer">
+              <span>💀 Hostile</span>
+              <span class="font-mono text-[10px]">-3</span>
+            </button>
+            <button data-rep="-1" class="rep-dropdown-item text-left px-2.5 py-1 rounded text-xs hover:bg-orange-500/20 text-orange-300 flex justify-between items-center transition-colors cursor-pointer">
+              <span>🛡️ Guarded</span>
+              <span class="font-mono text-[10px]">-1</span>
+            </button>
+            <button data-rep="0" class="rep-dropdown-item text-left px-2.5 py-1 rounded text-xs hover:bg-primary/20 text-on-surface flex justify-between items-center transition-colors cursor-pointer">
+              <span>⚖️ Neutral</span>
+              <span class="font-mono text-[10px]">0</span>
+            </button>
+            <button data-rep="2" class="rep-dropdown-item text-left px-2.5 py-1 rounded text-xs hover:bg-emerald-500/20 text-emerald-300 flex justify-between items-center transition-colors cursor-pointer">
+              <span>🤝 Friendly</span>
+              <span class="font-mono text-[10px]">+2</span>
+            </button>
+            <button data-rep="5" class="rep-dropdown-item text-left px-2.5 py-1 rounded text-xs hover:bg-amber-400/20 text-amber-300 flex justify-between items-center transition-colors cursor-pointer">
+              <span>👑 Trusted Ally</span>
+              <span class="font-mono text-[10px]">+5</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Player Profile Badge -->
+      <button id="hud-profile-btn" class="hidden sm:flex items-center gap-1.5 text-on-surface-variant hover:text-primary transition-colors px-2.5 py-1.5 rounded border border-outline-variant/40 bg-surface-variant/30 hover:bg-surface-variant/60 cursor-pointer" title="Click to customize your character profile (Gender, Age, Occupation)">
+        <span class="material-symbols-outlined text-[16px] text-primary">person</span>
+        <span id="hud-profile-name" class="font-ui-label-sm text-ui-label-sm text-on-surface">Traveler</span>
+        <span id="hud-profile-tag" class="text-[10px] text-primary bg-primary/10 px-1.5 py-0.5 rounded uppercase font-bold">Mercenary</span>
+      </button>
+
+      <!-- History Log Button -->
+      <button id="history-toggle-btn" class="text-on-surface-variant hover:text-primary transition-colors duration-300 cursor-pointer active:scale-95 p-2 rounded-full hover:bg-surface-variant/30" title="Dialogue History Log (Key: L)">
+        <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+      </button>
+
+      <!-- Audio Toggle Button -->
+      <button id="audio-toggle-btn" class="text-on-surface-variant hover:text-primary transition-colors duration-300 cursor-pointer active:scale-95 p-2 rounded-full hover:bg-surface-variant/30" title="Toggle Atmospheric Audio (Key: M)">
+        <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">volume_up</span>
+      </button>
+
+      <!-- Settings Drawer Button -->
+      <button id="gear-btn" class="text-on-surface-variant hover:text-primary transition-colors duration-300 cursor-pointer active:scale-95 p-2 rounded-full hover:bg-surface-variant/30" title="Dialogue Testing HUD & Settings">
+        <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">settings</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ── Main Content Area ────────────────────────────────────────────────── -->
+  <div class="flex-1 flex flex-col md:flex-row relative z-20 pt-[60px] h-full w-full max-w-container-max mx-auto px-gutter gap-lg">
+
+    <!-- ── NPC Roster Panel (Left Sidebar) ────────────────────────────────── -->
+    <aside class="hidden lg:flex flex-col w-[280px] h-[calc(100vh-80px)] shrink-0 pt-md pb-md">
+      <div class="obsidian-panel rounded-xl h-full flex flex-col overflow-hidden border-t-2 border-t-primary/50">
+        
+        <div class="p-md border-b border-outline-variant/30 bg-surface/50 flex justify-between items-center">
+          <h3 class="font-ui-label-sm text-ui-label-sm text-on-surface-variant uppercase tracking-widest">People Nearby</h3>
+          <span class="text-[10px] text-primary/80 font-mono">6 CHARACTERS</span>
+        </div>
+
+        <!-- Dynamically populated character list -->
+        <div id="npc-roster" class="flex-1 overflow-y-auto p-2 custom-scrollbar flex flex-col gap-1.5">
+          <!-- NPC Cards will be dynamically injected by script.js -->
+        </div>
+
+      </div>
+    </aside>
+
+    <!-- ── The Stage & Central Area (Side-by-Side: Character on Left, Dialogue on Right) ── -->
+    <main class="flex-1 flex flex-col md:flex-row items-end justify-between relative h-[calc(100vh-80px)] pb-3 gap-4 lg:gap-8 min-w-0">
+
+      <!-- Objective Card (Top Right floating) -->
+      <div id="quest-tracker" class="absolute top-md right-0 z-30 hidden md:block">
+        <div class="obsidian-panel rounded-lg p-sm border-r-2 border-r-secondary min-w-[240px]">
+          <div class="font-ui-label-sm text-ui-label-sm text-on-surface-variant uppercase tracking-widest mb-1 flex items-center gap-1">
+            <span class="material-symbols-outlined text-[14px] text-primary">flag</span> CURRENT OBJECTIVE
+          </div>
+          <div id="quest-objective" class="font-ui-label-lg text-ui-label-lg text-on-surface">Speak with villagers</div>
+          <div id="quest-progress-text" class="text-[11px] text-on-surface-variant/70 mt-1">0 of 3 leads discovered</div>
+        </div>
+      </div>
+
+      <!-- Character Portrait Stage (Left Side Column — Beside Text) -->
+      <div id="character-stage" class="character-stage relative flex-1 h-[78vh] max-h-[760px] min-w-[240px] max-w-[460px] flex items-end justify-center z-10 select-none pointer-events-none self-end">
+        <!-- Subtle radial glow behind portrait -->
+        <div class="absolute bottom-6 w-56 h-56 bg-primary/10 blur-[50px] rounded-full pointer-events-none"></div>
+
+        <div class="relative w-full h-full flex items-end justify-center">
+          <img id="character-portrait" class="max-h-full max-w-full w-auto object-contain object-bottom drop-shadow-[0_20px_40px_rgba(0,0,0,0.85)] pointer-events-auto" src="assets/characters/ash/neutral.png" alt="NPC Portrait"/>
+
+          <!-- Mood / Emotion Overlay Badge -->
+          <div id="emotion-overlay" class="emotion-overlay absolute right-2 bottom-6 w-9 h-9 rounded-lg bg-surface/90 border border-primary/40 flex items-center justify-center shadow-lg pointer-events-auto backdrop-blur-md" title="NPC Current Emotion">
+            <span id="emotion-overlay-icon" class="text-lg">✨</span>
+          </div>
+
+          <!-- Animated Thinking Bubble for Response Loading -->
+          <div id="character-thinking-bubble" class="thinking-bubble absolute top-[25%] right-0 obsidian-panel rounded-lg px-3 py-2 flex items-center gap-1.5 shadow-xl">
+            <span class="thinking-dot w-2 h-2 bg-primary rounded-full animate-bounce"></span>
+            <span class="thinking-dot w-2 h-2 bg-primary rounded-full animate-bounce [animation-delay:0.2s]"></span>
+            <span class="thinking-dot w-2 h-2 bg-primary rounded-full animate-bounce [animation-delay:0.4s]"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dialogue & Command Console (Right Side Column — Beside Character) -->
+      <div class="w-full md:w-[500px] lg:w-[560px] xl:w-[620px] shrink-0 z-30 flex flex-col gap-3 relative pb-1">
+
+        <!-- Speech Bubble (Obsidian Grimoire Style) -->
+        <div id="dialogue-panel" class="obsidian-panel rounded-xl p-4 sm:p-5 flex flex-col gap-3 border-l-4 border-l-primary relative cursor-pointer shadow-2xl">
+          
+          <!-- Header with Name and Mood -->
+          <div class="flex items-center justify-between border-b border-outline-variant/30 pb-2.5 mb-1 flex-wrap gap-2">
+            <div class="flex items-center gap-2.5">
+              <span class="font-ui-label-sm text-ui-label-sm text-on-surface-variant uppercase tracking-widest flex items-center gap-1">
+                <span class="material-symbols-outlined text-[14px]">chat</span> IN CONVERSATION
+              </span>
+              <div class="h-3.5 w-px bg-outline-variant/50"></div>
+              <span id="npc-name-tag" class="font-nameplate text-nameplate text-ember-bright uppercase tracking-widest leading-none">Ash</span>
+              <span id="npc-title-tag" class="font-ui-label-sm text-xs text-on-surface-variant hidden sm:inline">Information Broker</span>
+            </div>
+
+            <!-- Interactive Mood / Emotion Badge & Dropdown -->
+            <div class="relative">
+              <button id="mood-badge-btn" class="font-ui-label-sm text-ui-label-sm text-on-surface-variant hover:text-primary uppercase tracking-widest px-2.5 py-1 bg-surface-variant/80 hover:bg-surface-variant rounded border border-outline-variant/40 hover:border-primary/50 flex items-center gap-1.5 cursor-pointer transition-all shadow-sm active:scale-95 group" title="Click to change NPC emotion directly">
+                <span id="mood-icon" class="text-sm group-hover:scale-110 transition-transform">✨</span>
+                <span id="mood-label">Calm</span>
+                <span class="material-symbols-outlined text-[13px] text-on-surface-variant/70 group-hover:text-primary transition-colors">expand_more</span>
+              </button>
+
+              <!-- Quick Emotion Selector Dropdown -->
+              <div id="mood-dropdown" class="hidden absolute top-full right-0 mt-1.5 w-52 obsidian-panel rounded-xl p-1.5 shadow-2xl border border-primary/30 z-[70] flex flex-col gap-1 backdrop-blur-xl">
+                <div class="px-2.5 py-1 text-[10px] font-mono text-primary/80 uppercase tracking-wider border-b border-outline-variant/30">
+                  Set Character Emotion
+                </div>
+                <button data-emotion="neutral" class="emotion-dropdown-item w-full text-left px-2.5 py-1.5 rounded-lg text-xs hover:bg-primary/15 hover:text-primary flex items-center gap-2 transition-colors cursor-pointer text-on-surface">
+                  <span class="text-sm">😐</span>
+                  <span class="flex-1 font-semibold">Neutral / Calm</span>
+                </button>
+                <button data-emotion="happy" class="emotion-dropdown-item w-full text-left px-2.5 py-1.5 rounded-lg text-xs hover:bg-emerald-500/15 hover:text-emerald-300 flex items-center gap-2 transition-colors cursor-pointer text-on-surface">
+                  <span class="text-sm">😊</span>
+                  <span class="flex-1 font-semibold">Happy / Cheerful</span>
+                </button>
+                <button data-emotion="angry" class="emotion-dropdown-item w-full text-left px-2.5 py-1.5 rounded-lg text-xs hover:bg-error/15 hover:text-error flex items-center gap-2 transition-colors cursor-pointer text-on-surface">
+                  <span class="text-sm">😠</span>
+                  <span class="flex-1 font-semibold">Angry / Stern</span>
+                </button>
+                <button data-emotion="sad" class="emotion-dropdown-item w-full text-left px-2.5 py-1.5 rounded-lg text-xs hover:bg-blue-500/15 hover:text-blue-300 flex items-center gap-2 transition-colors cursor-pointer text-on-surface">
+                  <span class="text-sm">😢</span>
+                  <span class="flex-1 font-semibold">Sad / Melancholy</span>
+                </button>
+                <button data-emotion="suspicious" class="emotion-dropdown-item w-full text-left px-2.5 py-1.5 rounded-lg text-xs hover:bg-purple-500/15 hover:text-purple-300 flex items-center gap-2 transition-colors cursor-pointer text-on-surface">
+                  <span class="text-sm">🤨</span>
+                  <span class="flex-1 font-semibold">Suspicious / Shrewd</span>
+                </button>
+                <button data-emotion="surprised" class="emotion-dropdown-item w-full text-left px-2.5 py-1.5 rounded-lg text-xs hover:bg-amber-500/15 hover:text-amber-300 flex items-center gap-2 transition-colors cursor-pointer text-on-surface">
+                  <span class="text-sm">😲</span>
+                  <span class="flex-1 font-semibold">Surprised / Alert</span>
+                </button>
+                <button data-emotion="thinking" class="emotion-dropdown-item w-full text-left px-2.5 py-1.5 rounded-lg text-xs hover:bg-cyan-500/15 hover:text-cyan-300 flex items-center gap-2 transition-colors cursor-pointer text-on-surface">
+                  <span class="text-sm">🤔</span>
+                  <span class="flex-1 font-semibold">Thinking / Ponder</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Spoken Dialogue Text with Typewriter Effect -->
+          <div class="font-body-narrative text-body-narrative text-on-surface/95 leading-relaxed min-h-[60px] relative">
+            <div id="dialogue-text" class="inline" aria-live="polite"></div>
+            <span id="advance-indicator" class="advance-indicator">▼</span>
+          </div>
+
+        </div>
+
+        <!-- Command Console -->
+        <div class="obsidian-panel rounded-xl p-3.5 sm:p-4 flex flex-col gap-2.5 border-t border-outline-variant/30 shadow-2xl">
+
+          <!-- Choice Chips (2x2 Grid) -->
+          <div id="choice-chips-container" class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <!-- Populated dynamically by script.js -->
+          </div>
+
+          <!-- Player Last Words Preview -->
+          <div id="player-query-preview" class="player-query-preview flex items-center gap-2 px-2 py-1 text-xs text-on-surface-variant/70 border-l border-outline-variant/40">
+            <span class="text-primary font-bold">◇</span>
+            <span class="uppercase tracking-wider font-semibold text-[10px] text-primary">YOUR LAST WORDS:</span>
+            <span id="player-query-text" class="italic truncate">"Welcome to Thornhaven! Speak with any villager to begin your journey."</span>
+          </div>
+
+          <!-- Player Input Bar -->
+          <div id="player-input-wrapper" class="relative mt-0.5">
+            <input id="player-input" class="w-full bg-night/80 border border-outline-variant/50 rounded-lg pl-10 pr-24 py-2.5 sm:py-3 font-body-narrative text-body-narrative text-on-surface placeholder:text-on-surface-variant/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 transition-colors" placeholder="What do you say?" type="text" maxlength="500" autocomplete="off" aria-label="Speak to selected character"/>
+            <span class="material-symbols-outlined absolute left-3 top-1/2 transform -translate-y-1/2 text-on-surface-variant">keyboard</span>
+            <button id="send-btn" class="absolute right-1.5 top-1/2 transform -translate-y-1/2 px-3 py-1.5 text-primary hover:text-ember-bright transition-colors bg-surface-variant/60 rounded-md hover:bg-surface-variant flex items-center gap-1.5 font-ui-label-sm text-xs uppercase tracking-wider font-bold cursor-pointer" title="Send message (Enter)">
+              <span>Speak</span>
+              <span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">send</span>
+            </button>
+          </div>
+
+          <!-- Keyboard hints -->
+          <div class="command-hints hidden sm:flex justify-between text-[10px] text-on-surface-variant/60 font-technical-hint uppercase tracking-wider pt-1 border-t border-outline-variant/20">
+            <span><kbd class="text-primary font-bold">1–4</kbd> choose response</span>
+            <span><kbd class="text-primary font-bold">SPACE</kbd> reveal text</span>
+            <span><kbd class="text-primary font-bold">L</kbd> dialogue log</span>
+            <span><kbd class="text-primary font-bold">M</kbd> sound</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- ── Bottom Mobile Navigation Bar ─────────────────────────────────────── -->
+  <nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container-lowest/95 backdrop-blur-md border-t border-outline-variant/40 shadow-[0_-10px_40px_rgba(0,0,0,0.9)] flex justify-around items-center h-16 px-4">
+    <button id="mob-speak-btn" class="flex flex-col items-center justify-center text-ember-bright scale-105 active:scale-95 transition-all">
+      <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+      <span class="font-ui-label-sm text-[10px]">Speak</span>
+    </button>
+    <button id="mob-roster-btn" class="flex flex-col items-center justify-center text-outline hover:text-primary active:scale-95 transition-all">
+      <span class="material-symbols-outlined text-[20px]">group</span>
+      <span class="font-ui-label-sm text-[10px]">People</span>
+    </button>
+    <button id="mob-log-btn" class="flex flex-col items-center justify-center text-outline hover:text-primary active:scale-95 transition-all">
+      <span class="material-symbols-outlined text-[20px]">menu_book</span>
+      <span class="font-ui-label-sm text-[10px]">Journal</span>
+    </button>
+    <button id="mob-settings-btn" class="flex flex-col items-center justify-center text-outline hover:text-primary active:scale-95 transition-all">
+      <span class="material-symbols-outlined text-[20px]">settings</span>
+      <span class="font-ui-label-sm text-[10px]">Settings</span>
+    </button>
+  </nav>
+
+  <!-- ── Welcome & Character Creation Modal (Two-Stage Entrance) ───────────── -->
+  <div id="welcome-modal" class="modal-overlay visible active">
+    
+    <!-- Stage 1: Splash / Title Entrance Screen -->
+    <div id="splash-screen-container" class="max-w-[640px] text-center p-6 flex flex-col items-center gap-4">
+      <div class="text-xs uppercase tracking-[0.3em] text-primary font-ui-label-sm">A Living Dark-Fantasy Tale</div>
+      <div class="w-16 h-16 rounded-full border border-primary/40 bg-surface/50 text-primary flex items-center justify-center text-2xl shadow-[0_0_30px_rgba(244,195,119,0.2)]">✦</div>
+      <h1 class="font-display-splash text-5xl md:text-7xl text-primary uppercase tracking-widest drop-shadow-[0_4px_25px_rgba(0,0,0,0.8)]">
+        Thornhaven
+      </h1>
+      <p class="text-on-surface-variant max-w-[480px] leading-relaxed text-sm md:text-base">
+        Every secret has a keeper. Every answer changes how they remember you.
+      </p>
+      <button id="splash-skip-btn" class="mt-4 px-8 py-3 bg-gradient-to-r from-primary-container to-amber-700 hover:from-amber-400 hover:to-amber-600 text-black font-ui-label-lg uppercase tracking-widest font-black rounded transition-all duration-300 shadow-[0_0_25px_rgba(244,195,119,0.3)] hover:scale-105 cursor-pointer flex items-center gap-2">
+        <span>Enter the Realm</span>
+        <span>✦</span>
+      </button>
+    </div>
+
+    <!-- Stage 2: Character Creation Form Modal Card -->
+    <div id="welcome-modal-card" class="obsidian-panel rounded-2xl max-w-[680px] w-full p-6 md:p-8 flex flex-col gap-6 max-h-[90vh] overflow-y-auto custom-scrollbar stage-hidden">
+      
+      <!-- Modal Header -->
+      <div class="flex justify-between items-start border-b border-outline-variant/30 pb-4">
+        <div>
+          <h2 class="font-nameplate text-2xl text-primary flex items-center gap-2">
+            <span>⚔️</span> Welcome to Thornhaven
+          </h2>
+          <p class="text-xs text-on-surface-variant mt-1">Forge your identity. The villagers will perceive and speak to you based on your gender, age, and occupation.</p>
+        </div>
+        <button id="close-welcome-btn" class="text-on-surface-variant hover:text-primary text-2xl cursor-pointer p-1" title="Close / Keep Existing Profile">&times;</button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="flex flex-col gap-5">
+        
+        <!-- Name Input -->
+        <div class="profile-input-group flex flex-col gap-1.5">
+          <label class="font-ui-label-sm text-xs text-primary uppercase tracking-wider" for="player-name-input">Character Name</label>
+          <div class="flex gap-2">
+            <input type="text" id="player-name-input" class="flex-1 bg-night/90 border border-outline-variant/50 rounded-lg px-4 py-2.5 font-body-narrative text-on-surface focus:outline-none focus:border-primary" placeholder="e.g. Valen, Lyra, Thorne" maxlength="24" value="Traveler">
+            <button id="random-name-btn" type="button" class="px-4 py-2.5 bg-surface-variant/60 hover:bg-surface-variant border border-outline-variant/50 rounded-lg text-xs font-ui-label-sm text-primary uppercase tracking-wider cursor-pointer transition-colors">🎲 Random</button>
+          </div>
+        </div>
+
+        <!-- Gender Selector -->
+        <div class="profile-input-group flex flex-col gap-1.5">
+          <label class="font-ui-label-sm text-xs text-primary uppercase tracking-wider">Gender / Form of Address</label>
+          <div class="gender-grid grid grid-cols-3 gap-2">
+            <button type="button" class="radio-card active rounded-lg p-3 text-center cursor-pointer flex flex-col items-center gap-1" data-gender="male">
+              <span class="text-lg">♂️</span>
+              <span class="font-ui-label-sm text-xs font-bold text-on-surface">Male</span>
+              <span class="text-[10px] text-on-surface-variant">Sir / Lad / Brother</span>
+            </button>
+            <button type="button" class="radio-card rounded-lg p-3 text-center cursor-pointer flex flex-col items-center gap-1" data-gender="female">
+              <span class="text-lg">♀️</span>
+              <span class="font-ui-label-sm text-xs font-bold text-on-surface">Female</span>
+              <span class="text-[10px] text-on-surface-variant">Madam / Lass / Sister</span>
+            </button>
+            <button type="button" class="radio-card rounded-lg p-3 text-center cursor-pointer flex flex-col items-center gap-1" data-gender="neutral">
+              <span class="text-lg">⚧️</span>
+              <span class="font-ui-label-sm text-xs font-bold text-on-surface">Non-Binary</span>
+              <span class="text-[10px] text-on-surface-variant">Friend / Traveler</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Age Selector -->
+        <div class="profile-input-group flex flex-col gap-1.5">
+          <label class="font-ui-label-sm text-xs text-primary uppercase tracking-wider">Age & Life Stage</label>
+          <div class="age-grid grid grid-cols-2 sm:grid-cols-4 gap-2">
+            <button type="button" class="radio-card rounded-lg p-2.5 text-center cursor-pointer flex flex-col items-center gap-0.5" data-age="11" data-age-group="child">
+              <span class="text-base">🌱</span>
+              <span class="font-ui-label-sm text-xs font-bold text-on-surface">Child (11)</span>
+              <span class="text-[9px] text-on-surface-variant">Care & Protection</span>
+            </button>
+            <button type="button" class="radio-card rounded-lg p-2.5 text-center cursor-pointer flex flex-col items-center gap-0.5" data-age="16" data-age-group="teenager">
+              <span class="text-base">⚡</span>
+              <span class="font-ui-label-sm text-xs font-bold text-on-surface">Teen (16)</span>
+              <span class="text-[9px] text-on-surface-variant">Youth / Peer</span>
+            </button>
+            <button type="button" class="radio-card active rounded-lg p-2.5 text-center cursor-pointer flex flex-col items-center gap-0.5" data-age="24" data-age-group="adult">
+              <span class="text-base">🛡️</span>
+              <span class="font-ui-label-sm text-xs font-bold text-on-surface">Adult (24)</span>
+              <span class="text-[9px] text-on-surface-variant">Prime Adventurer</span>
+            </button>
+            <button type="button" class="radio-card rounded-lg p-2.5 text-center cursor-pointer flex flex-col items-center gap-0.5" data-age="48" data-age-group="elder">
+              <span class="text-base">📜</span>
+              <span class="font-ui-label-sm text-xs font-bold text-on-surface">Veteran (48)</span>
+              <span class="text-[9px] text-on-surface-variant">Respected Elder</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Occupation Selector -->
+        <div class="profile-input-group flex flex-col gap-1.5">
+          <label class="font-ui-label-sm text-xs text-primary uppercase tracking-wider">Occupation & Background</label>
+          <div class="occupation-grid grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <button type="button" class="radio-card active rounded-lg p-2.5 text-left cursor-pointer flex items-center gap-2.5" data-occupation="mercenary">
+              <span class="text-xl">⚔️</span>
+              <div>
+                <div class="font-ui-label-sm text-xs font-bold text-on-surface">Mercenary / Warrior</div>
+                <div class="text-[10px] text-on-surface-variant">Blades, tactics & bounties</div>
+              </div>
+            </button>
+            <button type="button" class="radio-card rounded-lg p-2.5 text-left cursor-pointer flex items-center gap-2.5" data-occupation="scholar">
+              <span class="text-xl">📜</span>
+              <div>
+                <div class="font-ui-label-sm text-xs font-bold text-on-surface">Wandering Scholar</div>
+                <div class="text-[10px] text-on-surface-variant">Glyphs, leylines & ancient lore</div>
+              </div>
+            </button>
+            <button type="button" class="radio-card rounded-lg p-2.5 text-left cursor-pointer flex items-center gap-2.5" data-occupation="healer">
+              <span class="text-xl">🌿</span>
+              <div>
+                <div class="font-ui-label-sm text-xs font-bold text-on-surface">Village Herbalist</div>
+                <div class="text-[10px] text-on-surface-variant">Salves, potions & alchemy</div>
+              </div>
+            </button>
+            <button type="button" class="radio-card rounded-lg p-2.5 text-left cursor-pointer flex items-center gap-2.5" data-occupation="merchant">
+              <span class="text-xl">💰</span>
+              <div>
+                <div class="font-ui-label-sm text-xs font-bold text-on-surface">Traveling Merchant</div>
+                <div class="text-[10px] text-on-surface-variant">Trade routes & commodities</div>
+              </div>
+            </button>
+            <button type="button" class="radio-card rounded-lg p-2.5 text-left cursor-pointer flex items-center gap-2.5" data-occupation="scout">
+              <span class="text-xl">🏹</span>
+              <div>
+                <div class="font-ui-label-sm text-xs font-bold text-on-surface">Forest Scout</div>
+                <div class="text-[10px] text-on-surface-variant">Trails, tracking & maps</div>
+              </div>
+            </button>
+            <button type="button" class="radio-card rounded-lg p-2.5 text-left cursor-pointer flex items-center gap-2.5" data-occupation="adventurer">
+              <span class="text-xl">🛡️</span>
+              <div>
+                <div class="font-ui-label-sm text-xs font-bold text-on-surface">Novice Adventurer</div>
+                <div class="text-[10px] text-on-surface-variant">Eager beginner seeking destiny</div>
+              </div>
+            </button>
+          </div>
+
+          <!-- Custom "Other" Occupation Input (Hidden by default) -->
+          <div id="occupation-other-wrapper" class="occupation-other-wrapper hidden mt-2 flex-col gap-1">
+            <label class="text-[10px] text-primary" for="occupation-other-input">Specify Custom Occupation</label>
+            <input type="text" id="occupation-other-input" class="bg-night/90 border border-outline-variant/50 rounded-lg px-3 py-2 text-xs font-body-narrative text-on-surface focus:outline-none focus:border-primary" placeholder="e.g. Blacksmith, Bard, Fisherman, Alchemist" maxlength="32">
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="border-t border-outline-variant/30 pt-4 flex justify-end">
+        <button id="start-journey-btn" class="w-full sm:w-auto px-8 py-3 bg-gradient-to-r from-primary-container to-amber-700 hover:from-amber-400 hover:to-amber-600 text-black font-ui-label-lg uppercase tracking-widest font-black rounded transition-all duration-300 shadow-[0_0_25px_rgba(244,195,119,0.3)] hover:scale-102 cursor-pointer flex items-center justify-center gap-2">
+          <span>Enter Thornhaven</span>
+          <span>➔</span>
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ── Dialogue History / Log Modal ─────────────────────────────────────── -->
+  <div id="history-modal" class="modal-overlay">
+    <div class="obsidian-panel rounded-2xl max-w-[640px] w-full p-6 flex flex-col gap-4 max-h-[80vh]">
+      
+      <div class="flex justify-between items-center border-b border-outline-variant/30 pb-3">
+        <h3 class="font-nameplate text-xl text-primary flex items-center gap-2">
+          <span>📜</span> Dialogue History
+        </h3>
+        <button id="close-history-btn" class="text-on-surface-variant hover:text-primary text-2xl cursor-pointer">&times;</button>
+      </div>
+
+      <div id="history-list" class="flex-1 overflow-y-auto custom-scrollbar flex flex-col gap-3 p-1 min-h-[220px]">
+        <!-- Injected dynamically -->
+      </div>
+
+      <div class="border-t border-outline-variant/30 pt-3 flex justify-between items-center">
+        <button id="clear-history-btn" class="px-3 py-1.5 text-xs text-error hover:bg-error/10 rounded border border-error/30 cursor-pointer transition-colors">Clear History</button>
+        <span class="text-[10px] text-on-surface-variant">Press <kbd class="text-primary font-bold">L</kbd> to toggle</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── Testing & Scenario Settings Drawer ───────────────────────────────── -->
+  <aside id="settings-drawer" class="settings-drawer obsidian-panel border-l border-primary/30 p-6 flex flex-col gap-5 overflow-y-auto custom-scrollbar shadow-2xl">
+    
+    <div class="flex justify-between items-center border-b border-outline-variant/30 pb-3">
+      <h3 class="font-nameplate text-lg text-primary flex items-center gap-2">
+        <span>⚙️</span> Dialogue HUD Testing
+      </h3>
+      <button id="close-settings-btn" class="text-on-surface-variant hover:text-primary text-2xl cursor-pointer">&times;</button>
+    </div>
+
+    <div class="flex flex-col gap-4">
+      
+      <!-- Player Profile Button -->
+      <div class="flex flex-col gap-1">
+        <label class="font-ui-label-sm text-xs text-primary uppercase tracking-wider">Player Identity</label>
+        <button id="drawer-edit-profile-btn" class="w-full py-2 px-3 bg-surface-variant/60 hover:bg-surface-variant border border-outline-variant/50 rounded-lg text-xs font-ui-label-sm text-on-surface text-left cursor-pointer transition-colors flex items-center gap-2">
+          <span>👤</span> Edit Player Profile
+        </button>
+      </div>
+
+      <!-- Active NPC Selector -->
+      <div class="flex flex-col gap-1">
+        <label class="font-ui-label-sm text-xs text-primary uppercase tracking-wider" for="setting-select-npc">Select Active NPC</label>
+        <select id="setting-select-npc" class="w-full bg-night/90 border border-outline-variant/50 rounded-lg px-3 py-2 text-xs font-body-narrative text-on-surface focus:outline-none focus:border-primary"></select>
+      </div>
+
+      <!-- Environment Selector -->
+      <div class="flex flex-col gap-1">
+        <label class="font-ui-label-sm text-xs text-primary uppercase tracking-wider" for="setting-select-env">Environment Location</label>
+        <select id="setting-select-env" class="w-full bg-night/90 border border-outline-variant/50 rounded-lg px-3 py-2 text-xs font-body-narrative text-on-surface focus:outline-none focus:border-primary"></select>
+      </div>
+
+      <!-- Time of Day Selector -->
+      <div class="flex flex-col gap-1">
+        <label class="font-ui-label-sm text-xs text-primary uppercase tracking-wider" for="setting-select-time">Time of Day</label>
+        <select id="setting-select-time" class="w-full bg-night/90 border border-outline-variant/50 rounded-lg px-3 py-2 text-xs font-body-narrative text-on-surface focus:outline-none focus:border-primary">
+          <option value="dawn">Dawn (Morning Gold)</option>
+          <option value="day">Day (Azure Sunlight)</option>
+          <option value="dusk">Dusk (Twilight Purple)</option>
+          <option value="night">Night (Deep Indigo)</option>
+        </select>
+      </div>
+
+      <!-- Emotion / Expression Tester -->
+      <div class="flex flex-col gap-1">
+        <label class="font-ui-label-sm text-xs text-primary uppercase tracking-wider" for="setting-select-emotion">Test NPC Expression</label>
+        <select id="setting-select-emotion" class="w-full bg-night/90 border border-outline-variant/50 rounded-lg px-3 py-2 text-xs font-body-narrative text-on-surface focus:outline-none focus:border-primary">
+          <option value="neutral">Calm (Neutral)</option>
+          <option value="happy">Friendly (Happy)</option>
+          <option value="angry">Hostile (Angry)</option>
+          <option value="sad">Solemn (Sad)</option>
+          <option value="surprised">Alert (Surprised)</option>
+          <option value="suspicious">Guarded (Suspicious)</option>
+          <option value="thinking">Pondering (Thinking)</option>
+        </select>
+      </div>
+
+      <!-- Reputation Adjuster -->
+      <div class="flex flex-col gap-1">
+        <label class="font-ui-label-sm text-xs text-primary uppercase tracking-wider" for="setting-select-rep">NPC Reputation / Affinity</label>
+        <select id="setting-select-rep" class="w-full bg-night/90 border border-outline-variant/50 rounded-lg px-3 py-2 text-xs font-body-narrative text-on-surface focus:outline-none focus:border-primary">
+          <option value="6">Trusted Ally (+6)</option>
+          <option value="3">Friendly (+3)</option>
+          <option value="0">Neutral (0)</option>
+          <option value="-2">Guarded / Wary (-2)</option>
+          <option value="-5">Hostile (-5)</option>
+        </select>
+      </div>
+
+    </div>
+
+  </aside>
+
+  <!-- ── JavaScript Application Modules ────────────────────────────────────── -->
+  <script src="js/config.js?v=12.0"></script>
+  <script src="js/particles.js?v=12.0"></script>
+  <script src="js/audio.js?v=12.0"></script>
+  <script src="js/script.js?v=12.0"></script>
+
+</body>
+</html>

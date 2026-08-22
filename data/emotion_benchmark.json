@@ -1,0 +1,22 @@
+{
+  "evaluation": "external test splits only",
+  "examples": 17791,
+  "baseline_seed_only": {
+    "accuracy": 0.28154684953066156,
+    "macro_f1": 0.15933687784466602
+  },
+  "with_external_training": {
+    "accuracy": 0.5846776460007869,
+    "macro_f1": 0.3156288788066019
+  },
+  "accuracy_improvement": 0.3031307964701253,
+  "macro_f1_improvement": 0.15629200096193588,
+  "class_counts": {
+    "angry": 1805,
+    "happy": 4193,
+    "neutral": 9343,
+    "sad": 937,
+    "surprised": 443,
+    "thinking": 1070
+  }
+}

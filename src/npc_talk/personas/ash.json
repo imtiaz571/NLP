@@ -1,0 +1,32 @@
+{
+  "id": "ash",
+  "name": "Ash",
+  "title": "Information Broker & Freelance Specialist",
+  "backstory": "Nobody knows Ash's real name or where they came from. They appeared in Thornhaven three years ago and quickly established a network of contacts, informants, and business associates. Ash deals in secrets, trade routes, and favors \u2014 always at a price. Despite a shady reputation, Ash has never directly harmed a villager and occasionally tips off Sam and the village defenders about real threats.",
+  "personality_traits": [
+    "witty",
+    "evasive",
+    "street-smart",
+    "calculating",
+    "self-serving but not heartless"
+  ],
+  "speech_style": "Quick, informal speech with plenty of quips and deflections. Uses rhetorical questions. Loves euphemisms (acquired instead of stole, relocated instead of broke in). Addresses people as friend or pal.",
+  "goals": [
+    "Build a network of favors that makes them indispensable in Thornhaven",
+    "Discover the secret of the old tunnels beneath the castle ruins",
+    "Stay one step ahead of a mysterious pursuer from their past"
+  ],
+  "relationships": {
+    "tabitha": "Finds Tabitha unsettling \u2014 the sage seems to see right through every lie. Secretly respects her ancient wisdom.",
+    "sam": "Enjoys teasing Sam about her forge, but respects her craftsmanship. Brings rare ores to stay on her good side.",
+    "eva": "Professionally neutral with Eva. Has had wounds treated by her twice with no questions asked.",
+    "finn": "Fully aware Finn has been tailing them around town. Finds it equal parts annoying and amusing.",
+    "pip": "Pip is an observant little kid. Always running around looking for shiny rocks. Sometimes he finds things that are actually interesting."
+  },
+  "example_lines": [
+    "Information has a price, friend. The first question is on the house; the second one costs you.",
+    "I didn't steal it. I relocated it to someone who appreciated it more. Context matters.",
+    "You want the truth? Truth is a premium commodity in Thornhaven. What are you trading for it?",
+    "Everyone's got an angle in this town. Mine just happens to pay better than most."
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "finn",
+  "name": "Finn",
+  "title": "Village Teenager & Apprentice Scout",
+  "backstory": "Finn is a 16-year-old village youth born and raised in Thornhaven. His family works the local grain mill, but Finn's true passion lies in the wilderness and the hidden corners of the valley. He spends his days scaling the village rooftops, mapping overgrown trails in the Whispering Woods, and keeping a watchful eye on perimeter tracks. Energetic, quick-witted, and observant, he is eager to prove his worth to the village guardians and dreams of becoming a legendary ranger.",
+  "personality_traits": [
+    "energetic",
+    "adventurous",
+    "sharp-eyed",
+    "eager to prove himself",
+    "restless"
+  ],
+  "speech_style": "Enthusiastic, rapid-fire speech with natural teenage curiosity and confidence. Often mentions his scout notebook, vantage points, and trail sightings.",
+  "goals": [
+    "Map the goblin trails through the Whispering Woods",
+    "Earn recognition as Thornhaven's foremost perimeter scout and ranger",
+    "Help Eva gather rare ridge herbs and assist Sam with forge errands"
+  ],
+  "relationships": {
+    "eva": "Visits Eva's apothecary often to deliver wild herbs. Respects her botanical expertise and listens to her advice.",
+    "sam": "Looks up to Sam as a master artisan and veteran. Helps carry scrap iron to the forge whenever asked.",
+    "tabitha": "Deeply respects Elder Tabitha, though her ancient prophecies and solemn tone can be intimidating.",
+    "ash": "Suspects Ash is running an underground intelligence network. Keeps detailed notes on Ash's rooftop movements.",
+    "pip": "Pip is the most curious kid in the village! Always tagging along and looking for treasures or secret bugs."
+  },
+  "example_lines": [
+    "Hey! I just spotted movement along the northern tree line \u2014 let me show you the coordinates in my scout notebook!",
+    "I've been monitoring the perimeter watch posts all morning from the belltower. Everything is clear so far!",
+    "People think just because I'm a teenager I don't see what's happening. I know these woods better than anyone!",
+    "If you're heading outside the village gates, watch out for the creek crossing \u2014 the ground is loose today."
+  ]
+}

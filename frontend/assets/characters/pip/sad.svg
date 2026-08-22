@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 1280" width="880" height="1280">
+  <defs>
+    <radialGradient id="rimPip" cx="70%" cy="20%" r="60%"><stop offset="0%" stop-color="#facc15" stop-opacity="0.45"/><stop offset="70%" stop-color="#eab308" stop-opacity="0.1"/><stop offset="100%" stop-color="#ca8a04" stop-opacity="0"/></radialGradient>
+    <linearGradient id="skinPip" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fff7ed"/><stop offset="50%" stop-color="#fed7aa"/><stop offset="100%" stop-color="#fcd34d"/></linearGradient>
+    <linearGradient id="tunicPip" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#d97706"/><stop offset="100%" stop-color="#92400e"/></linearGradient>
+    <filter id="drop" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000000" flood-opacity="0.65"/></filter>
+  </defs>
+
+  <circle cx="500" cy="400" r="380" fill="url(#rimPip)"/>
+
+  <g filter="url(#drop)">
+    <!-- Child Shoulders & Patched Tunic -->
+    <path d="M 160 1280 C 180 1020 230 880 300 800 Q 440 830 580 800 C 650 880 700 1020 720 1280 Z" fill="url(#tunicPip)"/>
+    <!-- Dark Brown Suspenders / Braces -->
+    <path d="M 330 810 L 350 1280" stroke="#78350f" stroke-width="24" stroke-linecap="round"/>
+    <path d="M 550 810 L 530 1280" stroke="#78350f" stroke-width="24" stroke-linecap="round"/>
+    <!-- Patched Pocket with Shiny Blue River Pebble -->
+    <rect x="390" y="1040" width="100" height="110" rx="10" fill="#b45309" stroke="#78350f" stroke-width="4"/>
+    <ellipse cx="440" cy="1030" rx="28" ry="18" fill="#38bdf8"/>
+    <circle cx="432" cy="1025" r="5" fill="#ffffff"/>
+
+    <!-- Small Neck -->
+    <path d="M 390 620 L 390 800 Q 440 830 490 800 L 490 620 Z" fill="url(#skinPip)"/>
+
+    <!-- Messy Sandy-Brown Hair Volume -->
+    <path d="M 230 380 Q 440 140 650 380 Q 700 620 640 760 Q 440 820 240 760 Q 180 620 230 380 Z" fill="#92400e"/>
+    <!-- Playful Cowlick Spike on top -->
+    <path d="M 440 200 Q 455 130 500 120 Q 480 170 440 200 Z" fill="#b45309"/>
+
+    <!-- Round Soft Child Face & Chubby Cheeks -->
+    <path d="M 280 440 C 280 660 360 740 440 740 C 520 740 600 660 600 440 C 600 280 520 240 440 240 C 360 240 280 280 280 440 Z" fill="url(#skinPip)"/>
+
+    <!-- Cute Dirt Smudge on Left Cheek -->
+    <ellipse cx="330" cy="510" rx="20" ry="12" fill="#78350f" opacity="0.45" transform="rotate(-15 330 510)"/>
+
+    <!-- Cute Button Nose -->
+    <circle cx="440" cy="495" r="8" fill="#ea580c" opacity="0.75"/>
+
+    <!-- Features -->
+    <path d="M 320 430 Q 365 395 410 395" stroke="#713f12" stroke-width="6" stroke-linecap="round" fill="none"/><path d="M 470 395 Q 515 395 560 430" stroke="#713f12" stroke-width="6" stroke-linecap="round" fill="none"/>
+    <circle cx="365" cy="450" r="17" fill="#713f12"/><circle cx="360" cy="444" r="6" fill="#ffffff"/><circle cx="515" cy="450" r="17" fill="#713f12"/><circle cx="510" cy="444" r="6" fill="#ffffff"/>
+    <path d="M 395 575 Q 440 550 485 575" stroke="#991b1b" stroke-width="5" stroke-linecap="round" fill="none"/>
+    <path d="M 335 480 Q 330 505 335 520 Q 340 505 335 480 Z" fill="#38bdf8" opacity="0.9"/>
+
+    <!-- Front Tousled Hair Strands -->
+    <path d="M 270 380 Q 330 450 310 490 Q 360 410 380 360 Z" fill="#b45309"/>
+    <path d="M 510 360 Q 560 450 550 490 Q 590 410 580 370 Z" fill="#b45309"/>
+
+    <!-- Golden Sunlight Rim -->
+    <path d="M 520 180 Q 660 320 680 540 Q 640 400 580 280 Z" fill="#fef08a" opacity="0.6"/>
+  </g>
+</svg>
