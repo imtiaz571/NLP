@@ -1,9 +1,1 @@
-.env
-.venv/
-venv/
-__pycache__/
-*.py[cod]
-.pytest_cache/
-.ruff_cache/
-memory/store_test/
-data/external/raw/
+Nothing needs to be added to .gitignore since only a Python script file was added and no build artifacts, dependencies, or temporary files were included in the changes.
