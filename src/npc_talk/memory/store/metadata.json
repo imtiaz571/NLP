@@ -292,5 +292,11 @@
     "npc_id": "ash",
     "player_id": "test_player",
     "timestamp": "2026-08-22T20:23:24.248598"
+  },
+  {
+    "text": "My opinion of the player changed (improved). Reputation is now 1. Reason: 'Hello there, got any rumors?'",
+    "npc_id": "ash",
+    "player_id": "test_player",
+    "timestamp": "2026-08-23T01:27:33.780952"
   }
 ]
